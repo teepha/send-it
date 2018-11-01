@@ -50,10 +50,7 @@ font-family: sans-serif;
 }
 h1{
     text-align: justify;
-}
-h3{
-    text-align: start;
-    font-family: Cambria;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
 li{
     list-style: none;
@@ -81,40 +78,50 @@ input[type=submit] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.6rem;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
 input[type=submit]:hover {
     background-color: green;
 }
-
 .orderNum{
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: gray;
-    flex: 0 0 75%;
-    width: 200px;
-    font-size:2rem;
-    color: white;
-    float: left;
+    
 }
 .button{
-    display: block;
-    padding: 0.6rem 1.2rem;
-    border-radius: 3px;
-    background: beige;
-    font-size:2rem;
-    color: blue;
-    margin: 1rem auto;
-    text-transform: capitalize;   
+    background-color: teal;
+    font-size: 1.3rem;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    cursor: pointer;  
 }
-table, th, td{
-    border: 0.5px solid black;
-    margin: 0.2rem;
-    padding: 0;
-    font-family: Arial, sans-serif;
+h3{
     text-align: center;
-    font-size: 1.0rem;
-    background: white;
-    width: 1000px;
-
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+#orders {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 10px 20px 20px 60px;
+    justify-content: center;
+}
+#orders td, #orders th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+#orders tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+#orders tr:hover{
+    background-color: #eee;
+}
+#orders th{
+    padding-top: 14px;
+    padding-bottom: 11px;
+    background-color: grey;
+    color: white;
 }
