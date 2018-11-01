@@ -9,9 +9,15 @@
 
     </head>
     <body>
+        <header>
+            <div class="profileHeader">
+                <a class="logo" href="#"><img src=""></a>
+                <h1 class="sendIT">SendIT</h1>
+            </div>              
+        </header>      
         <div id="container">
             <h1>SignUp to SendIT</h1>
-            <form method="post" action="#">
+            <form method="post" action="user-profile.html">
                 <ul>
                     <li>
                         <label>First Name </label>
@@ -21,7 +27,7 @@
                         <input name="last_name" type="text">
                         <br>
                         <label>Enter phone number </label>
-                        <input name="phone_number" type="text">
+                        <input name="phone_number" type="number">
                         <br>
                         <label>Enter your email address </label>
                         <input name="email_address" type="email">
@@ -32,7 +38,7 @@
                         <label>Confirm Password </label>
                         <input name="password" type="password">
                         <br>
-                        <input type="submit" value="Sign Up">
+                        <input class="button" type="submit" value="Sign Up">
                     </li>
                 </ul>
             </form>
