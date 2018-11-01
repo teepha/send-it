@@ -10,23 +10,30 @@
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src="images/logo.png"></a>
-                <h1 class="sendIT">SendIT</h1>
-                <a href="index.html">LogOut</a>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="#"><img src="images/logo.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a href="index.html">LogOut</a>
+                </div>
+                
             </div>              
         </header>
         
-        <div class="orderNum">
+        <div class="orderDel">
             <h4>Delivered: 8</h4>
+            
+        </div>
+        <div class="orderTrans">
             <h4>In-Transit: 3</h4>
         </div>
-        <a href="create-order.html"><button class="button">Create New Order</button></a>
-
-        
+        <a href="create-order.html"><button id="btn" class="button">Create New Order</button></a>
         <div id="table">
             <table id="orders">
-                <h3>Parcel Delivery Orders</h3>
+                
+                <h3 class="table-title">Parcel Delivery Orders</h3>
                 <tr>
                     <th scope="row">ID Num</th>
                     <th scope="row">Date</th>

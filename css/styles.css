@@ -20,7 +20,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 0.7rem 6rem;
+    padding: 0.5rem 6rem;
     border-bottom: 0.2rem solid fuchsia;
 }
 .nav_link{
@@ -35,12 +35,13 @@ font-family: sans-serif;
     color: #545454;
     font-size: 1.5rem;
 }
-.profileHeader{
-    background: whitesmoke;
+.profile1{
     display: flex;
-    align-items: center;
-    padding: 1rem 7rem;
-    border-bottom: 0.2rem solid fuchsia;
+    float: left;
+}
+.profile2{
+    float: right;
+    display: flex;
 }
 #container{
     margin: auto;
@@ -83,8 +84,34 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: green;
 }
-.orderNum{
-    
+.orderDel{
+    display: flex;
+    float: left;
+    padding: 12px 18px;
+    background-color: rgb(62, 116, 62);
+    color: antiquewhite;
+    font-size: 1.7rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 190px;
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.orderTrans{
+    float: right;
+    display: flex;
+    padding: 12px 18px;
+    background-color: rgb(107, 48, 48);
+    color: antiquewhite;
+    font-size: 1.7rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 180px;
+    text-align: center;
+    margin-right: 90px;
+    margin-top: 10px;
+
 }
 .button{
     background-color: teal;
@@ -96,22 +123,28 @@ input[type=submit]:hover {
     margin: 4px 2px;
     cursor: pointer;  
 }
-h3{
+#btn{
+    margin-top: 125px;
+
+}
+.table-title{
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 25px;
 }
+
 #orders {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 90%;
-    margin: 10px 20px 20px 60px;
+    margin: 0px 0px 0px 70px;
     justify-content: center;
 }
 #orders td, #orders th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 6px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 #orders tr:nth-child(even){
     background-color: #f3f3f3;
@@ -124,4 +157,7 @@ h3{
     padding-bottom: 11px;
     background-color: grey;
     color: white;
+}
+#table{
+    
 }
