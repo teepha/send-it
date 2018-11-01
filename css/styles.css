@@ -71,11 +71,10 @@ label{
     display: block;
     padding: 0.6rem 1.2rem;
     border-radius: 3px;
-    background: rosybrown;
+    background: beige;
     font-size:2rem;
-    color: black;
+    color: blue;
     margin: 1rem auto;
-    border: none;
     text-transform: capitalize;   
 }
 table, th, td{
