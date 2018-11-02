@@ -90,6 +90,7 @@ input[type=text], input[type=password], input[type=email], select {
 
 .orderAll{
     display: inline-flex;
+    margin-left: 60px;
 }
 
 .orderDel{
@@ -192,6 +193,10 @@ input[type=text], input[type=password], input[type=email], select {
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     margin-top: 5px;
+}
+
+.text-center {
+   margin-left: 400px;
 }
 
 #table_title{
