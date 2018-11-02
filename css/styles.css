@@ -4,9 +4,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background: url('images/bcg1.jpg') 0 0 fixed;
-
+.main_body{
+    background: url('../images/bcg-0.jpg');
+    min-height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo{
@@ -244,7 +247,6 @@ p{
     padding: 25px 10px 10px 10px;
     border: 2px solid #545454;
     border-radius: 4px;
-    /*margin-left: 300px;*/
 }
 .close{
     position: absolute;
@@ -253,4 +255,15 @@ p{
     font-size: 42px;
     transform: rotate(45deg);
     cursor: pointer;
+}
+
+#hours{
+    background-color: whitesmoke;
+    padding: 15px 15px;
+    height: 350px;
+    width: 300px;
+    margin-left: 820px;
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
 }
