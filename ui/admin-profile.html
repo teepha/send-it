@@ -30,7 +30,7 @@
         
         <div id="table">
             <table id="orders">
-                <h3 id="table_title">Parcel Delivery Order</h3>
+                <h3 id="table_title">All Orders</h3>
                 <tr>
                     <th scope="row">ID Num</th>
                     <th scope="row">Date</th>
@@ -188,8 +188,8 @@
                 <form method="post" action="./admin-profile.html">
                     <ul>
                         <li>
-                            <input name="location" type="text" placeholder="Current Location">
-                            <input name="new_location" type="text" placeholder="New Location ">
+                            <input name="location" type="text" value="Present Location" disabled>
+                            <input name="new_location" type="text" required placeholder="New Location ">
                             <input type="submit" class="button" value="Proceed">
                         </li>
                     </ul>
