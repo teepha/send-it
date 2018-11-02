@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>SendIT</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="navigation">
+                    <div class="profile1">
+                        <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                        <h1 class="sendIT">SendIT</h1>
+                    </div>
+                    <a class="nav_link" href="index.html">Home</a>
+                    <a class="nav_link" href="login.html">Login</a>
+                    <a class="nav_link" href="sign-up.html">SignUp</a>
+                    <a class="nav_link" href="admin-login.html">Admin</a>
+                </div>
+            </nav>
+        </header>
+        <div class="main_body">
+            <div class="slideshow">
+                <div id="hours">
+                    <h1>WORKING HOURS</h1>
+                    <p>Monday:    7am to 9pm</p><br>
+                    <p>Tuesday:   7am to 9pm</p><br>
+                    <p>Wednesday: 7am to 9pm</p><br>
+                    <p>Thursday:  7am to 9pm</p><br>
+                    <p>Friday:    7am to 9pm</p><br>
+                    <p>Saturday:  7am to 9pm</p><br>
+                    <p>Sunday:    7am to 9pm</p><br>
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/bcg-0.jpg">
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/bcg-1.jpg">
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/bcg-2.jpg">
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/bcg-3.jpg">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <div>
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span> 
+            </div>       
+        
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
+

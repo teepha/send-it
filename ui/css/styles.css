@@ -1,0 +1,360 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_body{
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    height: 74px;
+    margin: 5px;
+    border: 2px solid rgb(47, 28, 158);
+}
+
+.sendIT{
+    color: rgb(47, 28, 158);
+    font-family: cursive;
+    justify-content: left;
+    font-size: 3.0rem;
+}
+
+.navigation{
+    background: whitesmoke;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0.5rem 6rem;
+    border-bottom: 0.2rem solid fuchsia;
+}
+
+.nav_link{
+    color: blue;
+    font-size: 1.2rem;
+    text-align: right;
+    font-family: Georgia;
+}
+
+.nav_link:hover{
+    cursor: pointer;
+    color: #545454;
+    font-size: 1.5rem;
+}
+
+.profile1{
+    display: flex;
+    float: left;
+}
+
+.profile2{
+    float: right;
+    display: flex;
+}
+
+#container{
+    margin: auto;
+    justify-content: center;
+    padding: 20px 20px 20px 70px;
+    min-height: 70vh; 
+}
+
+h1{
+    text-align: justify;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+label{
+    font-size: 1.1rem;
+    display: inline-block;
+    width: 200px;
+}
+
+input[type=text], input[type=password], input[type=email], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 10px 20px 10px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+
+.orderAll{
+    display: inline-flex;
+    margin-left: 60px;
+}
+
+.orderDel{
+    display: flex;
+    padding: 12px 18px;
+    background-color: green;
+    color: antiquewhite;
+    font-size: 1.7rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 190px;
+    text-align: center;
+    margin-left: 350px;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.orderDel:hover{
+    background-color: rgb(62, 116, 62);
+}
+
+.orderTrans{
+    float: none;
+    display: flex;
+    padding: 12px 18px;
+    background-color: rgb(190, 136, 20);
+    color: antiquewhite;
+    font-size: 1.7rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 180px;
+    text-align: center;
+    margin-left: 300px;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.orderTrans:hover{
+    background-color:  rgb(158, 125, 55);
+}
+
+.orderPickup{
+    display: flex;
+    padding: 12px 18px;
+    background-color: maroon;
+    color: antiquewhite;
+    font-size: 1.6rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 180px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.orderPickup:hover{
+    background-color:  rgb(107, 48, 48);
+}
+
+.button{
+    background-color: teal;
+    font-size: 1.3rem;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 25px;
+    margin: 0px 8px 8px 80px;
+    cursor: pointer;
+}
+
+.buttons {
+    text-align: center;
+    margin-right: 450px;
+}
+
+
+
+.button:hover {
+    background-color: green;
+}
+
+#btn{
+    margin-top: 15px;
+    margin-left: 900px;
+}
+
+#btn:hover{
+    background-color: rgb(107, 48, 48);
+    opacity: 0.8;
+}
+
+#back_btn{
+    margin-left: 150px;
+    text-decoration: none;
+}
+
+.table_title{
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+}
+
+.text-center {
+   margin-left: 400px;
+}
+
+#table_title{
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 130px;
+}
+
+#orders {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0px 0px 0px 70px;
+    justify-content: center;
+}
+
+#orders td, #orders th {
+    border: 1px solid #ddd;
+    padding: 1.5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#orders tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+#orders tr:hover{
+    background-color: #eee;
+}
+
+#orders th{
+    padding-top: 11px;
+    padding-bottom: 9px;
+    background-color: grey;
+    color: white;
+}
+
+#id_num{
+    text-align: justify;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
+
+p{
+    text-align: justify;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;     
+}
+
+.bg_modal{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 450px;
+    height: 300px;
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 10px 10px 10px;
+    border: 2px solid #545454;
+    border-radius: 4px;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+#hours{
+    color:black;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    margin-left: 1050px;
+    margin-top: 40px;
+}
+
+.slideshow {
+  align-items: left;
+  position: relative;
+
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+

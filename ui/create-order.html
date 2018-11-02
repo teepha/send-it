@@ -6,16 +6,20 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Create New Order</title>
         <link rel="stylesheet" href="css/styles.css">
-
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src=""></a>
-                <h1 class="sendIT">SendIT</h1>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a class="nav_link" href="index.html">LogOut</a>
+                </div> 
             </div>              
         </header> 
-        <div class="container">
+        <div id="container">
             <h1>New Order</h1>
             <form method="post" action="user-profile.html">
                 <ul>
@@ -29,18 +33,17 @@
                         <label>Recipient Name </label>
                         <input name="recipient_name" type="text">
                         <br>
-                        <label>Recipient phone number </label>
+                        <label>Recipient Phone Number </label>
                         <input name="phone_number" type="text">
                         <br>
-                        <button class="button" type="submit">Order</button>
-                        <br>
+                        <div class="buttons">
+                            <a href="user-profile.html" id="back_btn" class="button">Back</a>
+                            <input type="submit" class="button" value="Create Order">
+                        </div>
                     </li>
                 </ul>
-                
             </form>
-
             </div>
-
-        <script src="js/script.js"></script>
-    </body>
+            <script src="js/script.js"></script>
+        </body>
 </html>

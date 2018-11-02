@@ -10,29 +10,37 @@
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src="images/logo.png"></a>
-                <h1 class="sendIT">SendIT</h1>
-                <a href="index.html">LogOut</a>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a class="nav_link" href="index.html">LogOut</a>
+                </div> 
             </div>              
         </header>
-        
-        <div class="orderNum">
-            <h4>Delivered: 8</h4>
-            <h4>In-Transit: 3</h4>
+        <div class="orderAll">
+            <div class="orderPickup">
+                <h4>Ready for PickUp: 1</h4>
+            </div>
+            <div class="orderTrans">
+                <h4>In-Transit: 1</h4>
+            </div>
+            <div class="orderDel">
+                <h4>Delivered: 4</h4>
+            </div>
         </div>
-        <a class="button" href="create-order.html">Create New Order</a>
-
-        
+        <a href="create-order.html"><button id="btn" class="button">Create New Order</button></a>
         <div id="table">
-            <table>
-                <h3>Parcel Deliver Orders</h3>
+            <table id="orders">
+                <h3 class="table_title">My Orders</h3>
                 <tr>
                     <th scope="row">ID Num</th>
                     <th scope="row">Date</th>
+                    <th scope="row">Pick Up Location</th>
                     <th scope="row">Destination</th>
                     <th scope="row">Recipient Name</th>
-                    <th scope="row">Phone Number</th>
                     <th scope="row">Status</th>
                     <th scope="row"></th>
                     <th scope="row"></th>
@@ -44,9 +52,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>Delivered</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
+                    <td></td>
                     <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
                 </tr>
                 <tr>
@@ -55,9 +63,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>Delivered</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
+                    <td></td>
                     <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
                 </tr>
                 <tr>
@@ -66,9 +74,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>Delivered</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
+                    <td></td>
                     <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
                 </tr>
                 <tr>
@@ -77,57 +85,34 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>Delivered</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
+                    <td></td>
                     <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
-                </tr>
+                </tr>   
                 <tr>
                     <td>LA5</td>
                     <td>Date</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>In-Transit</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                     <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
-                </tr>   
+                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
+                </tr>
                 <tr>
                     <td>LA6</td>
                     <td>Date</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Status</td>
+                    <td>Ready For Pickup</td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                     <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
                     <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
-                </tr>
-                <tr>
-                    <td>LA7</td>
-                    <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
-                </tr>
-                <tr>
-                    <td>LA8</td>
-                    <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                    <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
-                </tr>                                        
+                </tr>                                    
             </table>
         </div>
-    <script src="js/script.js"></script>
     </body>
 </html>
