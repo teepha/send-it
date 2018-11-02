@@ -95,7 +95,7 @@ input[type=submit]:hover {
     height: 85px;
     width: 190px;
     text-align: center;
-    margin-left: 60px;
+    margin-left: 80px;
     margin-top: 10px;
 }
 .orderTrans{
@@ -109,7 +109,7 @@ input[type=submit]:hover {
     height: 85px;
     width: 180px;
     text-align: center;
-    margin-right: 90px;
+    margin-right: 110px;
     margin-top: 10px;
 
 }
@@ -119,18 +119,22 @@ input[type=submit]:hover {
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 12px 25px;
     margin: 4px 2px;
     cursor: pointer;  
 }
 #btn{
-    margin-top: 125px;
-
+    margin-top: 15px;
+    margin-left: 900px;
 }
-.table-title{
+#btn:hover{
+    background-color: rgb(107, 48, 48);
+    opacity: 0.8;
+}
+.table_title{
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 #orders {
@@ -158,6 +162,7 @@ input[type=submit]:hover {
     background-color: grey;
     color: white;
 }
-#table{
-    
+#back_btn{
+    margin-top: 200px;
+    margin-left: 80px;
 }

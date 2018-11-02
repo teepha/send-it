@@ -9,13 +9,17 @@
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src="images/logo.png"></a>
-                <h1 class="sendIT">SendIT</h1>
-                <a href="index.html">LogOut</a>
-            </div>              
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="#"><img src="images/logo.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a href="index.html">LogOut</a>
+                </div> 
+            </div>                 
         </header>
-        <div class="container">
+        <div id="container">
             <h1>Edit Order</h1>
             <form method="post" action="./user-profile.html">
                 <ul>
@@ -29,7 +33,7 @@
                         <label>Recipient phone number </label>
                         <input name="phone_number" type="text" value="recipient phone number">
                         <br>
-                        <button class="button" type="submit">Proceed</button>
+                        <input type="submit" value="Proceed">
                         <br>
                     </li>
                 </ul>  

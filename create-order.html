@@ -6,16 +6,20 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Create New Order</title>
         <link rel="stylesheet" href="css/styles.css">
-
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src=""></a>
-                <h1 class="sendIT">SendIT</h1>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="#"><img src="images/logo.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a href="index.html">LogOut</a>
+                </div> 
             </div>              
         </header> 
-        <div class="container">
+        <div id="container">
             <h1>New Order</h1>
             <form method="post" action="user-profile.html">
                 <ul>
@@ -32,15 +36,12 @@
                         <label>Recipient phone number </label>
                         <input name="phone_number" type="text">
                         <br>
-                        <button class="button" type="submit">Order</button>
+                        <input type="submit" value="Create Order">
                         <br>
                     </li>
                 </ul>
-                
             </form>
-
             </div>
-
         <script src="js/script.js"></script>
     </body>
 </html>
