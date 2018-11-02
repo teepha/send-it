@@ -23,5 +23,4 @@ function prevSlide(){
     }
     counter--
     container.style.backgroundImage='url(images/bcg-'+counter+'.jpg)';
-} 
-
+}

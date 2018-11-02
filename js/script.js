@@ -7,3 +7,7 @@ document.querySelectorAll('.edit').forEach(item => {
 document.querySelector('.close').addEventListener('click', function(){
     document.querySelector('.bg_modal').style.display = 'none';
 });
+
+function goBack() {
+    window.history.back();
+}
