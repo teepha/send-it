@@ -5,9 +5,7 @@
 }
 
 .main_body{
-    background: url('../images/bcg-0.jpg');
-    min-height: 84vh;
-    display: flex;
+    min-height: 50vh;
     align-items: center;
     justify-content: center;
 }
@@ -90,9 +88,12 @@ input[type=text], input[type=password], input[type=email], select {
     background-color: #f2f2f2;
 }
 
+.orderAll{
+    display: inline-flex;
+}
+
 .orderDel{
     display: flex;
-    float: left;
     padding: 12px 18px;
     background-color: green;
     color: antiquewhite;
@@ -101,8 +102,8 @@ input[type=text], input[type=password], input[type=email], select {
     height: 85px;
     width: 190px;
     text-align: center;
-    margin-left: 80px;
-    margin-top: 10px;
+    margin-left: 350px;
+    margin-top: 15px;
     border-radius: 2px;
 }
 
@@ -111,22 +112,41 @@ input[type=text], input[type=password], input[type=email], select {
 }
 
 .orderTrans{
-    float: right;
+    float: none;
     display: flex;
     padding: 12px 18px;
-    background-color: maroon;
+    background-color: rgb(190, 136, 20);
     color: antiquewhite;
     font-size: 1.7rem;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     height: 85px;
     width: 180px;
     text-align: center;
-    margin-right: 110px;
-    margin-top: 10px;
+    margin-left: 300px;
+    margin-top: 15px;
     border-radius: 2px;
 }
 
 .orderTrans:hover{
+    background-color:  rgb(158, 125, 55);
+}
+
+.orderPickup{
+    display: flex;
+    padding: 12px 18px;
+    background-color: maroon;
+    color: antiquewhite;
+    font-size: 1.6rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    height: 85px;
+    width: 180px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.orderPickup:hover{
     background-color:  rgb(107, 48, 48);
 }
 
@@ -138,7 +158,7 @@ input[type=text], input[type=password], input[type=email], select {
     border-radius: 5px;
     color: white;
     padding: 12px 25px;
-    margin: 8px 8px 8px 80px;
+    margin: 0px 8px 8px 80px;
     cursor: pointer;
 }
 
@@ -146,6 +166,8 @@ input[type=text], input[type=password], input[type=email], select {
     text-align: center;
     margin-right: 450px;
 }
+
+
 
 .button:hover {
     background-color: green;
@@ -169,7 +191,7 @@ input[type=text], input[type=password], input[type=email], select {
 .table_title{
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #table_title{
@@ -254,31 +276,25 @@ p{
 }
 
 #hours{
-    background-color: whitesmoke;
-    padding: 15px 15px;
-    height: 350px;
-    width: 300px;
-    margin-left: 820px;
-    border-radius: 2px;
-    justify-content: center;
-    align-items: center;
+    color:black;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    margin-left: 1050px;
+    margin-top: 40px;
 }
 
-
-
-/* Slideshow container */
 .slideshow {
-  max-width: 1000px;
+  align-items: left;
   position: relative;
-  margin: auto;
+
 }
 
-/* Hide the images by default */
 .mySlides {
     display: none;
 }
 
-/* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -293,7 +309,6 @@ p{
   border-radius: 0 3px 3px 0;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
@@ -303,7 +318,6 @@ p{
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
-
 
 /* The dots/bullets/indicators */
 .dot {
@@ -338,3 +352,4 @@ p{
   from {opacity: .4} 
   to {opacity: 1}
 }
+

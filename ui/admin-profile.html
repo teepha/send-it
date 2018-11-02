@@ -20,14 +20,17 @@
                 </div> 
             </div>              
         </header>
-            
-        <div class="orderDel">
-            <h4>Delivered: 5</h4>
+        <div class="orderAll">
+            <div class="orderPickup">
+                <h4>Ready for PickUp: 2</h4>
+            </div>
+            <div class="orderTrans">
+                <h4>In-Transit: 3</h4>
+            </div>
+            <div class="orderDel">
+                <h4>Delivered: 6</h4>
+            </div>
         </div>
-        <div class="orderTrans">
-            <h4>In-Transit: 3</h4>
-        </div>
-        
         <div id="table">
             <table id="orders">
                 <h3 id="table_title">All Orders</h3>
@@ -40,8 +43,6 @@
                     <th scope="row">Status</th>
                     <th scope="row">Present Location</th>
                     <th scope="row"></th>
-                    <th scope="row"></th>
-                    
                 </tr>
                 <tr>
                     <td>LA1</td>
@@ -58,7 +59,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
                     <td>LA2</td>
@@ -75,8 +75,7 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
-                </tr>
+               </tr>
                 <tr>
                     <td>LA3</td>
                     <td>Date</td>
@@ -92,7 +91,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
                     <td>LA4</td>
@@ -109,7 +107,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
                     <td>LA5</td>
@@ -126,7 +123,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>   
                 </tr>   
                 <tr>
                     <td>LA6</td>
@@ -143,7 +139,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                 </tr> 
                 <tr>
                     <td>LA7</td>
@@ -160,7 +155,6 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                 </tr>   
                 <tr>
                     <td>LA8</td>
@@ -177,8 +171,55 @@
                     </td>
                     <td>Present Location</td>
                     <td class="edit"><i class="far fa-edit"></i></td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
-                </tr>               
+                </tr>       
+                <tr>
+                    <td>LA9</td>
+                    <td>Date</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td class="edit"><i class="far fa-edit"></i></td>
+                </tr> 
+                <tr>
+                    <td>LA10</td>
+                    <td>Date</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td class="edit"><i class="far fa-edit"></i></td>
+                </tr>   
+                <tr>
+                    <td>LA11</td>
+                    <td>Date</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td class="edit"><i class="far fa-edit"></i></td>
+                </tr>                       
             </table>
         </div>
         <div class="bg_modal">
