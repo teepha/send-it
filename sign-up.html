@@ -12,7 +12,7 @@
         <header>
             <div class="navigation">
                 <div class="profile1">
-                    <a class="logo" href="#"><img src="images/logo0.png"></a>
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
                     <h1 class="sendIT">SendIT</h1>
                 </div>
             </div>              
@@ -23,25 +23,27 @@
                 <ul>
                     <li>
                         <label>First Name </label>
-                        <input name="first_name" type="text">
+                        <input required name="first_name" type="text">
                         <br>
                         <label>Last Name </label>
-                        <input name="last_name" type="text">
+                        <input required name="last_name" type="text">
                         <br>
                         <label>Enter phone number </label>
-                        <input name="phone_number" type="text">
+                        <input required name="phone_number" type="text">
                         <br>
                         <label>Enter your email address </label>
-                        <input name="email_address" type="email">
+                        <input required name="email_address" type="email">
                         <br>
                         <label>Password </label>
-                        <input name="password" type="password">
+                        <input required name="password" type="password">
                         <br>
                         <label>Confirm Password </label>
-                        <input name="password" type="password">
+                        <input required name="password" type="password">
                         <br>
-                        <a href="index.html" id="back_btn" class="button">Back</a>
-                        <input type="submit" class="button" value="Sign Up">
+                        <div class="buttons">
+                            <a href="index.html" id="back_btn" class="button">Back</a>
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
                     </li>
                 </ul>
             </form>

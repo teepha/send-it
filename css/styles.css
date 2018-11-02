@@ -75,6 +75,8 @@ li{
 
 label{
     font-size: 1.1rem;
+    display: inline-block;
+    width: 200px;
 }
 
 input[type=text], input[type=password], input[type=email], select {
@@ -87,18 +89,6 @@ input[type=text], input[type=password], input[type=email], select {
     box-sizing: border-box;
     background-color: #f2f2f2;
 }
-
-/*input[type=submit] {
-    width: 35%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 8px 8px 150px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
-}*/
 
 .orderDel{
     display: flex;
@@ -149,7 +139,12 @@ input[type=text], input[type=password], input[type=email], select {
     color: white;
     padding: 12px 25px;
     margin: 8px 8px 8px 80px;
-    cursor: pointer;  
+    cursor: pointer;
+}
+
+.buttons {
+    text-align: center;
+    margin-right: 450px;
 }
 
 .button:hover {
@@ -168,6 +163,7 @@ input[type=text], input[type=password], input[type=email], select {
 
 #back_btn{
     margin-left: 150px;
+    text-decoration: none;
 }
 
 .table_title{
@@ -222,7 +218,7 @@ input[type=text], input[type=password], input[type=email], select {
 p{
     text-align: justify;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1.1rem;     
+    font-size: 1.2rem;     
 }
 
 .bg_modal{
