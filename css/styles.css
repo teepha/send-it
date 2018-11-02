@@ -4,15 +4,19 @@
     box-sizing: border-box;
 }
 
+body{
+    background: url('images/bcg1.jpg') 0 0 fixed;
+    
+}
+
 .logo{
-    width: 81px;
-    height: 73px;
+    height: 74px;
     margin: 5px;
-    border: 3px solid rgb(47, 28, 158);
+    border: 2px solid rgb(47, 28, 158);
 }
 
 .sendIT{
-    color: blue;
+    color: rgb(47, 28, 158);
     font-family: cursive;
     justify-content: left;
     font-size: 3.0rem;
@@ -102,7 +106,7 @@ input[type=submit]:hover {
     display: flex;
     float: left;
     padding: 12px 18px;
-    background-color: rgb(62, 116, 62);
+    background-color: green;
     color: antiquewhite;
     font-size: 1.7rem;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -113,11 +117,15 @@ input[type=submit]:hover {
     margin-top: 10px;
 }
 
+.orderDel:hover{
+    background-color: rgb(62, 116, 62);
+}
+
 .orderTrans{
     float: right;
     display: flex;
     padding: 12px 18px;
-    background-color: rgb(107, 48, 48);
+    background-color: maroon;
     color: antiquewhite;
     font-size: 1.7rem;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -127,6 +135,10 @@ input[type=submit]:hover {
     margin-right: 110px;
     margin-top: 10px;
 
+}
+
+.orderTrans:hover{
+    background-color:  rgb(107, 48, 48);
 }
 
 .button{
