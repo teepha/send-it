@@ -57,7 +57,7 @@
                         </select>
                     </td>
                     <td>Present Location</td>
-                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td id="edit"><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
@@ -74,7 +74,7 @@
                         </select>
                     </td>
                     <td>Present Location</td>
-                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td id="edit"><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
@@ -181,7 +181,23 @@
                 </tr>               
             </table>
         </div>
-             
+        <div class="bg_modal">
+            <div class="modal">
+            <div class="close">+</div>
+                <h1>Change Current Location</h1>
+                <form method="post" action="./admin-profile.html">
+                    <ul>
+                        <li>
+                            <input name="location" type="text" placeholder="Current Location">
+                            <input name="new_location" type="text" placeholder="New Location ">
+                            <input type="submit" value="Proceed">
+                        </li>
+                    </ul>
+                </form> 
+                <br>
+            </div>
+        </div>
+    
         <script src="js/script.js"></script>   
     </body>
 </html>

@@ -6,7 +6,7 @@
 
 body{
     background: url('images/bcg1.jpg') 0 0 fixed;
-    
+
 }
 
 .logo{
@@ -75,7 +75,7 @@ label{
 }
 
 input[type=text], input[type=password], input[type=email], select {
-    width: 60%;
+    width: 50%;
     padding: 12px 20px;
     margin: 10px 20px 10px 5px;
     display: inline-block;
@@ -86,11 +86,11 @@ input[type=text], input[type=password], input[type=email], select {
 }
 
 input[type=submit] {
-    width: 55%;
+    width: 35%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 8px 8px 184px;
+    margin: 8px 8px 8px 150px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -115,6 +115,7 @@ input[type=submit]:hover {
     text-align: center;
     margin-left: 80px;
     margin-top: 10px;
+    border-radius: 2px;
 }
 
 .orderDel:hover{
@@ -134,7 +135,7 @@ input[type=submit]:hover {
     text-align: center;
     margin-right: 110px;
     margin-top: 10px;
-
+    border-radius: 2px;
 }
 
 .orderTrans:hover{
@@ -146,6 +147,7 @@ input[type=submit]:hover {
     font-size: 1.3rem;
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
     border: none;
+    border-radius: 5px;
     color: white;
     padding: 12px 25px;
     margin: 4px 2px;
@@ -219,4 +221,36 @@ p{
 
 #back_btn{
     margin-left: 80px;
+}
+
+.bg_modal{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 450px;
+    height: 300px;
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 10px 10px 10px;
+    border: 2px solid #545454;
+    border-radius: 4px;
+    /*margin-left: 300px;*/
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
 }
