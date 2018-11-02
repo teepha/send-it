@@ -9,12 +9,14 @@
 </head>
 <body>
     <header>
-        <div class="profileHeader">
-            <a class="logo" href="#"><img src="images/logo.png"></a>
-            <h1 class="sendIT">SendIT</h1>
+        <div class="navigation">
+            <div class="profile1">
+                <a class="logo" href="#"><img src="images/logo.png"></a>
+                <h1 class="sendIT">SendIT</h1>
+            </div>
         </div>              
     </header>
-    <div class="container">
+    <div id="container">
         <h1>Admin Log In</h1>
         <form method="post" action="./admin-profile.html">
             <ul>
@@ -25,12 +27,10 @@
                     <label>Enter your password </label>
                     <input name="password" type="password">
                     <br>
-                    <button class="button" type="submit">LogIn</button>
+                    <input type="submit" value="LogIn">
                 </li>
-            </ul>
-            
+            </ul>  
         </form>
-
     </div>
 
     <script src="js/script.js"></script>    

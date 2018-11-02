@@ -3,18 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .logo{
     width: 81px;
     height: 73px;
     margin: 5px;
     border: 3px solid rgb(47, 28, 158);
 }
+
 .sendIT{
     color: blue;
     font-family: cursive;
     justify-content: left;
     font-size: 3.0rem;
 }
+
 .navigation{
     background: whitesmoke;
     display: flex;
@@ -23,42 +26,50 @@
     padding: 0.5rem 6rem;
     border-bottom: 0.2rem solid fuchsia;
 }
+
 .nav_link{
-color: blue;
-font-size: 1.2rem;
-font-family: georgia;
-text-align: right;
-font-family: sans-serif;
+    color: blue;
+    font-size: 1.2rem;
+    text-align: right;
+    font-family: Georgia;
 }
+
 .nav_link:hover{
     cursor: pointer;
     color: #545454;
     font-size: 1.5rem;
 }
+
 .profile1{
     display: flex;
     float: left;
 }
+
 .profile2{
     float: right;
     display: flex;
 }
+
 #container{
     margin: auto;
     justify-content: center;
     padding: 20px 20px 20px 70px;
     min-height: 70vh; 
 }
+
 h1{
     text-align: justify;
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
+
 li{
     list-style: none;
 }
+
 label{
     font-size: 1.1rem;
 }
+
 input[type=text], input[type=password], input[type=email], select {
     width: 60%;
     padding: 12px 20px;
@@ -69,6 +80,7 @@ input[type=text], input[type=password], input[type=email], select {
     box-sizing: border-box;
     background-color: #f2f2f2;
 }
+
 input[type=submit] {
     width: 55%;
     background-color: #4CAF50;
@@ -81,9 +93,11 @@ input[type=submit] {
     font-size: 1.6rem;
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
+
 input[type=submit]:hover {
     background-color: green;
 }
+
 .orderDel{
     display: flex;
     float: left;
@@ -98,6 +112,7 @@ input[type=submit]:hover {
     margin-left: 80px;
     margin-top: 10px;
 }
+
 .orderTrans{
     float: right;
     display: flex;
@@ -113,6 +128,7 @@ input[type=submit]:hover {
     margin-top: 10px;
 
 }
+
 .button{
     background-color: teal;
     font-size: 1.3rem;
@@ -123,18 +139,27 @@ input[type=submit]:hover {
     margin: 4px 2px;
     cursor: pointer;  
 }
+
 #btn{
     margin-top: 15px;
     margin-left: 900px;
 }
+
 #btn:hover{
     background-color: rgb(107, 48, 48);
     opacity: 0.8;
 }
+
 .table_title{
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+#table_title{
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 130px;
 }
 
 #orders {
@@ -144,25 +169,42 @@ input[type=submit]:hover {
     margin: 0px 0px 0px 70px;
     justify-content: center;
 }
+
 #orders td, #orders th {
     border: 1px solid #ddd;
-    padding: 6px;
+    padding: 1.5px;
     text-align: center;
     font-size: 1rem;
 }
+
 #orders tr:nth-child(even){
     background-color: #f3f3f3;
 }
+
 #orders tr:hover{
     background-color: #eee;
 }
+
 #orders th{
-    padding-top: 14px;
-    padding-bottom: 11px;
+    padding-top: 11px;
+    padding-bottom: 9px;
     background-color: grey;
     color: white;
 }
+
+#id_num{
+    text-align: justify;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
+
+p{
+    text-align: justify;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;     
+}
+
 #back_btn{
-    margin-top: 200px;
     margin-left: 80px;
 }

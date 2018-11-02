@@ -10,48 +10,27 @@
     </head>
     <body>
         <header>
-            <div class="profileHeader">
-                <a class="logo" href="#"><img src="images/logo.png"></a>
-                <h1 class="sendIT">SendIT</h1>
-                <a href="index.html">LogOut</a>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="#"><img src="images/logo.png"></a>
+                    <h1 class="sendIT">SendIT</h1><br>
+                </div>
+                <div class="profile2">
+                    <a class="nav_link" href="index.html">LogOut</a>
+                </div> 
             </div>              
         </header>
             
-        <div class="orderNum">
+        <div class="orderDel">
             <h4>Delivered: 8</h4>
+        </div>
+        <div class="orderTrans">
             <h4>In-Transit: 3</h4>
         </div>
-        <a class="button" href="">Change Status/Location</a>
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-            <form method="post" action="#">
-                <ul>
-                    <li>
-                        <label>Change Status </label>
-                        <input name="new_status" type="text">
-                        <br>
-                        <label>Change Present Location </label>
-                        <input name="new_location" type="text" >
-                        <br>
-                        <button type="submit">Proceed</button>
-                        <br>
-                    </li>
-                </ul>
-                    
-            </form>
-            </div>
         
-            </div>
-
         <div id="table">
-            <table>
-                <h3>Parcel Deliver Orders</h3>
+            <table id="orders">
+                <h3 id="table_title">Parcel Delivery Order</h3>
                 <tr>
                     <th scope="row">ID Num</th>
                     <th scope="row">Date</th>
@@ -59,80 +38,146 @@
                     <th scope="row">Recipient Name</th>
                     <th scope="row">Phone Number</th>
                     <th scope="row">Status</th>
+                    <th scope="row">Present Location</th>
+                    <th scope="row"></th>
                     <th scope="row"></th>
                     
                 </tr>
                 <tr>
-                    <td>1</td>
+                    <td>LA1</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td>LA2</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
-                    <td>3</td>
+                    <td>LA3</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td>LA4</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
                     <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td>LA5</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>   
                 </tr>   
                 <tr>
-                    <td>6</td>
+                    <td>LA6</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                 </tr> 
                 <tr>
-                    <td>7</td>
+                    <td>LA7</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                 </tr>   
                 <tr>
-                    <td>8</td>
+                    <td>LA8</td>
                     <td>Date</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Status</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>    
+                    <td>Destination</td>
+                    <td>Recipient Name</td>
+                    <td>Phone Number</td>
+                    <td>
+                        <select name="status" id="">
+                            <option value="ready_for_pickup">Ready For Pickup</option>
+                            <option value="in_transit">In-Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>Present Location</td>
+                    <td><a href=""><i class="far fa-edit"></i></td>
+                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
                 </tr>               
             </table>
         </div>
