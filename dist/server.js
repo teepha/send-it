@@ -20,7 +20,7 @@ var logger = _winston["default"].createLogger({
 
 var app = (0, _express["default"])(); // Set port number
 
-var PORT = 3030; // Set up Endpoint
+var PORT = process.env.PORT || 3030; // Set up Endpoint
 
 app.get('/', function (req, res) {
   res.send('Welcome to SendIT API!!!');

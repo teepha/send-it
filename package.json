@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js --exec babel-node",
+    "start": "node ./dist/server.js",
     "lint": "eslint . --fix --ignore-path .eslintignore",
-    "compile": "rm -rf ./dist && babel ./ --out-dir ./dist --ignore ./node_modules,./ui",
+    "compile": "rm -rf ./dist && babel ./ --out-dir ./dist --ignore ./node_modules,./ui && cp ./parcelsdb.json ./usersdb.json ./dist",
     "test": "babel-node spec/run.js"
   },
   "repository": {
