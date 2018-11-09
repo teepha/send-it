@@ -41,7 +41,7 @@ router.put('/parcels/:id/cancel', function (req, res) {
   if (cancelParcel.status === 'Delivered') {
     res.send('Parcel Delivered! Cannot cancel parcel order.');
   } else {
-    cancelParcel.status = req.body.status;
+    cancelParcel.status = 'Cancelled';
 
     _fs["default"].writeFile('parcelsdb.json', JSON.stringify(_parcelsdb["default"], null, 2), function (err) {
       if (err) {
@@ -51,6 +51,29 @@ router.put('/parcels/:id/cancel', function (req, res) {
       }
     });
   }
+}); // Set up Endpoint to create a new parcel order
+
+router.post('/parcels', function (req, res) {
+  var newParcel = {
+    id: _parcelsdb["default"].length + 1,
+    userId: req.body.userId,
+    pickupLocation: req.body.pickupLocation,
+    destination: req.body.destination,
+    recipientName: req.body.recipientName,
+    recipientPhone: req.body.recipientPhone,
+    status: 'Ready for Pickup',
+    presentLocation: ''
+  };
+
+  _parcelsdb["default"].push(newParcel);
+
+  _fs["default"].writeFile('parcelsdb.json', JSON.stringify(_parcelsdb["default"], null, 2), function (err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(newParcel);
+    }
+  });
 }); // Export router to index.js
 
 var _default = router;
