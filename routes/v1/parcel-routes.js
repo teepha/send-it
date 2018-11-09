@@ -8,28 +8,28 @@ router.use(bodyParser.json());
 
 // Set up Endpoint to get all parcel orders
 router.get('/parcels', (req, res) => {
-  res.send(parcelsdb);
+  res.status(200).send(parcelsdb);
 });
 
 // Set up Endpoint to get a specific parcel order
 router.get('/parcels/:id', (req, res) => {
   const parcelId = parseInt(req.params.id, 10);
   const foundParcel = parcelsdb.find(parcel => parcel.id === parcelId);
-  res.send(foundParcel);
+  res.status(200).send(foundParcel);
 });
 
 // Set up Endpoint to cancel a specific parcel order
 router.put('/parcels/:id/cancel', (req, res) => {
   const cancelParcel = parcelsdb.find(parcel => parcel.id === parseInt(req.params.id, 10));
   if (cancelParcel.status === 'Delivered') {
-    res.send('Parcel Delivered! Cannot cancel parcel order.');
+    res.status(304).send('Parcel Delivered! Cannot cancel parcel order.');
   } else {
     cancelParcel.status = 'Cancelled';
     fs.writeFile('parcelsdb.json', JSON.stringify(parcelsdb, null, 2), (err) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
-        res.send(cancelParcel);
+        res.status(202).send(cancelParcel);
       }
     });
   }
@@ -52,9 +52,9 @@ router.post('/parcels', (req, res) => {
 
   fs.writeFile('parcelsdb.json', JSON.stringify(parcelsdb, null, 2), (err) => {
     if (err) {
-      res.send(err);
+      res.status(500).send(err);
     } else {
-      res.send(newParcel);
+      res.status(201).send(newParcel);
     }
   });
 });

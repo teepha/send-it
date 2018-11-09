@@ -25,3 +25,5 @@ app.use('/api/v1', v1Routes);
 
 // Set up the server
 app.listen(PORT, () => logger.info(`Listening on port ${PORT}`));
+
+export default app;
