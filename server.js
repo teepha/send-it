@@ -1,8 +1,14 @@
 import express from 'express';
-import logger from 'logger';
+import winston from 'winston';
 
 // Import router from index.js
 import v1Routes from './routes';
+
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console(),
+  ],
+});
 
 const app = express();
 

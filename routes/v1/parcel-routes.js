@@ -11,5 +11,12 @@ router.get('/parcels', (req, res) => {
   res.send(parcelsdb);
 });
 
+// Set up Endpoint to get a specific parcel order
+router.get('/parcels/:id', (req, res) => {
+  const parcelId = parseInt(req.params.id, 10);
+  const foundParcel = parcelsdb.find(parcel => parcel.id === parcelId);
+  res.send(foundParcel);
+});
+
 // Export router to index.js
 export default router;
