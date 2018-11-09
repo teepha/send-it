@@ -1,0 +1,32 @@
+[
+    {
+        "userId": "1",
+        "firstName": "Toluwalase",
+        "lastName": "Ajina",
+        "email": "lase_ajina@fff.com",
+        "phoneNumber": "07036922245",
+        "password": "austin08"
+    },
+    {
+        "userId": "2",
+        "firstName": "Khadija",
+        "lastName": "Issa",
+        "email": "kdj123@bdd.com",
+        "phoneNumber": "08123457212",
+        "password": "khadie889"
+    },{
+        "userId": "3",
+        "firstName": "Ohiri",
+        "lastName": "Ebuka",
+        "email": "ebuka4u@bdd.com",
+        "phoneNumber": "08066226626",
+        "password": "spacebar"
+    },{
+        "userId": "4",
+        "firstName": "Victoria",
+        "lastName": "Lot",
+        "email": "vickylot@fff.com",
+        "phoneNumber": "07072490138",
+        "password": "melove23"
+    }
+]

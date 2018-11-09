@@ -13,7 +13,7 @@ const logger = winston.createLogger({
 const app = express();
 
 // Set port number
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
 // Set up Endpoint
 app.get('/', (req, res) => {
