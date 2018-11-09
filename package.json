@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./server.js --exec babel-node",
+    "start": "node ./server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
     "compile": "rm -rf ./dist && babel ./ --out-dir ./dist --ignore ./node_modules,./ui",
     "test": "babel-node spec/run.js"
