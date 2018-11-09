@@ -20,7 +20,7 @@ var router = _express["default"].Router();
 router.use(_bodyParser["default"].json()); // Set up Endpoint to get all parcel orders
 
 router.get('/parcels', function (req, res) {
-  res.send(_parcelsdb["default"]);
+  res.status(200).send(_parcelsdb["default"]);
 }); // Set up Endpoint to get a specific parcel order
 
 router.get('/parcels/:id', function (req, res) {
@@ -30,7 +30,7 @@ router.get('/parcels/:id', function (req, res) {
     return parcel.id === parcelId;
   });
 
-  res.send(foundParcel);
+  res.status(200).send(foundParcel);
 }); // Set up Endpoint to cancel a specific parcel order
 
 router.put('/parcels/:id/cancel', function (req, res) {
@@ -39,15 +39,15 @@ router.put('/parcels/:id/cancel', function (req, res) {
   });
 
   if (cancelParcel.status === 'Delivered') {
-    res.send('Parcel Delivered! Cannot cancel parcel order.');
+    res.status(304).send('Parcel Delivered! Cannot cancel parcel order.');
   } else {
     cancelParcel.status = 'Cancelled';
 
     _fs["default"].writeFile('parcelsdb.json', JSON.stringify(_parcelsdb["default"], null, 2), function (err) {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
-        res.send(cancelParcel);
+        res.status(202).send(cancelParcel);
       }
     });
   }
@@ -69,9 +69,9 @@ router.post('/parcels', function (req, res) {
 
   _fs["default"].writeFile('parcelsdb.json', JSON.stringify(_parcelsdb["default"], null, 2), function (err) {
     if (err) {
-      res.send(err);
+      res.status(500).send(err);
     } else {
-      res.send(newParcel);
+      res.status(201).send(newParcel);
     }
   });
 }); // Export router to index.js

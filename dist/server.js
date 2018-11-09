@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _express = _interopRequireDefault(require("express"));
 
 var _winston = _interopRequireDefault(require("winston"));
@@ -26,3 +31,5 @@ app.use('/api/v1', _routes["default"]); // Set up the server
 app.listen(PORT, function () {
   return logger.info("Listening on port ".concat(PORT));
 });
+var _default = app;
+exports["default"] = _default;

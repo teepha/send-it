@@ -15,11 +15,13 @@ var router = _express["default"].Router(); // Set up Endpoint to get all parcel 
 
 
 router.get('/users/:userId/parcels', function (req, res) {
+  var userId = parseInt(req.params.userId, 10);
+
   var userParcels = _parcelsdb["default"].filter(function (parcel) {
-    return parcel.userId === req.params.userId;
+    return parcel.userId === userId;
   });
 
-  res.send(userParcels);
+  res.status(200).send(userParcels);
 }); // Export router to index.js
 
 var _default = router;
