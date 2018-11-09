@@ -10,5 +10,9 @@ const router = express.Router();
 router.use('/', parcelRoutes);
 router.use('/', userRoutes);
 
+router.get('/', (req, res) => {
+  res.send('Welcome to version1 of SendIT API!!!');
+});
+
 // Export router to server.js
 export default router;

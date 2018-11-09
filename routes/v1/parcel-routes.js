@@ -1,23 +1,14 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+
+import parcelsdb from '../../parcelsdb';
 
 const router = express.Router();
+router.use(bodyParser.json());
 
-// Set up Endpoint
+// Set up Endpoint to get all parcel orders
 router.get('/parcels', (req, res) => {
-  res.send('Fetch all parcel delivery orders');
-});
-
-// Set up Endpoint
-router.get('/parcels/:id', (req, res) => {
-  res.send(`Fetch parcel delivery order: ${req.params.id}`);
-});
-
-router.put('/parcels/:id/cancel', (req, res) => {
-  res.send(`Cancel parcel delivery order: ${req.params.id}`);
-});
-
-router.post('/parcels', (req, res) => {
-  res.send('Create a parcel delivery order');
+  res.send(parcelsdb);
 });
 
 // Export router to index.js
