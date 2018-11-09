@@ -9,6 +9,8 @@ var _express = _interopRequireDefault(require("express"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
+var _fs = _interopRequireDefault(require("fs"));
+
 var _parcelsdb = _interopRequireDefault(require("../../parcelsdb"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -29,6 +31,26 @@ router.get('/parcels/:id', function (req, res) {
   });
 
   res.send(foundParcel);
+}); // Set up Endpoint to cancel a specific parcel order
+
+router.put('/parcels/:id/cancel', function (req, res) {
+  var cancelParcel = _parcelsdb["default"].find(function (parcel) {
+    return parcel.id === parseInt(req.params.id, 10);
+  });
+
+  if (cancelParcel.status === 'Delivered') {
+    res.send('Parcel Delivered! Cannot cancel parcel order.');
+  } else {
+    cancelParcel.status = req.body.status;
+
+    _fs["default"].writeFile('parcelsdb.json', JSON.stringify(_parcelsdb["default"], null, 2), function (err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(cancelParcel);
+      }
+    });
+  }
 }); // Export router to index.js
 
 var _default = router;
