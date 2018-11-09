@@ -1,4 +1,5 @@
 import express from 'express';
+import logger from 'logger';
 
 // Import router from index.js
 import v1Routes from './routes';
@@ -17,4 +18,4 @@ app.get('/', (req, res) => {
 app.use('/api/v1', v1Routes);
 
 // Set up the server
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => logger.info(`Listening on port ${PORT}`));
