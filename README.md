@@ -1,4 +1,7 @@
-## SendIT [![Build Status](https://travis-ci.com/teepha/send-it.svg)](https://travis-ci.com/teepha/send-it)
+[![Build Status](https://travis-ci.com/teepha/send-it.svg)](https://travis-ci.com/teepha/send-it) [![Coverage Status](https://coveralls.io/repos/github/teepha/send-it/badge.svg?branch=develop)](https://coveralls.io/github/teepha/send-it?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/5c2633c9b0584da785c2/maintainability)](https://codeclimate.com/github/teepha/send-it/maintainability)
+
+
+## SendIT
 SendIT is a delivery service that allow users to send parcels to different destinations. It can be viewed online [here](http://teepha-send-it.herokuapp.com/)
 
 
