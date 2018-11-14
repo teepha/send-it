@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>SignUp Page</title>
         <link rel="stylesheet" href="css/styles.css">
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     </head>
     <body>
         <header>
@@ -14,39 +14,40 @@
                 <div class="profile1">
                     <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
                     <h1 class="sendIT">SendIT</h1>
-                </div>
+                </div>  
             </div>              
         </header>      
-        <div id="container">
-                <h1 class="text-center">SignUp to SendIT</h1>
-            <form method="post" action="user-profile.html">
-                <ul>
-                    <li>
-                        <label>First Name </label>
-                        <input required name="first_name" type="text">
-                        <br>
-                        <label>Last Name </label>
-                        <input required name="last_name" type="text">
-                        <br>
-                        <label>Enter phone number </label>
-                        <input required name="phone_number" type="text">
-                        <br>
-                        <label>Enter your email address </label>
-                        <input required name="email_address" type="email">
-                        <br>
-                        <label>Password </label>
-                        <input required name="password" type="password">
-                        <br>
-                        <label>Confirm Password </label>
-                        <input required name="password" type="password">
-                        <br>
-                        <div class="buttons">
-                            <a href="../index.html" id="back_btn" class="button">Back</a>
+        <div class="container2">
+            <div class="form2">
+                <a href="../index.html"><i class="fas fa-arrow-left"></i></a>
+                <h1>SignUp</h1><hr><br>
+                <form method="post" action="user-profile.html">
+                    <ul>
+                        <li>
+                            <label>First Name </label>
+                            <input required name="first_name" type="text">
+                            <br>
+                            <label>Last Name </label>
+                            <input required name="last_name" type="text">
+                            <br>
+                            <label>Enter phone number </label>
+                            <input required name="phone_number" type="text">
+                            <br>
+                            <label>Enter your email address </label>
+                            <input required name="email_address" type="email">
+                            <br>
+                            <label>Password </label>
+                            <input required name="password" type="password">
+                            <br>
+                            <label>Confirm Password </label>
+                            <input required name="password" type="password">
+                            <br>
                             <input type="submit" class="button" value="Sign Up">
-                        </div>
-                    </li>
-                </ul>
-            </form>
+                        </li>
+                    </ul>
+                </form>
+                <h4>Already have an account?<a class="nav_link" href="./login.html">LogIn</a></h4>
+            </div>    
         </div>
         <script src="js/script.js"></script>
     </body>
