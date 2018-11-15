@@ -385,26 +385,39 @@ input[type=text], input[type=password], input[type=email], select {
 }
 
 .footer {
- color: #fff;
- padding: 24px 0 48px;
- padding: 0;
- margin: 0 auto;
- position: relative;
- background-color: rgba(157, 173, 204, 0.5);
- border-top: 0.2rem solid  rgb(47, 28, 158);
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    background-color: rgba(157, 173, 204, 0.5) !important;
+    border-top: 0.2rem solid  rgb(47, 28, 158);
 }
 
-.footer-content{
-    color: black;
+.footer-working-hours{
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
     font-size: 1.2rem;
-    justify-content: space-between;
-    display: grid;
-    padding-left: 120px;
-    width: 500px;
+    text-align: center;
+    padding-left: 300px;
+    padding-top: 15px;
+    width: 33%;
+    float: left;
 }
 
-.inline{
-float: right;
-color: black;  
+.copyright{
+    text-align: center;
+    float: left;
+    width: 33%
+}
+
+.footer-menu {
+    float: left;
+    text-align: center;
+    width: 33%
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
