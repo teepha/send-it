@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin LogIn</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <div class="navigation">
-            <div class="profile1">
-                <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
-                <h1 class="sendIT">SendIT</h1>
-            </div>
-        </div>              
-    </header>
-    <div id="container">
-            <h1 class="text-center">Admin Log In</h1>
-        <form method="post" action="./admin-profile.html">
-            <ul>
-                <li>
-                    <label>Email address </label>
-                    <input required name="email_address" type="email">
-                    <br>
-                    <label>Enter your password </label>
-                    <input required name="password" type="password">
-                    <br>
-                    <div class="buttons">
-                        <a href="../index.html" id="back_btn" class="button">Back</a>
-                        <input class="button" type="submit" value="LogIn">
-                    </div>
-                </li>
-            </ul>  
-        </form>
-    </div>   
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LogIn Page</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
+                    <a href="./index.html" class="sendIT">SendIT</a>
+             </div>
+            </div>          
+        </header>
+        <div class="container3">
+            <div class="form3">
+                <a href="../index.html"><i class="fas fa-arrow-left"></i></a>
+                <h1>Admin Log In</h1>
+                <form method="post" action="./admin-profile.html">
+                    <ul>
+                        <li>
+                            <label>Email address </label>
+                            <input required name="email_address" type="email">
+                            <br>
+                            <label>Enter your password </label>
+                            <input required name="password" type="password">
+                            <br>
+                            <input class="button" type="submit" value="LogIn">
+                        </li>
+                    </ul>  
+                </form>
+            </div>    
+        </div>   
+    </body>
 </html>

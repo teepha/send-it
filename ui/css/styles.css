@@ -1,17 +1,244 @@
+/* Index Page */
+.bg-img {
+    min-height: calc(100vh - 63.5px);
+    background: url(../images/bcg-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form1{
+    margin: auto;
+    justify-content: center;
+    padding: 15px 20px 20px 20px;
+    width: 350px;
+    height: 330px;
+    background-color: white;
+}
+
+.container1{
+    padding-top: 100px;
+    background-color: rgba(157, 173, 204, 0.5);
+    justify-content: center;
+    align-items: center;
+    min-height: 90.4vh;
+}
+
+.form2{
+    margin: auto;
+    justify-content: center;
+    padding: 4px 20px 10px 15px;
+    width: 350px;
+    height: 585px;
+    background-color: white;
+}
+
+.container2{
+    background-color: rgba(157, 173, 204, 0.5);
+    justify-content: center;
+    align-items: center;
+    min-height: 90.4vh;
+}
+
+.form3{
+    margin: auto;
+    justify-content: center;
+    padding: 6px 20px 10px 15px;
+    width: 350px;
+    height: 285px;
+    background-color: white;
+}
+
+.container3{
+    padding-top: 100px;
+    background-color: rgba(157, 173, 204, 0.5);
+    justify-content: center;
+    align-items: center;
+    min-height: 90.4vh;
+}
+
+.form4{
+    margin: auto;
+    justify-content: center;
+    padding: 6px 20px 10px 20px;
+    width: 350px;
+    height: 435px;
+    background-color: white;
+}
+
+.container4{
+    padding-top: 60px;
+    background-color: rgba(157, 173, 204, 0.5);
+    justify-content: center;
+    align-items: center;
+    min-height: 89.35vh;
+}
+
+.create_link{
+    text-decoration: none;
+    color: blue;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+.table_title{
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 35px;
+    margin-left: 200px;
+}
+
+#table_title{
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+#orders{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 1150px;
+    margin: 5px 0px 0px 60px;
+    justify-content: center;
+}
+
+#orders td{
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 1.0rem;
+}
+
+#orders tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+#orders tr:hover{
+    background-color: #eee;
+}
+
+#orders th{
+    border: 1px solid #ddd;
+    padding-top: 1rem;
+    background-color: grey;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#orders2{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 1230px;
+    margin: 10px 0px 0px 70px;
+}
+
+#orders2 td{
+    border: 1px solid #ddd;
+    padding: 0.6rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#orders2 tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+#orders2 tr:hover{
+    background-color: #eee;
+}
+
+#orders2 th{
+    border: 1px solid #ddd;
+    padding: 0.6rem;
+    background-color: grey;
+    color: white;
+    font-size: 1.0rem;
+}
+
+.status{
+width: 145px;
+}
+
+#id_num{
+    text-align: justify;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
+
+.bg_modal{
+    height: 170%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+}
+
+.modal{
+    width: 380px;
+    height: 260px;
+    background-color: white;
+    position: relative;
+    justify-content: center;    
+    padding: 25px 10px 10px 10px;
+    border: 2px solid #545454;
+    border-radius: 4px;
+}
+
+.view_modal{
+    width: 420px;
+    height: 500px;
+    margin-top: 70px;
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 10px 10px 10px;
+    border: 2px solid #545454;
+    border-radius: 4px;
+}
+
+.bgc_modal, .bgv_modal{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+}
+
+.cancel_modal{
+    width: 400px;
+    height: 220px;
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 10px 10px 10px;
+    border: 2px solid #545454;
+    border-radius: 4px;
+}
+
+
+/*Shared*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.main_body{
-    min-height: 50vh;
-    align-items: center;
-    justify-content: center;
+body{
+    display: block;
+    min-height: 100%;
 }
 
 .logo{
-    height: 74px;
+    height: 40px;
+    width: 50px;
     margin: 5px;
     border: 2px solid rgb(47, 28, 158);
 }
@@ -20,7 +247,8 @@
     color: rgb(47, 28, 158);
     font-family: cursive;
     justify-content: left;
-    font-size: 3.0rem;
+    font-size: 2rem;
+    text-decoration: none;
 }
 
 .navigation{
@@ -28,14 +256,19 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 0.5rem 6rem;
-    border-bottom: 0.2rem solid fuchsia;
+    padding: 0.3rem 3rem;
+    border-bottom: 0.2rem solid  rgb(47, 28, 158);
+}
+
+.nav_link2{ 
+    float: right;
+    justify-content: space-evenly;
 }
 
 .nav_link{
+    padding: 1.1rem;
     color: blue;
     font-size: 1.2rem;
-    text-align: right;
     font-family: Georgia;
 }
 
@@ -55,16 +288,15 @@
     display: flex;
 }
 
-#container{
-    margin: auto;
-    justify-content: center;
-    padding: 20px 20px 20px 70px;
-    min-height: 70vh; 
+h1, h2, h3{
+    text-align: center;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
 
-h1{
+p{
     text-align: justify;
-    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;     
 }
 
 li{
@@ -72,87 +304,45 @@ li{
 }
 
 label{
-    font-size: 1.1rem;
-    display: inline-block;
-    width: 200px;
+    font-size: 0.9rem;
+    display: grid;
+    width: 150px;
 }
 
 input[type=text], input[type=password], input[type=email], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 10px 20px 10px 5px;
-    display: inline-block;
+    width: 300px;
+    padding: 8px;
+    margin: 8px 20px 10px 5px;
     border: 1px solid #ccc;
     border-radius: 2px;
     box-sizing: border-box;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2
 }
 
-.orderAll{
-    display: inline-flex;
-    margin-left: 60px;
+.all_order{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 345px;
+    height: 125px;
+    font-family: georgia;
+    font-size: 1.5rem;
+    padding: 1.5px;
+    border: 1px solid #717171;
 }
 
-.orderDel{
-    display: flex;
-    padding: 12px 18px;
-    background-color: green;
-    color: antiquewhite;
-    font-size: 1.7rem;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    height: 85px;
-    width: 190px;
-    text-align: center;
-    margin-left: 350px;
-    margin-top: 15px;
-    border-radius: 2px;
-}
-
-.orderDel:hover{
-    background-color: rgb(62, 116, 62);
-}
-
-.orderTrans{
-    float: none;
-    display: flex;
-    padding: 12px 18px;
-    background-color: rgb(190, 136, 20);
-    color: antiquewhite;
-    font-size: 1.7rem;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    height: 85px;
-    width: 180px;
-    text-align: center;
-    margin-left: 300px;
-    margin-top: 15px;
-    border-radius: 2px;
-}
-
-.orderTrans:hover{
-    background-color:  rgb(158, 125, 55);
-}
-
-.orderPickup{
-    display: flex;
-    padding: 12px 18px;
-    background-color: maroon;
-    color: antiquewhite;
-    font-size: 1.6rem;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    height: 85px;
-    width: 180px;
-    text-align: center;
-    margin-left: 30px;
-    margin-top: 15px;
-    border-radius: 2px;
-}
-
-.orderPickup:hover{
-    background-color:  rgb(107, 48, 48);
+.all_orders{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 300px;
+    height: 95px;
+    font-family: georgia;
+    font-size: 1.5rem;
+    padding: 2px;
+    border: 1px solid #717171;
 }
 
 .button{
-    background-color: teal;
+    background-color: blue;
     font-size: 1.3rem;
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
     border: none;
@@ -161,114 +351,11 @@ input[type=text], input[type=password], input[type=email], select {
     padding: 12px 25px;
     margin: 0px 8px 8px 80px;
     cursor: pointer;
-}
-
-.buttons {
     text-align: center;
-    margin-right: 450px;
 }
-
-
 
 .button:hover {
-    background-color: green;
-}
-
-#btn{
-    margin-top: 15px;
-    margin-left: 900px;
-}
-
-#btn:hover{
-    background-color: rgb(107, 48, 48);
-    opacity: 0.8;
-}
-
-#back_btn{
-    margin-left: 150px;
-    text-decoration: none;
-}
-
-.table_title{
-    text-align: center;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    margin-top: 5px;
-}
-
-.text-center {
-   margin-left: 400px;
-}
-
-#table_title{
-    text-align: center;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    margin-top: 130px;
-}
-
-#orders {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 90%;
-    margin: 0px 0px 0px 70px;
-    justify-content: center;
-}
-
-#orders td, #orders th {
-    border: 1px solid #ddd;
-    padding: 1.5px;
-    text-align: center;
-    font-size: 1rem;
-}
-
-#orders tr:nth-child(even){
-    background-color: #f3f3f3;
-}
-
-#orders tr:hover{
-    background-color: #eee;
-}
-
-#orders th{
-    padding-top: 11px;
-    padding-bottom: 9px;
-    background-color: grey;
-    color: white;
-}
-
-#id_num{
-    text-align: justify;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1.6rem;
-    font-weight: bolder;
-}
-
-p{
-    text-align: justify;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;     
-}
-
-.bg_modal{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal{
-    width: 450px;
-    height: 300px;
-    background-color: white;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 10px 10px 10px;
-    border: 2px solid #545454;
-    border-radius: 4px;
+    background-color: rgba(24, 20, 235, 0.884);
 }
 
 .close{
@@ -280,81 +367,44 @@ p{
     cursor: pointer;
 }
 
-#hours{
-    color:black;
-    font-size: 15px;
-    padding: 8px 12px;
+.close:hover{
+    color: red;
+}
+
+.c_close{
     position: absolute;
-    width: 100%;
-    margin-left: 1050px;
-    margin-top: 40px;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
 }
 
-.slideshow {
-  align-items: left;
-  position: relative;
-
+.c_close:hover{
+    color: red;
 }
 
-.mySlides {
-    display: none;
+.footer {
+ color: #fff;
+ padding: 24px 0 48px;
+ padding: 0;
+ margin: 0 auto;
+ position: relative;
+ background-color: rgba(157, 173, 204, 0.5);
+ border-top: 0.2rem solid  rgb(47, 28, 158);
 }
 
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+.footer-content{
+    color: black;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    display: grid;
+    padding-left: 120px;
+    width: 500px;
 }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.inline{
+float: right;
+color: black;  
 }
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-

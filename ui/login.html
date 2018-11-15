@@ -6,38 +6,36 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>LogIn Page</title>
         <link rel="stylesheet" href="css/styles.css">
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     </head>
     <body>
         <header>
             <div class="navigation">
                 <div class="profile1">
                     <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
-                    <h1 class="sendIT">SendIT</h1>
+                    <a href="./index.html" class="sendIT">SendIT</a>
                 </div>
             </div>          
-        </header>    
-        <div id="container">
-            <h1 class="text-center">LogIn to SendIT</h1>
-            <form method="post" action="./user-profile.html">
-                <ul>
-                    <li>
-                        <label class="label">Email address </label>
-                        <input required name="email_address" type="email">
-                        <br>
-                        <label>Enter your password </label>
-                        <input required name="password" type="password">
-                        <br>
-                        <div class="buttons">
-                            <a href="../index.html" id="back_btn" class="button">Back</a>
+        </header>
+        <div class="container1">
+            <div class="form1">
+                <a href="../index.html"><i class="fas fa-arrow-left"></i></a>
+                <h1>LogIn</h1> <hr>
+                <form method="post" action="./user-profile.html">
+                    <ul>
+                        <li>
+                            <label>Email address </label>
+                            <input required name="email_address" type="email">
+                            <br>
+                            <label>Enter your password </label>
+                            <input required name="password" type="password">
+                            <br>
                             <input type="submit" class="button" value="LogIn">
-                        </div>
-                    </li>
-                </ul>
-            </form>
-            <br>
-            <h3>Don't have an account?<a class="nav_link" href="./sign-up.html">SignUp</a></h3>
+                        </li>
+                    </ul>
+                </form>
+                <h4>Don't have an account?<a class="nav_link" href="./sign-up.html">SignUp</a></h4>
+            </div>
         </div>
-        <script src="js/script.js"></script>
     </body>
 </html>
