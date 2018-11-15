@@ -26,7 +26,7 @@
     "destination": "12, John Daniel street, Gbagada, Lagos",
     "recipientName": "Chucks",
     "recipientPhone": "08051993214",
-    "status": "In-Transit",
+    "status": "Cancelled",
     "presentLocation": "Yaba"
   },
   {
@@ -96,7 +96,7 @@
     "destination": "8, Alfred Adenigba Street, Lagos",
     "recipientName": "Jamal",
     "recipientPhone": "08065627819",
-    "status": "In-Transit",
+    "status": "Cancelled",
     "presentLocation": "Maryland"
   },
   {
@@ -191,7 +191,7 @@
     "destination": "12 complex Street, Victoria Island, Lagos",
     "recipientName": "Aisha",
     "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
+    "status": "Cancelled",
     "presentLocation": ""
   },
   {
@@ -206,126 +206,6 @@
   },
   {
     "id": 22,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 23,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 24,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 25,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 26,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 27,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 28,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 29,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 30,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 31,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 32,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 33,
-    "userId": 4,
-    "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
-    "destination": "12 complex Street, Victoria Island, Lagos",
-    "recipientName": "Aisha",
-    "recipientPhone": "08123409876",
-    "status": "Ready for Pickup",
-    "presentLocation": ""
-  },
-  {
-    "id": 34,
     "userId": 4,
     "pickupLocation": "42, Abdulmujeeb close, Mende, Lagos",
     "destination": "12 complex Street, Victoria Island, Lagos",
