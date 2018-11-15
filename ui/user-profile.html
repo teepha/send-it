@@ -13,26 +13,19 @@
             <div class="navigation">
                 <div class="profile1">
                     <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
-                    <h1 class="sendIT">SendIT</h1><br>
+                    <a href="./index.html" class="sendIT">SendIT</a>
                 </div>
                 <div class="profile2">
                     <a class="nav_link" href="../index.html">LogOut</a>
                 </div> 
             </div>              
         </header>
-        <div class="orderAll">
-            <div class="orderPickup">
-                <h4>Ready for PickUp: 1</h4>
-            </div>
-            <div class="orderTrans">
-                <h4>In-Transit: 1</h4>
-            </div>
-            <div class="orderDel">
-                <h4>Delivered: 4</h4>
-            </div>
-        </div>
-        <a href="create-order.html"><button id="btn" class="button">Create New Order</button></a>
-        <div id="table">
+        <div class="all_order"> 
+            Ready for PickUp:   <b>1</b><hr>
+            In-Transit:         <b>1</b><hr>
+            Delivered:          <b>4</b><hr> 
+            <a href="./create-order.html" class="create_link"><b>Create New Order</b></a>
+        <div>
             <table id="orders">
                 <h3 class="table_title">My Orders</h3>
                 <tr>
@@ -53,9 +46,9 @@
                     <td></td>
                     <td></td>
                     <td>Delivered</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>    
                 </tr>
                 <tr>
                     <td>LA2</td>
@@ -64,9 +57,9 @@
                     <td></td>
                     <td></td>
                     <td>Delivered</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>    
                 </tr>
                 <tr>
                     <td>LA3</td>
@@ -75,9 +68,9 @@
                     <td></td>
                     <td></td>
                     <td>Delivered</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>    
                 </tr>
                 <tr>
                     <td>LA4</td>
@@ -86,9 +79,9 @@
                     <td></td>
                     <td></td>
                     <td>Delivered</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>    
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>    
                 </tr>   
                 <tr>
                     <td>LA5</td>
@@ -97,9 +90,9 @@
                     <td></td>
                     <td></td>
                     <td>In-Transit</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>   
                 </tr>
                 <tr>
                     <td>LA6</td>
@@ -108,11 +101,44 @@
                     <td></td>
                     <td></td>
                     <td>Ready For Pickup</td>
-                    <td><a href="./view-order.html"><i class="far fa-eye"></i></a></td>
+                    <td class="view"><i class="far fa-eye"></i></td>
                     <td><a href="./edit-order.html"><i class="far fa-edit"></i></a></td>
-                    <td><a href="#"><i class="fas fa-times"></i></a></i></td>   
+                    <td class="cancel"><i class="fas fa-times"></i></i></td>   
                 </tr>                                    
             </table>
         </div>
+   
+        <div class="bgv_modal">
+            <div class="view_modal">
+            <div class="close">+</div>
+            <h3>View Order</h3><br>
+                <div>
+                    <p><b>ID: </b>1</p><br>
+                    <p><b>User ID: </b>2</p><br>
+                    <p><b>Date: </b>29/10/2018</p><br>
+                    <p><b>Pick Up Location: </b>22 Kelvin Street, Maryland, Lagos</p><br>
+                    <p><b>Destination: </b>21 Adebowale Street, Ijaiye, Lagos</p><br>
+                    <p><b>Recipient Name: </b>Salami</p><br>
+                    <p><b>Phone Number: </b>08012345678</p><br>
+                    <p><b>Status: </b>In-Transit</p><br>
+                    <p><b>Present Location: </b>Ikeja</p><br>  
+                </div>
+            </div>
+        </div>
+    
+        <div class="bgc_modal">
+            <div class="cancel_modal">
+            <div class="c_close">+</div>
+                <div>
+                    <h3>Cancel Order</h3><br>
+                    <form method="POST" action="./user-profile.html">
+                        <p>This request will cancel the parcel order. Do you want to proceed?</p><br>
+                        <input type="submit" class="button" value="Proceed">
+                    </form>
+                </div>
+                <script src="js/script.js"></script>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
     </body>
 </html>
