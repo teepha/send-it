@@ -13,26 +13,20 @@
             <div class="navigation">
                 <div class="profile1">
                     <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
-                    <h1 class="sendIT">SendIT</h1><br>
+                    <a href="./index.html" class="sendIT">SendIT</a>
                 </div>
                 <div class="profile2">
                     <a class="nav_link" href="../index.html">LogOut</a>
                 </div> 
             </div>              
         </header>
-        <div class="orderAll">
-            <div class="orderPickup">
-                <h4>Ready for PickUp: 2</h4>
-            </div>
-            <div class="orderTrans">
-                <h4>In-Transit: 3</h4>
-            </div>
-            <div class="orderDel">
-                <h4>Delivered: 6</h4>
-            </div>
+        <div class="all_orders"> 
+            Ready for PickUp:   <b>2</b><hr>
+            In-Transit:         <b>3</b><hr>
+            Delivered:          <b>6</b>
         </div>
-        <div id="table">
-            <table id="orders">
+        <div>
+            <table id="orders2">
                 <h3 id="table_title">All Orders</h3>
                 <tr>
                     <th scope="row">ID Num</th>
@@ -51,7 +45,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -67,7 +61,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -83,7 +77,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -99,7 +93,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -115,7 +109,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -131,7 +125,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -147,7 +141,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -163,7 +157,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -179,7 +173,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -195,7 +189,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -211,7 +205,7 @@
                     <td>Recipient Name</td>
                     <td>Phone Number</td>
                     <td>
-                        <select name="status" id="">
+                        <select name="status" class="status">
                             <option value="ready_for_pickup">Ready For Pickup</option>
                             <option value="in_transit">In-Transit</option>
                             <option value="delivered">Delivered</option>
@@ -225,17 +219,17 @@
         <div class="bg_modal">
             <div class="modal">
             <div class="close">+</div>
-                <h1>Change Current Location</h1>
+                <h3>Change Current Location</h3> <br>
                 <form method="post" action="./admin-profile.html">
                     <ul>
                         <li>
                             <input name="location" type="text" value="Present Location" disabled>
                             <input name="new_location" type="text" required placeholder="New Location ">
-                            <input type="submit" class="button" value="Proceed">
+                            <input type="submit" class="button" value="Continue">
                         </li>
                     </ul>
                 </form> 
-                <br>
+                
             </div>
         </div>
     
