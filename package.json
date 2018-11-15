@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run compile && node ./dist/server.js",
+    "start:dev": "nodemon server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
     "compile": "rm -rf ./dist && babel ./ --out-dir ./dist --ignore ./node_modules,./ui && cp ./parcelsdb.json ./usersdb.json ./dist",
     "test": "npm run compile && istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
