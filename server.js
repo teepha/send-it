@@ -3,7 +3,7 @@ import winston from 'winston'; // for logging
 import path from 'path';
 
 // Import router from index.js
-import v1Routes from './routes';
+import v1Routes from './server/routes';
 
 // set up winston for logging
 const logger = winston.createLogger({
@@ -19,19 +19,14 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 
 // Load static assets
-app.use(express.static(path.resolve(__dirname + '/ui')));
-
-// Set up the homepage to serve index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname + '/index.html'));
-});
+app.use(express.static(path.resolve(`${__dirname}/ui`)));
 
 // Mount a middleware function on the path
 app.use('/api/v1', v1Routes);
 
 // Wildcard routes to catch Any kind of request to endpoints that doesn't exist
 app.all('*', (req, res) => {
-  res.status(400).send('Route/Endpoint does not exist!!!')
+  res.status(400).send('Route/Endpoint does not exist!!!');
 });
 
 // Set up the server

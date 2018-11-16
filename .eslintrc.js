@@ -7,6 +7,7 @@ module.exports = {
   "rules": {
     "semi": "error",
     "no-var": 2,
-    "prefer-arrow-callback": "error"
+    "prefer-arrow-callback": "error",
+    "import/prefer-default-export": "off"
   } 
 };
