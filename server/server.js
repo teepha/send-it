@@ -1,6 +1,6 @@
 import express from 'express';
 import winston from 'winston'; // for logging
-import path from 'path';
+import path from 'path'; // to locate files and folders in the file system
 
 // Import router from index.js
 import v1Routes from './routes';
@@ -24,12 +24,12 @@ app.use(express.static(path.resolve(`${__dirname}/../ui`)));
 // Mount a middleware function on the path
 app.use('/api/v1', v1Routes);
 
-// Wildcard routes to catch Any kind of request to endpoints that doesn't exist
+// Wildcard route to catch any kind of request to endpoints that doesn't match the ones defined before it
 app.all('*', (req, res) => {
   res.status(400).send('Route/Endpoint does not exist!!!');
 });
 
-// Set up the server
+// start up the server
 app.listen(PORT, () => logger.info(`Listening on port ${PORT}`));
 
 // Export app to test file
