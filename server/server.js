@@ -3,7 +3,7 @@ import winston from 'winston'; // for logging
 import path from 'path';
 
 // Import router from index.js
-import v1Routes from './server/routes';
+import v1Routes from './routes';
 
 // set up winston for logging
 const logger = winston.createLogger({
@@ -19,7 +19,7 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 
 // Load static assets
-app.use(express.static(path.resolve(`${__dirname}/ui`)));
+app.use(express.static(path.resolve(`${__dirname}/../ui`)));
 
 // Mount a middleware function on the path
 app.use('/api/v1', v1Routes);

@@ -1,5 +1,5 @@
 import server from 'supertest';
-import app from '../../server.js';
+import app from '../server.js';
 
 describe('User-routes unit test', () => {
   it('Should return error message if userId is not a Number', (done) => {

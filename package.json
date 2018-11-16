@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm run compile && node ./dist/server.js",
-    "start:dev": "nodemon server.js --exec babel-node",
+    "start": "npm run compile && node ./dist/server/server.js",
+    "start:dev": "nodemon server/server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
-    "compile": "rm -rf ./dist && babel ./ --out-dir ./dist --ignore ./node_modules,./ui,./coverage && cp ./server/parcelsdb.json ./server/usersdb.json ./dist/server && cp -r ./ui ./dist",
+    "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp ./server/parcelsdb.json ./server/usersdb.json ./dist/server && cp -r ./ui ./dist",
     "test": "npm run compile && istanbul cover node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=server/spec/support/jasmine.json && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {

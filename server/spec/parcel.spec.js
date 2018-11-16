@@ -1,5 +1,5 @@
 import server from 'supertest'; // Allows to test server
-import app from '../../server';
+import app from '../server';
 import parcelsDb from '../parcelsdb';
 
 describe('Parcel-routes unit test', () => {
