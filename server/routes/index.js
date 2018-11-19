@@ -1,8 +1,8 @@
 import express from 'express';
 
 // Import router from user-routes.js & parcel-routes.js
-import parcelRoutes from './v1/parcel-routes';
-import userRoutes from './v1/user-routes';
+import parcelRoutes from './parcel-routes';
+import userRoutes from './user-routes';
 
 const router = express.Router();
 

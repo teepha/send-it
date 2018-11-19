@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { validationResult } from 'express-validator/check';
+import { validationResult } from 'express-validator/check'; // calls the specified validation
 import parcelsDb from '../parcelsdb';
 
 export const getAllParcels = (req, res) => {

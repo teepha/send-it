@@ -1,4 +1,4 @@
-import { checkSchema } from 'express-validator/check';
+import { checkSchema } from 'express-validator/check'; // to check a particular field
 
 const idChecker = (field, locations, errMsg) => checkSchema({
   [field]: {

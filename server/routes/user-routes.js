@@ -1,6 +1,6 @@
 import express from 'express';
-import idChecker from '../../middlewares/id-checker';
-import { getUserParcels } from '../../controllers/user-controller';
+import idChecker from '../middlewares/id-checker';
+import { getUserParcels } from '../controllers/user-controller';
 
 const router = express.Router();
 

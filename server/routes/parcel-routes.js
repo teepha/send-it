@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser'; // Allows us to receive data sent via POST/PUT API request
-import { body } from 'express-validator/check';
-import idChecker from '../../middlewares/id-checker';
+import { body } from 'express-validator/check'; // to validate request parameter
+import idChecker from '../middlewares/id-checker';
 import {
   getAllParcels, getParcel, updateParcel, createParcel,
-} from '../../controllers/parcel-controller';
+} from '../controllers/parcel-controller';
 
 const router = express.Router(); // Create a new instance of express Router
 router.use(bodyParser.json());// Specifically allow us to read data sent in JSON format

@@ -107,7 +107,7 @@ describe('Parcel-routes unit test', () => {
         });
     });
 
-    it('Should return error message id Parcel is already cancelled', (done) => {
+    it('Should return error message if Parcel is already cancelled', (done) => {
       server(app)
         .put(`/api/v1/parcels/${cancelledParcel.id}/cancel`)
         .expect('Content-Type', /json/)
