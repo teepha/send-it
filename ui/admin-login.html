@@ -12,23 +12,23 @@
         <header>
             <div class="navigation">
                 <div class="profile1">
-                    <a class="logo" href="../index.html"><img src="images/logo0.png"></a>
+                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
                     <a href="./index.html" class="sendIT">SendIT</a>
              </div>
             </div>          
         </header>
         <div class="container3">
             <div class="form3">
-                <a href="../index.html"><i class="fas fa-arrow-left"></i></a>
+                <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
                 <h1>Admin Log In</h1>
-                <form method="post" action="./admin-profile.html">
+                <form method="get" action="./admin-profile.html">
                     <ul>
                         <li>
                             <label>Email address </label>
-                            <input required name="email_address" type="email">
+                            <input name="email_address" type="email">
                             <br>
-                            <label>Enter your password </label>
-                            <input required name="password" type="password">
+                            <label>Password </label>
+                            <input name="password" type="password">
                             <br>
                             <input class="button" type="submit" value="LogIn">
                         </li>
