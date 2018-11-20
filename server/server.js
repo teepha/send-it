@@ -1,6 +1,58 @@
 import express from 'express';
 import winston from 'winston'; // for logging
 import path from 'path'; // to locate files and folders in the file system
+import { Client } from 'pg';
+
+const connectionString = 'postgresql://postgres:password@localhost:5432/parcels_db';
+
+const client = new Client({
+  connectionString,
+});
+
+global.client = client; // In order to use Postgres client anywhere in the codebase(controllers, routes);
+
+// connect to Postgres
+client.connect().then(() => {
+  console.log(`Connected to DB`);
+
+  // create parcels and users tables
+  client.query(`CREATE TABLE IF NOT EXISTS users(
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR NOT NULL,
+    last_name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL UNIQUE,
+    phone_number VARCHAR NOT NULL,
+    password VARCHAR NOT NULL
+  );`,
+    (err, res) => {
+      if (err) {
+        console.log(`error occured while creating users table`, err);
+      } else {
+        console.log(`users table created`);
+
+        client.query(`CREATE TABLE IF NOT EXISTS parcels(
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            pickup_location VARCHAR NOT NULL,
+            destination VARCHAR NOT NULL,
+            recipient_name VARCHAR NOT NULL,
+            recipient_phone VARCHAR NOT NULL,
+            status VARCHAR NOT NULL,
+            present_location VARCHAR NOT NULL
+          );`,
+          (err, res) => {
+            if (err) {
+              console.log(`error occured while creating parcels table`, err);
+            } else {
+              console.log(`parcels table created`);
+            }
+          });
+      }
+    });
+
+}).catch(err => {
+  console.log(`err connecting to DB: ${err}`);
+});
 
 // Import router from index.js
 import v1Routes from './routes';
