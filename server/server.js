@@ -22,7 +22,8 @@ client.connect().then(() => {
     last_name VARCHAR NOT NULL,
     email VARCHAR NOT NULL UNIQUE,
     phone_number VARCHAR NOT NULL,
-    password VARCHAR NOT NULL
+    password VARCHAR NOT NULL,
+    role VARCHAR DEFAULT 'member'
   );`,
     (err, res) => {
       if (err) {
