@@ -28,8 +28,10 @@
     "@babel/preset-env": "^7.1.5",
     "babel-preset-airbnb": "^3.0.1",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.4.0",
     "pg": "^7.6.1",
     "winston": "^3.1.0"
   },

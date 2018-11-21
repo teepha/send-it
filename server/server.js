@@ -1,7 +1,20 @@
+import Dotenv from 'dotenv';
 import express from 'express';
 import winston from 'winston'; // for logging
 import path from 'path'; // to locate files and folders in the file system
 import { Client } from 'pg';
+
+// Import router from index.js
+import v1Routes from './routes';
+
+Dotenv.config();
+
+// set up winston for logging
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console(),
+  ],
+});
 
 const connectionString = 'postgresql://postgres:password@localhost:5432/parcels_db';
 
@@ -9,11 +22,12 @@ const client = new Client({
   connectionString,
 });
 
-global.client = client; // In order to use Postgres client anywhere in the codebase(controllers, routes);
+// In order to use Postgres client anywhere in the codebase(controllers, routes);
+global.client = client;
 
 // connect to Postgres
 client.connect().then(() => {
-  console.log(`Connected to DB`);
+  logger.info('Connected to DB');
 
   // create parcels and users tables
   client.query(`CREATE TABLE IF NOT EXISTS users(
@@ -25,13 +39,13 @@ client.connect().then(() => {
     password VARCHAR NOT NULL,
     role VARCHAR DEFAULT 'member'
   );`,
-    (err, res) => {
-      if (err) {
-        console.log(`error occured while creating users table`, err);
-      } else {
-        console.log(`users table created`);
+  (err) => {
+    if (err) {
+      logger.info('error occured while creating users table', err);
+    } else {
+      logger.info('users table created');
 
-        client.query(`CREATE TABLE IF NOT EXISTS parcels(
+      client.query(`CREATE TABLE IF NOT EXISTS parcels(
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
             pickup_location VARCHAR NOT NULL,
@@ -41,28 +55,17 @@ client.connect().then(() => {
             status VARCHAR NOT NULL,
             present_location VARCHAR NOT NULL
           );`,
-          (err, res) => {
-            if (err) {
-              console.log(`error occured while creating parcels table`, err);
-            } else {
-              console.log(`parcels table created`);
-            }
-          });
-      }
-    });
-
-}).catch(err => {
-  console.log(`err connecting to DB: ${err}`);
-});
-
-// Import router from index.js
-import v1Routes from './routes';
-
-// set up winston for logging
-const logger = winston.createLogger({
-  transports: [
-    new winston.transports.Console(),
-  ],
+      (error) => {
+        if (error) {
+          logger.info('error occured while creating parcels table', error);
+        } else {
+          logger.info('parcels table created');
+        }
+      });
+    }
+  });
+}).catch((err) => {
+  logger.info(`err connecting to DB: ${err}`);
 });
 
 // initialize a new express instance
@@ -77,7 +80,7 @@ app.use(express.static(path.resolve(`${__dirname}/../ui`)));
 // Mount a middleware function on the path
 app.use('/api/v1', v1Routes);
 
-// Wildcard route to catch any kind of request to endpoints that doesn't match the ones defined before it
+// Wildcard route to catch any request that doesn't match the ones defined before it
 app.all('*', (req, res) => {
   res.status(400).send('Route/Endpoint does not exist!!!');
 });
