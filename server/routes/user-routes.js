@@ -1,11 +1,16 @@
 import express from 'express';
-import idChecker from '../middlewares/id-checker';
-import { getUserParcels } from '../controllers/user-controller';
+import bodyParser from 'body-parser'; // Allows us to receive data sent via POST/PUT API request
+import { body } from 'express-validator/check'; // to validate request parameter
+import { createUser } from '../controllers/user-controller';
 
-const router = express.Router();
+const router = express.Router(); // Create a new instance of express Router
+router.use(bodyParser.json()); // Specifically allow us to read data sent in JSON format
 
-// Set up Endpoint to get all parcel orders by a specific user
-router.get('/users/:userId/parcels', idChecker('userId', ['params'], 'userId should be a number'), getUserParcels);
+// To register a new user
+router.post('/auth/signup', [
+  body(['firstName', 'lastName', 'email', 'phoneNumber', 'password'], 'Value must be a String').isString(),
+], createUser);
+
 
 // Export router to index.js
 export default router;
