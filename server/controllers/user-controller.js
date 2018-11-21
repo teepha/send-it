@@ -1,6 +1,5 @@
 import { validationResult } from 'express-validator/check';
-
-const { client } = global;
+import jwt from 'jsonwebtoken';
 
 export const createUser = (req, res) => {
   const {
@@ -16,7 +15,9 @@ export const createUser = (req, res) => {
       if (err) {
         res.send(err);
       } else {
-        res.send(resp.rows[0]);
+        const userInfo = resp.rows[0];
+        const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
+        res.send({ msg: 'Registration successful', token });
       }
     });
   }

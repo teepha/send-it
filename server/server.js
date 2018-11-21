@@ -1,3 +1,4 @@
+import Dotenv from 'dotenv';
 import express from 'express';
 import winston from 'winston'; // for logging
 import path from 'path'; // to locate files and folders in the file system
@@ -5,6 +6,8 @@ import { Client } from 'pg';
 
 // Import router from index.js
 import v1Routes from './routes';
+
+Dotenv.config();
 
 // set up winston for logging
 const logger = winston.createLogger({
