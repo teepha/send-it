@@ -134,3 +134,36 @@ export const cancelParcel = (req, res) => {
     res.send({ msg: 'Sorry, only users can cancel Parcel Order' });
   }
 };
+
+export const updateParcelLocation = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).json({ errors: errors.array() });
+  } else if (req.user.userInfo.role === 'admin') {
+    const parcelId = parseInt(req.params.id, 10);
+    client.query(`SELECT * FROM parcels WHERE id = ${parcelId};`, (err, resp) => {
+      const parcel = resp.rows[0];
+      if (err) {
+        res.send(err);
+      } else if (!parcel) {
+        res.send({ msg: 'This Parcel Delivery Order Does Not Exist' });
+      } else {
+        if (parcel.status == 'Delivered') {
+          res.send({ msg: 'Sorry, can\'t change presentLocation for this Order. Parcel already Delivered' });
+        } else if (parcel.status == 'Cancelled') {
+          res.send({ msg: 'Sorry, can\'t change presentLocation for this Order. Parcel already Cancelled' });
+        } else {
+          client.query(`UPDATE parcels SET present_location = '${req.body.presentLocation}' WHERE id = ${parcelId} RETURNING *;`, (err, resp) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.send(resp.rows[0]);
+            }
+          });
+        }
+      }
+    });
+  } else {
+    res.send({ msg: 'Sorry, you can\'t perform this operation' });
+  }
+};
