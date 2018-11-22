@@ -34,5 +34,9 @@ router.put('/parcels/:id/destination',
   body('destination', 'Destination must be a String').isString(),
   updateParcelDestination);
 
+// Set up Endpoint to cancel a specific parcel order
+router.put('/parcels/:id/cancel', JwtDocoder, param('id', 'Id must be a Number').isInt(), cancelParcel);
+
+
 // Export router to index.js
 export default router;
