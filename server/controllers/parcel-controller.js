@@ -32,3 +32,29 @@ export const getAllParcels = (req, res) => {
     res.send({ msg: 'Sorry, only admins can access this' });
   }
 };
+
+export const getParcel = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).json({ errors: errors.array() });
+  } else {
+    const parcelId = parseInt(req.params.id, 10);
+
+    client.query(`SELECT * FROM parcels WHERE id = ${parcelId};`, (err, resp) => {
+      const parcel = resp.rows[0];
+      if (err) {
+        res.send(err);
+      } else if (!parcel) {
+        res.send({ msg: 'This Parcel Delivery Order Does Not Exist' });
+      } else {
+        const userIdFromToken = parseInt(req.user.userInfo.id, 10);
+        if (userIdFromToken === parcel.user_id) {
+          res.send(parcel);
+        } else {
+          res.send({ msg: 'Sorry you can not fetch Parcel for another User!' });
+        }
+      }
+    });
+
+  }
+};

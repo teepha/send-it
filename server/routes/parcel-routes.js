@@ -24,5 +24,8 @@ router.post('/parcels', JwtDocoder, [
 // Admin get all parcel orders
 router.get('/parcels', JwtDocoder, getAllParcels);
 
+// Set up Endpoint to get a specific parcel order
+router.get('/parcels/:id', JwtDocoder, param('id', 'Id must be a Number').isInt(), getParcel);
+
 // Export router to index.js
 export default router;
