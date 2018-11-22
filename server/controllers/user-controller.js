@@ -13,11 +13,11 @@ export const createUser = (req, res) => {
     const values = [firstName, lastName, email, phoneNumber, password];
     client.query(text, values, (err, resp) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
         const userInfo = resp.rows[0];
         const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
-        res.send({ msg: 'Registration successful', token });
+        res.status(201).send({ msg: 'Registration successful', token });
       }
     });
   }
@@ -33,14 +33,14 @@ export const loginUser = (req, res) => {
     const values = [email, password];
     client.query(text, values, (err, resp) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
         const userInfo = resp.rows[0];
         if (userInfo) {
           const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
-          res.send({ msg: 'Login successful', token });
+          res.status(200).send({ msg: 'Login successful', token });
         } else {
-          res.send({ msg: 'Invalid User credentials' });
+          res.status(401).send({ msg: 'Invalid User credentials' });
         }
       }
     });
@@ -57,15 +57,15 @@ export const getUserParcels = (req, res) => {
     if (userIdFromToken === userIdFromPath) {
       client.query(`SELECT * FROM parcels WHERE user_id = ${userIdFromPath};`, (err, resp) => {
         if (err) {
-          res.send(err);
+          res.status(500).send(err);
         } else if (!resp.rows.length) {
-          res.send({ msg: 'No Parcel Delivery Orders found for this User' });
+          res.status(404).send({ msg: 'No Parcel Delivery Orders found for this User' });
         } else {
-          res.send(resp.rows);
+          res.status(200).send(resp.rows);
         }
       });
     } else {
-      res.send({ msg: 'Sorry you can not fetch Parcels for another User!'});
+      res.status(401).send({ msg: 'Sorry you can not fetch Parcels for another User!'});
     }
   }
 }
