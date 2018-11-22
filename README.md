@@ -41,11 +41,16 @@ The Project was managed using Pivotal Tracker, click [here](https://www.pivotalt
 ### API Endpoints
 v1 of the API is hosted on Heroku, click [here](http://teepha-send-it.herokuapp.com/api/v1) to access the endpoints.
 
-    GET  =>  /api/v1/parcels  =>  Fetch all parcel delivery orders
-    GET  =>  /api/v1/parcels/:parcelId  =>  Fetch a specific parcel delivery order
-    GET  =>  /api/v1/users/:userId/parcels  =>  Fetch all parcel delivery orders by a specific user
-    PUT  =>  /api/v1/parcels/:parcelId/cancel  =>  Cancel the specific parcel delivery order
-    POST  =>  /api/v1/parcels  =>  Create a parcel delivery order
+    POST =>  /auth/signup  =>  Register a user 
+    POST =>  /auth/login  =>  Login a user 
+    POST =>  /api/v1/parcels  =>  Create a parcel delivery order 
+    GET  =>  /api/v1/parcels  =>  Admin Fetch all parcel delivery orders 
+    GET  =>  /api/v1/parcels/:parcelId  =>  Fetch a specific parcel delivery order 
+    GET  =>  /api/v1/users/:userId/parcels  =>  Fetch all parcel delivery orders by a specific user 
+    PUT  =>  /parcels/<parcelId>/destination  =>  User change the location of a specific parcel delivery order 
+    PUT  =>  /api/v1/parcels/:parcelId/cancel  =>  User cancel a specific parcel delivery order 
+    PUT  =>  /parcels/<parcelId>/status  =>  Admin change the status of a specific parcel delivery order 
+    PUT  =>  /parcels/<parcelId>/presentLocation  => Admin change the Present Location of a specific parcel delivery order
 
 <br>
 
