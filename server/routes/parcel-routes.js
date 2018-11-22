@@ -43,6 +43,13 @@ router.put('/parcels/:id/presentLocation',
   param('id', 'Id must be a Number').isInt(),
   body('presentLocation', 'presentLocation must be a String').isString(),
   updateParcelLocation);
+  
+// Admin change status of parcel
+router.put('/parcels/:id/status',
+JwtDocoder,
+param('id', 'Id must be a Number').isInt(),
+body('status', 'Status must be a String').isString(),
+updateParcelStatus);
 
 // Export router to index.js
 export default router;
