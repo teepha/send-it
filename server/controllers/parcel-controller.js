@@ -16,3 +16,19 @@ export const createParcel = (req, res) => {
     });
   }
 };
+
+export const getAllParcels = (req, res) => {
+  if (req.user.userInfo.role === 'admin') {
+    client.query('SELECT * FROM parcels;', (err, resp) => {
+      if (err) {
+        res.send(err);
+      } else if (!resp.rows.length) {
+        res.status(404).send({ msg: 'No Parcel Delivery Orders' });
+      } else {
+        res.status(200).send(resp.rows);
+      }
+    });
+  } else {
+    res.send({ msg: 'Sorry, only admins can access this' });
+  }
+};

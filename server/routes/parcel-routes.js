@@ -21,5 +21,8 @@ router.post('/parcels', JwtDocoder, [
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone'], 'Value must be a String').isString(),
 ], createParcel);
 
+// Admin get all parcel orders
+router.get('/parcels', JwtDocoder, getAllParcels);
+
 // Export router to index.js
 export default router;
