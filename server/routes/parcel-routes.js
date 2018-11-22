@@ -27,5 +27,12 @@ router.get('/parcels', JwtDocoder, getAllParcels);
 // Set up Endpoint to get a specific parcel order
 router.get('/parcels/:id', JwtDocoder, param('id', 'Id must be a Number').isInt(), getParcel);
 
+// Set up Endpoint to update the destination of a parcel order
+router.put('/parcels/:id/destination',
+  JwtDocoder,
+  param('id', 'Id must be a Number').isInt(),
+  body('destination', 'Destination must be a String').isString(),
+  updateParcelDestination);
+
 // Export router to index.js
 export default router;
