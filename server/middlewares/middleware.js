@@ -1,14 +1,4 @@
-import { checkSchema } from 'express-validator/check'; // to check a particular field
 import jwt from 'jsonwebtoken';
-
-export const idChecker = (field, locations, errMsg) => checkSchema({
-  [field]: {
-    in: locations,
-    errorMessage: errMsg,
-    isInt: true,
-    trim: true,
-  },
-});
 
 export const JwtDocoder = (req, res, next) => {
   const token = req.headers.authorization;
