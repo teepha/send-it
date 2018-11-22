@@ -1,19 +1,24 @@
 import { validationResult } from 'express-validator/check'; // calls the specified validation
 
 export const createParcel = (req, res) => {
+  const {userId, pickupLocation, destination, recipientName, recipientPhone} = req.body;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({ errors: errors.array() });
   } else {
-    const text = 'INSERT INTO parcels (user_id, pickup_location, destination, recipient_name, recipient_phone, status, present_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-    const values = [req.body.userId, req.body.pickupLocation, req.body.destination, req.body.recipientName, req.body.recipientPhone, 'Ready for Pickup', ''];
-    client.query(text, values, (err, resp) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(resp.rows[0]);
-      }
-    });
+    if (req.user.userInfo.id === userId) {
+      const text = 'INSERT INTO parcels (user_id, pickup_location, destination, recipient_name, recipient_phone, status, present_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+      const values = [userId, pickupLocation, destination, recipientName, recipientPhone, 'Ready for Pickup', ''];
+      client.query(text, values, (err, resp) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(201).send(resp.rows[0]);
+        }
+      });
+    } else {
+      res.status(401).send({ msg: 'Sorry you can not create Parcel Order for another User!' });
+    }
   }
 };
 
@@ -21,7 +26,7 @@ export const getAllParcels = (req, res) => {
   if (req.user.userInfo.role === 'admin') {
     client.query('SELECT * FROM parcels;', (err, resp) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else if (!resp.rows.length) {
         res.status(404).send({ msg: 'No Parcel Delivery Orders' });
       } else {
@@ -29,7 +34,7 @@ export const getAllParcels = (req, res) => {
       }
     });
   } else {
-    res.send({ msg: 'Sorry, only admins can access this' });
+    res.status(401).send({ msg: 'Sorry, only admins can access this' });
   }
 };
 
@@ -39,23 +44,21 @@ export const getParcel = (req, res) => {
     res.status(422).json({ errors: errors.array() });
   } else {
     const parcelId = parseInt(req.params.id, 10);
-
     client.query(`SELECT * FROM parcels WHERE id = ${parcelId};`, (err, resp) => {
       const parcel = resp.rows[0];
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else if (!parcel) {
-        res.send({ msg: 'This Parcel Delivery Order Does Not Exist' });
+        res.status(404).send({ msg: 'This Parcel Delivery Order Does Not Exist' });
       } else {
         const userIdFromToken = parseInt(req.user.userInfo.id, 10);
-        if (userIdFromToken === parcel.user_id) {
-          res.send(parcel);
+        if (userIdFromToken === parcel.user_id || req.user.userInfo.role === 'admin') {
+          res.status(200).send(parcel);
         } else {
-          res.send({ msg: 'Sorry you can not fetch Parcel for another User!' });
+          res.status(401).send({ msg: 'Sorry you can not fetch Parcel for another User!' });
         }
       }
     });
-
   }
 };
 

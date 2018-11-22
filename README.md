@@ -31,7 +31,7 @@ The Project was managed using Pivotal Tracker, click [here](https://www.pivotalt
 ### Usage
 1. Start server
     ```
-    $ npm start
+    $ npm run start:dev
     ```
 
 2. Navigate to your browser and type in: http://localhost:3030
@@ -40,21 +40,22 @@ The Project was managed using Pivotal Tracker, click [here](https://www.pivotalt
 
 ### API Endpoints
 v1 of the API is hosted on Heroku, click [here](http://teepha-send-it.herokuapp.com/api/v1) to access the endpoints.
+Heroku Base URL: https://teepha-send-it.herokuapp.com
 
-    POST =>  /auth/signup  =>  Register a user 
-    POST =>  /auth/login  =>  Login a user 
+    POST =>  /api/v1/auth/signup  =>  Register a user 
+    POST =>  /api/v1/auth/login  =>  Login a user 
     POST =>  /api/v1/parcels  =>  Create a parcel delivery order 
     GET  =>  /api/v1/parcels  =>  Admin Fetch all parcel delivery orders 
     GET  =>  /api/v1/parcels/:parcelId  =>  Fetch a specific parcel delivery order 
     GET  =>  /api/v1/users/:userId/parcels  =>  Fetch all parcel delivery orders by a specific user 
-    PUT  =>  /parcels/<parcelId>/destination  =>  User change the location of a specific parcel delivery order 
+    PUT  =>  /api/v1/parcels/:parcelId/destination  =>  User change the location of a specific parcel delivery order 
     PUT  =>  /api/v1/parcels/:parcelId/cancel  =>  User cancel a specific parcel delivery order 
-    PUT  =>  /parcels/<parcelId>/status  =>  Admin change the status of a specific parcel delivery order 
-    PUT  =>  /parcels/<parcelId>/presentLocation  => Admin change the Present Location of a specific parcel delivery order
+    PUT  =>  /api/v1/parcels/:parcelId/status  =>  Admin change the status of a specific parcel delivery order 
+    PUT  =>  /api/v1/parcels/:parcelId/presentLocation  => Admin change the Present Location of a specific parcel delivery order
 
 <br>
 
-### External Dependencies/Gems
+### External Dependencies/Packages
 ~ Babel/cli<br>
 ~ Babel/core<br>
 ~ Babel/node<br>
@@ -82,10 +83,12 @@ Run jasmine for the spec folder through bundle:
 ### Features
 1. Users can create accounts based on the following criteria: **first name**, **last name**, **phone number**, **email address** and **password**
 2. Users can log in to their accounts based on the following criteria: **email address** and **password**
-3. Users can create parcel delivery order based on the following criteria: **pickup location**, **destination**, **recipient name** and **phone number**
-4. Users can change the destination of a parcel delivery order.
-5. Users can see the details of parcel delivery order.
-6. Admin can change the status and present location of a parcel delivery order.
+3. Users can create Parcel Delivery order based on the following criteria: **pickup location**, **destination**, **recipient name** and **phone number**
+4. Users can change the destination of a Parcel Delivery order.
+5. Users can cancel a Parcel Delivery order.
+6. Users can see the details of Parcel Delivery order.
+7. Admin can change the status and present location of a Parcel Delivery order.
+8. Admin can view all Parcel Delivery orders.
 
 <br>
 

@@ -4,12 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json jasmine",
+    "test2": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json jasmine",
     "start": "npm run compile && cross-env NODE_ENV=production node ./dist/server/server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server/server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
     "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp -r ./ui ./dist",
-    "test:final": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
