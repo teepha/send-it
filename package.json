@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm run compile && node ./dist/server/server.js",
-    "start:dev": "nodemon server/server.js --exec babel-node",
+    "test": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json jasmine",
+    "start": "npm run compile && cross-env NODE_ENV=production node ./dist/server/server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon server/server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
-    "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp ./server/parcelsdb.json ./server/usersdb.json ./dist/server && cp -r ./ui ./dist",
-    "test": "npm run compile && istanbul cover node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=server/spec/support/jasmine.json && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp -r ./ui ./dist",
+    "test:final": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,11 @@
     "@babel/preset-env": "^7.1.5",
     "babel-preset-airbnb": "^3.0.1",
     "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-validator": "^5.3.0",
+    "faker": "^4.1.0",
     "jsonwebtoken": "^8.4.0",
     "pg": "^7.6.1",
     "winston": "^3.1.0"

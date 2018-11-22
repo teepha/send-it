@@ -1,8 +1,7 @@
 import server from 'supertest'; // Allows to test server
 import app from '../server';
-import parcelsDb from '../parcelsdb';
 
-describe('Parcel-routes unit test', () => {
+/*describe('Parcel-routes unit test', () => {
   describe('GET => Get all Parcel delivery orders', () => {
     it('Should return the list of all parcel orders', (done) => {
       server(app)
@@ -196,3 +195,4 @@ describe('Parcel-routes unit test', () => {
     });    
   });
 });
+*/

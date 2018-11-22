@@ -3,6 +3,7 @@ import express from 'express';
 import winston from 'winston'; // for logging
 import path from 'path'; // to locate files and folders in the file system
 import { Client } from 'pg';
+import config from './config/config';
 
 // Import router from index.js
 import v1Routes from './routes';
@@ -16,8 +17,8 @@ const logger = winston.createLogger({
   ],
 });
 
-const connectionString = 'postgresql://postgres:password@localhost:5432/parcels_db';
-
+const env = config[process.env.NODE_ENV];
+const connectionString = env.DATABASE_URL;
 const client = new Client({
   connectionString,
 });
