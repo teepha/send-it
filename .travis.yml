@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - 8
 
+services:
+  - postgresql
+
 install:
   - npm install
 
@@ -15,7 +18,4 @@ script:
 env:
   global:
     - NODE_ENV=test
-    - JWT_SECRET_KEY=hfjkds
-
-services:
-  - postgresql
+    - JWT_SECRET_KEY=anything_secure
