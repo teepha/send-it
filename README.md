@@ -39,8 +39,7 @@ The Project was managed using Pivotal Tracker, click [here](https://www.pivotalt
 <br>
 
 ### API Endpoints
-v1 of the API is hosted on Heroku, click [here](http://teepha-send-it.herokuapp.com/api/v1) to access the endpoints.
-Heroku Base URL: https://teepha-send-it.herokuapp.com
+v1 of the API is hosted on Heroku, visit http://teepha-send-it.herokuapp.com to access the endpoints.
 
     POST =>  /api/v1/auth/signup  =>  Register a user 
     POST =>  /api/v1/auth/login  =>  Login a user 
