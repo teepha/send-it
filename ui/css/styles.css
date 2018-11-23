@@ -188,8 +188,8 @@ width: 145px;
 }
 
 .view_modal{
-    width: 420px;
-    height: 500px;
+    width: 450px;
+    height: 550px;
     margin-top: 70px;
     background-color: white;
     position: relative;
@@ -289,15 +289,19 @@ body{
     display: flex;
 }
 
-h1, h2, h3{
+h1, h2 {
     text-align: center;
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
+}
+
+h3 {
     font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
 
 p{
     text-align: justify;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1.1rem;     
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;     
 }
 
 li{
@@ -394,8 +398,8 @@ input[type=text], input[type=password], input[type=email], select {
 }
 
 .footer-working-hours{
-    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
-    font-size: 1.2rem;
+    font-family: 'Cambria', Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 0.9rem;
     text-align: center;
     width: 33%;
     float: left;

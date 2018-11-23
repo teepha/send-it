@@ -17,7 +17,7 @@ export const createUser = (req, res) => {
       } else {
         const userInfo = resp.rows[0];
         const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
-        res.status(201).send({ msg: 'Registration successful', token });
+        res.status(201).send({ msg: 'Registration successful', userId: userInfo.id, token });
       }
     });
   }
@@ -38,7 +38,7 @@ export const loginUser = (req, res) => {
         const userInfo = resp.rows[0];
         if (userInfo) {
           const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
-          res.status(200).send({ msg: 'Login successful', token });
+          res.status(200).send({ msg: 'Login successful', userId: userInfo.id, token });
         } else {
           res.status(401).send({ msg: 'Invalid User credentials' });
         }
@@ -54,7 +54,7 @@ export const getUserParcels = (req, res) => {
   } else {
     const userIdFromToken = parseInt(req.user.userInfo.id, 10);
     const userIdFromPath = parseInt(req.params.userId, 10);
-    if (userIdFromToken === userIdFromPath) {
+    if (userIdFromToken === userIdFromPath || req.user.userInfo.role === 'admin') {
       client.query(`SELECT * FROM parcels WHERE user_id = ${userIdFromPath};`, (err, resp) => {
         if (err) {
           res.status(500).send(err);
