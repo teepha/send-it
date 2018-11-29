@@ -8,7 +8,7 @@ export const createParcel = (req, res) => {
   } else if (req.user.userInfo.role === 'admin') {
     res.status(422).send({ msg: 'Sorry, you can\'t perform this operation!' });
   } else {
-    if (req.user.userInfo.id === userId) {
+    if (req.user.userInfo.id == userId) {
       const text = 'INSERT INTO parcels (user_id, pickup_location, destination, recipient_name, recipient_phone, status, present_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
       const values = [userId, pickupLocation, destination, recipientName, recipientPhone, 'Ready for Pickup', ''];
       client.query(text, values, (err, resp) => {

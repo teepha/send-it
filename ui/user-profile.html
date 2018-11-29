@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
+                    <a href="./index.html" class="sendIT">SendIT</a>
+                </div>
+                <div class="profile2">
+                    <a class="nav_link" href="./index.html">LogOut</a>
+                </div> 
+            </div>              
+        </header>
+        <div class="user_orders"> 
+            <h3 id="pickup_status"></h3><hr>
+            <h3 id="transit_status"></h3><hr>
+            <h3 id="deliver_status"></h3>         
+            <a href="./create-order.html" class="create_link"><b>Create New Order</b></a>
+        <div>
+            <table id="orders">
+                <h3 class="table_title">My Orders</h3>
+                <tr>
+                    <th scope="row">ID Num</th>
+                    <th scope="row">Date</th>
+                    <th scope="row">Pick Up Location</th>
+                    <th scope="row">Destination</th>
+                    <th scope="row">Recipient Name</th>
+                    <th scope="row">Status</th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                </tr>        
+            </table>
+            <h1 id="error-msg"></h1>
+        </div>
+   
+        <div class="bgv_modal">
+            <div class="view_modal">
+            <div class="close">+</div>
+            <h3>View Order</h3><br>
+                <div>
+                    <p><b>ID: </b>1</p><br>
+                    <p><b>User ID: </b>2</p><br>
+                    <p><b>Date: </b>29/10/2018</p><br>
+                    <p><b>Pick Up Location: </b>22 Kelvin Street, Maryland, Lagos</p><br>
+                    <p><b>Destination: </b>21 Adebowale Street, Ijaiye, Lagos</p><br>
+                    <p><b>Recipient Name: </b>Salami</p><br>
+                    <p><b>Phone Number: </b>08012345678</p><br>
+                    <p><b>Status: </b>In-Transit</p><br>
+                    <p><b>Present Location: </b>Ikeja</p><br>  
+                </div>
+            </div>
+        </div>
+    
+        <div class="bgc_modal">
+            <div class="cancel_modal">
+            <div class="c_close">+</div>
+                <div>
+                    <h3>Cancel Order</h3><br>
+                    <form method="get" action="./user-profile.html">
+                        <p>This request will cancel the parcel order. Do you want to proceed?</p><br>
+                        <input type="submit" class="button" value="Proceed">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/shared.js"></script>
+        <script src="js/user-profile.js"></script>
+    </body>
+</html>
