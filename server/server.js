@@ -49,6 +49,7 @@ client.connect().then(() => {
       client.query(`CREATE TABLE IF NOT EXISTS parcels(
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
+            date DATE NOT NULL DEFAULT CURRENT_DATE,
             pickup_location VARCHAR NOT NULL,
             destination VARCHAR NOT NULL,
             recipient_name VARCHAR NOT NULL,
@@ -74,6 +75,12 @@ const app = express();
 
 // Set port number
 const PORT = process.env.PORT || 3030;
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Load static assets
 app.use(express.static(path.resolve(`${__dirname}/../ui`)));

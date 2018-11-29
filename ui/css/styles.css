@@ -166,7 +166,7 @@ width: 145px;
     font-weight: bolder;
 }
 
-.bg_modal{
+.bge_modal{
     height: 170%;
     width: 100%;
     position: absolute;
@@ -176,7 +176,7 @@ width: 145px;
     justify-content: center;
 }
 
-.modal{
+.edit_modal{
     width: 380px;
     height: 260px;
     background-color: white;
@@ -428,4 +428,9 @@ dl {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+
+#error-msg {
+    color: red;
+    font-style: italic;
 }

@@ -18,7 +18,7 @@ router.use(bodyParser.json());// Specifically allow us to read data sent in JSON
 // Set up Endpoint to create a new parcel order
 router.post('/parcels', JwtDocoder, [
   body('userId', 'Value must be a Number').isInt(),
-  body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone'], 'Value must be a String').isString(),
+  body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone'], 'Value must be a String').not().isEmpty().isString(),
 ], createParcel);
 
 // Admin get all parcel orders
