@@ -47,6 +47,27 @@ export const loginUser = (req, res) => {
   }
 };
 
+export const getUser = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).json({ errors: errors.array() });
+  } else {
+      client.query(`SELECT id, 
+        first_name, 
+        last_name, 
+        email, 
+        phone_number, 
+        role 
+        FROM users WHERE id = ${req.user.userInfo.id};`, (err, resp) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(resp.rows[0]);
+        }
+      });
+  }
+}
+
 export const getUserParcels = (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

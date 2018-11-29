@@ -5,6 +5,8 @@ export const createParcel = (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({ errors: errors.array() });
+  } else if (req.user.userInfo.role === 'admin') {
+    res.status(422).send({ msg: 'Sorry, you can\'t perform this operation!' });
   } else {
     if (req.user.userInfo.id === userId) {
       const text = 'INSERT INTO parcels (user_id, pickup_location, destination, recipient_name, recipient_phone, status, present_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
