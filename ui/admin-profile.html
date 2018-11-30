@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Admin Profile Page</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="navigation">
+                <div class="profile1">
+                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
+                    <a href="./index.html" class="sendIT">SendIT</a>
+                </div>
+                <div class="profile2">
+                    <a class="nav_link" href="./index.html">LogOut</a>
+                </div> 
+            </div>              
+        </header>
+        <div class="all_orders"> 
+                <h3 id="pickup_status"></h3><hr>
+                <h3 id="transit_status"></h3><hr>
+                <h3 id="deliver_status"></h3>         
+        </div>
+        <div>
+            <table id="orders2">
+                <h3 id="table_title">All Orders</h3>
+                <tr>
+                    <th scope="row">ID</th>
+                    <th scope="row">User ID</th>
+                    <th scope="row">Date</th>
+                    <th scope="row">Destination</th>
+                    <th scope="row">Recipient Name</th>
+                    <th scope="row">Phone Number</th>
+                    <th scope="row">Status</th>
+                    <th scope="row">Present Location</th>
+                    <th scope="row"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="bge_modal">
+            <div class="edit_modal">
+            <div class="close">+</div>
+                <h3>Change Current Location</h3> <br>
+                <form method="get" action="./admin-profile.html">
+                    <ul>
+                        <li>
+                            <input name="location" type="text" value="Present Location" disabled>
+                            <input name="new_location" type="text" placeholder="New Location ">
+                            <input type="submit" class="button" value="Continue">
+                        </li>
+                    </ul>
+                </form> 
+                
+            </div>
+        </div>
+        <script src="js/shared.js"></script>
+        <script src="js/admin-profile.js"></script>   
+    </body>
+</html>
