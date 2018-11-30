@@ -16,7 +16,6 @@ const createOrder = (event) => {
         }
     }).then(res => res.json())
         .then(res => {
-            console.log('ress', res);
             if (res.id){
                 window.location.href = "./user-profile.html";
             } else {

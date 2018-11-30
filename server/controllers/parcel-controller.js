@@ -84,7 +84,12 @@ export const updateParcelDestination = (req, res) => {
           } else if (parcel.status == 'Cancelled') {
             res.send({ msg: 'Sorry, can not Change Destination. Parcel already Cancelled' });
           } else {
-            client.query(`UPDATE parcels SET destination = '${req.body.destination}' WHERE id= ${parcelId} RETURNING *;`, (err, resp) => {
+            client.query(`UPDATE parcels 
+              SET pickup_location = '${req.body.pickupLocation}',
+              destination = '${req.body.destination}',
+              recipient_name = '${req.body.recipientName}',
+              recipient_phone = '${req.body.recipientPhone}'
+              WHERE id= ${parcelId} RETURNING *;`, (err, resp) => {
               if (err) {
                 res.send(err);
               } else {
