@@ -8,7 +8,6 @@ fetch(`/api/v1/parcels/${id}`, {
 })
     .then(res => res.json())
     .then(data => {
-        console.log('data', data.pickup_location, data.recipient_name, data.recipient_phone);
         document.querySelector('#pickup_location').value = data.pickup_location;
         document.querySelector('#new_destination').value = data.destination;
         document.querySelector('#recipient_name').value = data.recipient_name;
