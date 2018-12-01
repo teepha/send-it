@@ -19,7 +19,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                                 <td>${parcel.destination}</td>
                                 <td>${parcel.recipient_name}</td>
                                 <td>${parcel.status}</td>
-                                <td class="view"><i class="far fa-eye"></i></td>
+                                <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
                                 <td><a href="./edit-order.html"><i id=${parcel.id} class="far fa-edit"></i></a></td>
                                 <td class="cancel"><i id=${parcel.id} class="fas fa-times"></i></td> `;
                 ordersTable.append(parcelRow);
@@ -51,8 +51,27 @@ fetch(`/api/v1/users/${userId}/parcels`, {
 
             // Modal for viewing a specific order by user
             document.querySelectorAll('.fa-eye').forEach(item => {
-                item.addEventListener('click', () => {
+                item.addEventListener('click', (event) => {
                     document.querySelector('.bgv_modal').style.display = 'flex';
+                    event.preventDefault();
+                    const id = event.target.id;
+                    fetch(`/api/v1/parcels/${id}`,{
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': localStorage.getItem('token')
+                        }
+                    }).then(res => res.json())
+                        .then(res => {
+                            document.querySelector('#id').innerHTML = 'ID: ' + res.id;
+                            document.querySelector('#user-id').innerHTML ='User ID: ' + res.user_id;
+                            document.querySelector('#date').innerHTML ='Date: ' + res.date.slice(0, 10);
+                            document.querySelector('#pickup-location').innerHTML ='Pick Up Location: ' + res.pickup_location;
+                            document.querySelector('#destination').innerHTML ='Destination: ' + res.destination;
+                            document.querySelector('#recipient-name').innerHTML ='Recipient Name: ' + res.recipient_name;
+                            document.querySelector('#recipient-phone').innerHTML ='Recipient Phone Number: ' + res.recipient_phone;
+                            document.querySelector('#status').innerHTML ='Status: ' + res.status;
+                            document.querySelector('#present-location').innerHTML ='Present Location: ' + res.present_location;
+                        })
                 });
             });
             document.querySelector('.close').addEventListener('click', () => {
