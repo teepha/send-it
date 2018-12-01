@@ -363,7 +363,7 @@ input[type=text], input[type=password], input[type=email], select {
     background-color: rgba(24, 20, 235, 0.884);
 }
 
-.close{
+.e_close, .c_close, .close{
     position: absolute;
     top: 0;
     right: 14px;
@@ -372,20 +372,7 @@ input[type=text], input[type=password], input[type=email], select {
     cursor: pointer;
 }
 
-.close:hover{
-    color: red;
-}
-
-.c_close{
-    position: absolute;
-    top: 0;
-    right: 14px;
-    font-size: 42px;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-
-.c_close:hover{
+.e_close:hover, .c_close:hover, .close:hover{
     color: red;
 }
 

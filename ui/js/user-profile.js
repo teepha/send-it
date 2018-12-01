@@ -71,7 +71,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                             document.querySelector('#recipient-phone').innerHTML ='Recipient Phone Number: ' + res.recipient_phone;
                             document.querySelector('#status').innerHTML ='Status: ' + res.status;
                             document.querySelector('#present-location').innerHTML ='Present Location: ' + res.present_location;
-                        })
+                        }).catch(err => console.log('err occured', err));
                 });
             });
             document.querySelector('.close').addEventListener('click', () => {
@@ -108,8 +108,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
             });
 
         }
-    })
-    .catch(err => console.log('err occured', err));
+    }).catch(err => console.log('err occured', err));
 
 
 
