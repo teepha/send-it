@@ -38,23 +38,39 @@
                     <th scope="row">Status</th>
                     <th scope="row">Present Location</th>
                     <th scope="row"></th>
+                    <th scope="row"></th>
                 </tr>
             </table>
         </div>
+
+        <div class="bgv_modal">
+            <div class="view_modal">
+            <div class="close">+</div>
+            <h3>View Order</h3><br>
+                <div>
+                    <p id="id"></p><br>
+                    <p id="user-id"></p><br>
+                    <p id="date"></p><br>
+                    <p id="pickup-location"></p><br>
+                    <p id="destination"></p><br>
+                    <p id="recipient-name"></p><br>
+                    <p id="recipient-phone"></p><br>
+                    <p id="status"></p><br>
+                    <p id="present-location"></p><br>  
+                </div>
+            </div>
+        </div>    
+
         <div class="bge_modal">
             <div class="edit_modal">
-            <div class="close">+</div>
+            <div class="e_close">+</div>
                 <h3>Change Current Location</h3> <br>
-                <form method="get" action="./admin-profile.html">
-                    <ul>
-                        <li>
-                            <input name="location" type="text" value="Present Location" disabled>
-                            <input name="new_location" type="text" placeholder="New Location ">
-                            <input type="submit" class="button" value="Continue">
-                        </li>
-                    </ul>
+                <form method="put" id="edit-order-location">
+                    <input name="location" id="present_location" type="text">
+                    <input name="new_location" id="new_location" type="text" placeholder="New Location">
+                    <button class="button" id="new_location_button" type="submit">Continue</button>
+                    <h4 id="error-msg"></h4>
                 </form> 
-                
             </div>
         </div>
         <script src="js/shared.js"></script>

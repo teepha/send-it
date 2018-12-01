@@ -29,7 +29,7 @@ router.get('/parcels', JwtDocoder, getAllParcels);
 // Set up Endpoint to get a specific parcel order
 router.get('/parcels/:id', JwtDocoder, param('id', 'Id must be a Number').isInt(), getParcel);
 
-// Set up Endpoint to update the destination of a parcel order
+// Set up Endpoint to update the details of a parcel order
 router.put('/parcels/:id',
   JwtDocoder,
   param('id', 'Id must be a Number').isInt(),
@@ -45,7 +45,9 @@ router.put('/parcels/:id/cancel', JwtDocoder, param('id', 'Id must be a Number')
 router.put('/parcels/:id/presentLocation',
   JwtDocoder,
   param('id', 'Id must be a Number').isInt(),
-  body('presentLocation', 'presentLocation must be a String').isString(),
+  body('presentLocation', 'presentLocation must be a String')
+  .not().isEmpty().withMessage('Field must not be empty!')
+  .isString().withMessage('Value must be a string!'),
   updateParcelLocation);
 
 // Admin change status of parcel
