@@ -16,11 +16,18 @@ const createOrder = (event) => {
         }
     }).then(res => res.json())
         .then(res => {
+            const errorDiv = document.querySelector('#error-msg');
             if (res.id){
                 window.location.href = "./user-profile.html";
+            } else if (res.msg){
+                errorDiv.innerHTML = res.msg;
             } else {
-                document.querySelector('#error-msg').innerHTML = 'Sorry, incomplete details!';
-            }   
+                res.errors.forEach(err => {
+                    const errorElement = document.createElement('div');
+                    errorElement.innerHTML = `${err.param} ${err.msg}`;
+                    errorDiv.appendChild(errorElement);
+                });
+            }
         }).catch(err => console.log('err occured', err));
 }
 

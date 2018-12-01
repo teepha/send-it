@@ -64,7 +64,7 @@ export const getParcel = (req, res) => {
   }
 };
 
-export const updateParcelDestination = (req, res) => {
+export const updateParcelDetails = (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({ errors: errors.array() });

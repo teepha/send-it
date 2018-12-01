@@ -17,7 +17,7 @@ fetch(`/api/v1/parcels/${id}`, {
 
 const editOrder = (event) => {
     event.preventDefault();
-    fetch(`/api/v1/parcels/${id}/destination`, {
+    fetch(`/api/v1/parcels/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             pickupLocation: document.getElementById('pickup_location').value,
@@ -31,10 +31,17 @@ const editOrder = (event) => {
         }
     }).then(res => res.json())
         .then(res => {
+            const errorDiv = document.querySelector('#error-msg');
             if (res.id) {
                 window.location.href = "./user-profile.html";
+            } else if (res.msg) {
+                errorDiv.innerHTML = res.msg;
             } else {
-                document.querySelector('#error-msg').innerHTML = 'Sorry, incomplete details!';
+                res.errors.forEach(err => {
+                    const errorElement = document.createElement('div');
+                    errorElement.innerHTML = `${err.param} ${err.msg}`;
+                    errorDiv.appendChild(errorElement);
+                });
             }
         }).catch(err => console.log('err occured', err));
 }

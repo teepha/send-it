@@ -5,7 +5,7 @@ import { JwtDocoder } from '../middlewares/middleware';
 import {
   getAllParcels,
   getParcel,
-  updateParcelDestination,
+  updateParcelDetails,
   cancelParcel,
   createParcel,
   updateParcelStatus,
@@ -18,7 +18,9 @@ router.use(bodyParser.json());// Specifically allow us to read data sent in JSON
 // Set up Endpoint to create a new parcel order
 router.post('/parcels', JwtDocoder, [
   body('userId', 'Value must be a Number').isInt(),
-  body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone'], 'Value must be a String').not().isEmpty().isString(),
+  body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
+  .not().isEmpty().withMessage('Field must not be empty!')
+  .isString().withMessage('Value must be a string!'),
 ], createParcel);
 
 // Admin get all parcel orders
@@ -28,11 +30,13 @@ router.get('/parcels', JwtDocoder, getAllParcels);
 router.get('/parcels/:id', JwtDocoder, param('id', 'Id must be a Number').isInt(), getParcel);
 
 // Set up Endpoint to update the destination of a parcel order
-router.put('/parcels/:id/destination',
+router.put('/parcels/:id',
   JwtDocoder,
   param('id', 'Id must be a Number').isInt(),
-  body('destination', 'Destination must be a String').isString(),
-  updateParcelDestination);
+  body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
+  .not().isEmpty().withMessage('Field must not be empty!')
+  .isString().withMessage('Value must be a string!'),
+  updateParcelDetails);
 
 // Set up Endpoint to cancel a specific parcel order
 router.put('/parcels/:id/cancel', JwtDocoder, param('id', 'Id must be a Number').isInt(), cancelParcel);
@@ -43,13 +47,13 @@ router.put('/parcels/:id/presentLocation',
   param('id', 'Id must be a Number').isInt(),
   body('presentLocation', 'presentLocation must be a String').isString(),
   updateParcelLocation);
-  
+
 // Admin change status of parcel
 router.put('/parcels/:id/status',
-JwtDocoder,
-param('id', 'Id must be a Number').isInt(),
-body('status', 'Status must be a String').isString(),
-updateParcelStatus);
+  JwtDocoder,
+  param('id', 'Id must be a Number').isInt(),
+  body('status', 'Status must be a String').isString(),
+  updateParcelStatus);
 
 // Export router to index.js
 export default router;
