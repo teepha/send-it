@@ -5,7 +5,7 @@ fetch('/api/v1/parcels', {
 })
     .then(res => res.json())
     .then(data => {
-        data.sort((a,b)=> a.id-b.id);
+        data.sort((a, b) => a.id - b.id);
         const ordersTable = document.querySelector('#orders2');
         data.forEach(parcel => {
             let parcelRow = document.createElement('tr');
@@ -16,10 +16,11 @@ fetch('/api/v1/parcels', {
                                 <td>${parcel.recipient_name}</td>
                                 <td>${parcel.recipient_phone}</td>
                                 <td>
-                                    <select name="status" class="status">
-                                        <option value="ready_for_pickup">Ready For Pickup</option>
-                                        <option value="in_transit">In-Transit</option>
-                                        <option value="delivered">Delivered</option>
+                                    <select ${parcel.status === 'cancelled' && 'disabled'} id=${parcel.id} name="status" class="status">
+                                        <option disabled ${parcel.status === 'cancelled' && 'selected'} value="cancelled">Cancelled</option>
+                                        <option ${parcel.status === 'ready_for_pickup' && 'selected'} value="ready_for_pickup">Ready For Pickup</option>
+                                        <option ${parcel.status === 'in_transit' && 'selected'} value="in_transit">In-Transit</option>
+                                        <option ${parcel.status === 'delivered' && 'selected'} value="delivered">Delivered</option>
                                     </select>
                                 </td>
                                 <td>${parcel.present_location}</td>
@@ -27,6 +28,51 @@ fetch('/api/v1/parcels', {
                                 <td class="edit"><i id=${parcel.id} class="far fa-edit"></i></td>`;
             ordersTable.append(parcelRow);
         });
+
+        // Status option
+        document.querySelectorAll('.status').forEach(item => {
+            item.addEventListener('change', (event) => {
+                //make api call
+                const id = event.target.id;
+                const value = event.target.value;
+                fetch(`/api/v1/parcels/${id}/status`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        status: value,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': localStorage.getItem('token')
+                    }
+                }).then(res => res.json())
+                    .then(res => {
+                        window.location.href = "./admin-profile.html";
+                    }).catch(err => console.log('err occured', err));
+            })
+        })
+
+
+        //View number of user orders
+        const status1 = data.filter(val => {
+            return val.status === "ready_for_pickup";
+        }).length;
+        document.querySelector('#pickup_status').innerHTML = 'Ready for PickUp: ' + status1;
+        
+        const status2 = data.filter(val => {
+            return val.status === "in_transit";
+        }).length;
+        document.querySelector('#transit_status').innerHTML = 'In-Transit: ' + status2;
+        
+        const status3 = data.filter(val => {
+            return val.status === "delivered";
+        }).length;
+        document.querySelector('#deliver_status').innerHTML = 'Delivered:  ' + status3;
+
+        const status4 = data.filter(val => {
+            return val.status === "cancelled";
+        }).length;
+        document.querySelector('#cancel_status').innerHTML = 'Cancelled:  ' + status4;
+
 
         // Modal for viewing a specific order by user
         document.querySelectorAll('.fa-eye').forEach(item => {
@@ -88,7 +134,7 @@ fetch('/api/v1/parcels', {
                     const errorDiv = document.querySelector('#error-msg');
                     if (res.id) {
                         window.location.href = "./admin-profile.html";
-                    } else if (res.msg){
+                    } else if (res.msg) {
                         errorDiv.innerHTML = res.msg;
                     } else {
                         res.errors.forEach(err => {

@@ -10,7 +10,7 @@ export const createParcel = (req, res) => {
   } else {
     if (req.user.userInfo.id == userId) {
       const text = 'INSERT INTO parcels (user_id, pickup_location, destination, recipient_name, recipient_phone, status, present_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-      const values = [userId, pickupLocation, destination, recipientName, recipientPhone, 'Ready for Pickup', ''];
+      const values = [userId, pickupLocation, destination, recipientName, recipientPhone, 'ready_for_pickup', ''];
       client.query(text, values, (err, resp) => {
         if (err) {
           res.status(500).send(err);
@@ -79,10 +79,10 @@ export const updateParcelDetails = (req, res) => {
       } else {
         const userIdFromToken = parseInt(req.user.userInfo.id, 10);
         if (userIdFromToken === parcel.user_id) {
-          if (parcel.status == 'Delivered') {
-            res.send({ msg: 'Sorry, can not Change Destination. Parcel already Delivered' });
-          } else if (parcel.status == 'Cancelled') {
-            res.send({ msg: 'Sorry, can not Change Destination. Parcel already Cancelled' });
+          if (parcel.status == 'delivered') {
+            res.send({ msg: 'Sorry, can not update parcel details. Parcel already Delivered' });
+          } else if (parcel.status == 'cancelled') {
+            res.send({ msg: 'Sorry, can not update parcel details. Parcel already Cancelled' });
           } else {
             client.query(`UPDATE parcels 
               SET pickup_location = '${req.body.pickupLocation}',
@@ -122,12 +122,12 @@ export const cancelParcel = (req, res) => {
       } else {
         const userIdFromToken = parseInt(req.user.userInfo.id, 10);
         if (userIdFromToken === parcel.user_id) {
-          if (parcel.status == 'Delivered') {
+          if (parcel.status == 'delivered') {
             res.send({ msg: 'Sorry, can not cancel Order. Parcel already Delivered' });
-          } else if (parcel.status == 'Cancelled') {
+          } else if (parcel.status == 'cancelled') {
             res.send({ msg: 'Sorry, can not cancel Order. Parcel already Cancelled' });
           } else {
-            client.query(`UPDATE parcels SET status = 'Cancelled' WHERE id = ${parcelId} RETURNING *;`, (err, resp) => {
+            client.query(`UPDATE parcels SET status = 'cancelled' WHERE id = ${parcelId} RETURNING *;`, (err, resp) => {
               if (err) {
                 res.send(err);
               } else {
@@ -158,9 +158,9 @@ export const updateParcelLocation = (req, res) => {
       } else if (!parcel) {
         res.send({ msg: 'This Parcel Delivery Order Does Not Exist' });
       } else {
-        if (parcel.status == 'Delivered') {
+        if (parcel.status == 'delivered') {
           res.send({ msg: 'Sorry, can\'t change presentLocation for this Order. Parcel already Delivered' });
-        } else if (parcel.status == 'Cancelled') {
+        } else if (parcel.status == 'cancelled') {
           res.send({ msg: 'Sorry, can\'t change presentLocation for this Order. Parcel already Cancelled' });
         } else {
           client.query(`UPDATE parcels SET present_location = '${req.body.presentLocation}' WHERE id = ${parcelId} RETURNING *;`, (err, resp) => {
@@ -191,9 +191,9 @@ export const updateParcelStatus = (req, res) => {
       } else if (!parcel) {
         res.send({ msg: 'This Parcel Delivery Order Does Not Exist' });
       } else {
-        if (parcel.status == 'Delivered') {
+        if (parcel.status == 'delivered') {
           res.send({ msg: 'Sorry, can\'t change status for this Order. Parcel already Delivered' });
-        } else if (parcel.status == 'Cancelled') {
+        } else if (parcel.status == 'cancelled') {
           res.send({ msg: 'Sorry, can\'t change status for this Order. Parcel already Cancelled' });         
         } else {
           client.query(`UPDATE parcels SET status = '${req.body.status}' WHERE id = ${parcelId} RETURNING *;`, (err, resp) => {

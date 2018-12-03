@@ -328,7 +328,7 @@ input[type=text], input[type=password], input[type=email], select {
     margin-top: 20px;
     margin-left: 40px;
     width: 345px;
-    height: 125px;
+    height: 140px;
     font-family: georgia;
     font-size: 1.5rem;
     padding: 1.5px;
@@ -339,7 +339,7 @@ input[type=text], input[type=password], input[type=email], select {
     margin-top: 20px;
     margin-left: 40px;
     width: 300px;
-    height: 95px;
+    height: 140px;
     font-family: georgia;
     font-size: 1.5rem;
     padding: 2px;
