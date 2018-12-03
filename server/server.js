@@ -40,13 +40,13 @@ client.connect().then(() => {
     password VARCHAR NOT NULL,
     role VARCHAR DEFAULT 'member'
   );`,
-  (err) => {
-    if (err) {
-      logger.info('error occured while creating users table', err);
-    } else {
-      logger.info('users table created');
+    (err) => {
+      if (err) {
+        logger.info('error occured while creating users table', err);
+      } else {
+        logger.info('users table created');
 
-      client.query(`CREATE TABLE IF NOT EXISTS parcels(
+        client.query(`CREATE TABLE IF NOT EXISTS parcels(
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
             date DATE NOT NULL DEFAULT CURRENT_DATE,
@@ -57,15 +57,15 @@ client.connect().then(() => {
             status VARCHAR NOT NULL,
             present_location VARCHAR NOT NULL
           );`,
-      (error) => {
-        if (error) {
-          logger.info('error occured while creating parcels table', error);
-        } else {
-          logger.info('parcels table created');
-        }
-      });
-    }
-  });
+          (error) => {
+            if (error) {
+              logger.info('error occured while creating parcels table', error);
+            } else {
+              logger.info('parcels table created');
+            }
+          });
+      }
+    });
 }).catch((err) => {
   logger.info(`err connecting to DB: ${err}`);
 });
@@ -76,7 +76,7 @@ const app = express();
 // Set port number
 const PORT = process.env.PORT || 3030;
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();

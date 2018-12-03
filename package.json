@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run compile && cross-env NODE_ENV=production node ./dist/server/server.js",
-    "start:dev": "cross-env NODE_ENV=development nodemon server/server.js --exec babel-node",
+    "start:dev": "cross-env NODE_ENV=development nodemon --ignore ui/ server/server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
     "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp -r ./ui ./dist",
     "test": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json jasmine",    
