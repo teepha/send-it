@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LogIn Page</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LogIn Page</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
         crossorigin="anonymous">
 </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <div id="logo">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="logo"><a href="./index.html" class="sendIT">SendIT</a></h1>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Form Content -->
 
-<body>
-    <header>
-        <div class="navigation">
-            <div class="profile1">
-                <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
-                <a href="./index.html" class="sendIT">SendIT</a>
+        <div class="main-page">
+
+            <div class="login-wrapper">
+                <div class="login-page">
+
+                    <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
+                    <h1>LogIn</h1>
+
+                    <form method="post" id="login-form">
+                        <label>Email address </label>
+                        <input name="email_address" id="email" type="email">
+                        <br>
+                        <label>Password </label>
+                        <input name="password" id="password" type="password">
+                        <br>
+                        <button class="button" type="submit">Log In</button>
+                        <h4 id="error-msg"></h4>
+                    </form>
+                    <div class="signup-login-btn">
+                        <span>Don't have an account?</span>
+                        <a href="./sign-up.html">SignUp</a>
+                    </div>
+                
+                </div>
             </div>
         </div>
-    </header>
-    <div class="container1">
-        <div class="form1">
-            <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
-            <h1>LogIn</h1>
-            <hr>
-            <form method="post" id="login-form">
-                <label>Email address </label>
-                <input name="email_address" id="email" type="email">
-                <br>
-                <label>Password </label>
-                <input name="password" id="password" type="password">
-                <br>
-                <button class="button" type="submit">Log In</button>
-                <h4 id="error-msg"></h4>
-            </form>
-            <h4>Don't have an account?<a class="nav_link" href="./sign-up.html">SignUp</a></h4>
-        </div>
-    </div>
+         <!-- Footer content -->
+
+        <footer>
+            <div class="wrapper">
+                <ul>
+                    <li><h4>About Us</h4></li>
+                    <li>SendIT is a courier service.</li>
+                    <li>Where users can send parcels to different destinations.</li>
+                </ul>
+                <ul>
+                    <li><h4>Get In Touch</h4></li>
+                    <li>Lagos Address</li>
+                    <li>445 Ikorodu Road</li>
+                    <li>Illupeju, Lagos</li>
+                    <li>0814.4523.455</li>
+                </ul>
+                <ul>
+                    <li><h4>Working Hours</h4></li>
+                    <li>Weekdays: 7am to 9pm</li>
+                    <li>Weekends: 9am to 7pm</li>
+                    <li>Public Holidays: 10am to 7pm</li>
+                    <li>Festive Period: 9am to 6pm</li>
+                </ul>
+                <ul>
+                    <li><h4>More Info</h4></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#"> Help Center</a></li>
+                    <li><a href="#">Terms&Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div id="copyright"><img src="images/logo0.png" alt="logo"> Copyright &copy; 2018 SendIT. All rights reserved.</div>
+            </div>
+        </footer>
+
+    </body>
     <script src="js/login.js"></script>
-</body>
 </html>
