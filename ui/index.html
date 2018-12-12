@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>SendIT Homepage</title>
+    </head>
+    <body>
+        
+        <header>
+            <div class="wrapper">
+                <div id="logo">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="logo"><a href="./index.html" class="sendIT">SendIT</a></h1>
+                </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SendIT</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-        crossorigin="anonymous">
-</head>
+                <nav >
+                    <ul class="navigation">
+                        <li><a class="mj" href="login.html">Login</a></li>
+                        <li><a class="mj" href="sign-up.html">SignUp</a></li>
+                        <li><a class="mj" href="admin-login.html">Admin</a></li>
+                    </ul>
+                </nav>
 
-<body>
-
-    <nav>
-        <div class="navigation">
-            <div class="profile1">
-                <a class="logo" href="index.html"><img src="images/logo0.png"></a>
-                <a href="./index.html" class="sendIT">SendIT</a>
+                <div class="navbar__header">
+                    <div class="navbar__btn">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                    </div>
+                </div>
             </div>
-            <div class="nav_link2">
-                <a class="nav_link" href="login.html">Login</a>
-                <a class="nav_link" href="sign-up.html">SignUp</a>
-                <a class="nav_link" href="admin-login.html">Admin</a>
-            </div>
-        </div>
-    </nav>
-    <header>
-        <div class="bg-img">
+        </header>
+
+        <!-- Homepage content -->
+
+        <div id="main-image">
             <h2>SendIT, Bringing your Parcels to your doorstep...</h2>
-        </div>
-    </header>
-    <div class="footer">
-        <div class="footer-working-hours">
-            <h3>WORKING HOURS</h3>
-            <ul>
-                <li>Monday: 7am to 9pm</li>
-                <li>Tuesday: 7am to 9pm</li>
-                <li>Wednesday: 7am to 9pm</li>
-                <li>Thursday: 7am to 9pm</li>
-                <li>Friday: 7am to 9pm</li>
-                <li>Saturday: 7am to 9pm</li>
-                <li>Sunday: 7am to 9pm</li>
-            </ul>
+            <img src="images/bcg-1.jpg" alt="Welcome to SendIT!">
         </div>
 
-        <div class="copyright">
-            <h4>© 2018 SendIT. All rights reserved.</h4>
-        </div>
+        <!-- Footer content -->
 
-        <div class="footer-menu">
-            <dl>
-                <dd><a href="#">About Us</a></dd>
-                <dd><a href="#">Contact Us</a></dd>
-                <dd><a href="#">Management</a></dd>
-                <dd><a href="#">Terms&Conditions</a></dd>
-                <dd><a href="#">Privacy Policy</a></dd>  
-            </dl>
-        </div>
+        <footer>
+            <div class="wrapper">
+                <ul>
+                    <li><h4>About Us</h4></li>
+                    <li>SendIT is a courier service.</li>
+                    <li>Where users can send parcels to different destinations.</li>
+                </ul>
+                <ul>
+                    <li><h4>Get In Touch</h4></li>
+                    <li>Lagos Address</li>
+                    <li>445 Ikorodu Road</li>
+                    <li>Illupeju, Lagos</li>
+                    <li>0814.4523.455</li>
+                </ul>
+                <ul>
+                    <li><h4>Working Hours</h4></li>
+                    <li>Weekdays: 7am to 9pm</li>
+                    <li>Weekends: 9am to 7pm</li>
+                    <li>Public Holidays: 10am to 7pm</li>
+                    <li>Festive Period: 9am to 6pm</li>
+                </ul>
+                <ul>
+                    <li><h4>More Info</h4></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#"> Help Center</a></li>
+                    <li><a href="#">Terms&Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div id="copyright"><img src="images/logo0.png" alt="logo"> Copyright &copy; 2018 SendIT. All rights reserved.</div>
+            </div>
+        </footer>
 
-        <div class="clearfix" ></div>
-    </div>
-</body>
-
+    </body>
+    <script src="./js/shared.js"></script>
 </html>
