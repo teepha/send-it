@@ -321,13 +321,13 @@ div.main-page{
 div.login-wrapper{
     margin: 0 auto;
     position: relative;
-    padding: 2% 2% 4%;
+    padding: 4% 0;
     align-self: center
 }
 
 div.login-page{
     margin: 0 auto;
-    width: 350px;
+    width: 370px;
     padding: 6px 20px 30px;
     background: white
 }
@@ -371,6 +371,10 @@ form .button{
     width: 100%;
 }
 
+form .button:hover{
+    background: rgb(43, 10, 210);
+}
+
 .signup-login-btn a{
     background: white;
     color: blue;
@@ -405,7 +409,7 @@ form .button{
     }
 
     div.login-page {
-        width: 320px;
+        width: 335px;
         padding: 4px 20px 20px;
     }
 
@@ -447,7 +451,7 @@ form .button{
     }
 
     div.login-page {
-        width: 260px;
+        width: 100%;
         padding: 8px 20px 20px;
     }
 
@@ -483,7 +487,116 @@ form .button{
 }
 
 
-/*  */
 
+/* SIGNUP PAGE */
+
+div.main-signup-page{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+div.sign-up-wrapper{
+    margin: 0 auto;
+    position: relative;
+    padding: 4% 0;
+    align-self: center
+}
+
+div.sign-up-page{
+    margin: 0 auto;
+    width: 500px;
+    padding: 6px 20px 25px;
+    background: white
+}
+
+div.sign-up-page h1{
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+div.sign-up-page label {
+    font-size: 17px;
+    display: inline-block;
+    width: 120px;
+}
+
+div.sign-up-page input{
+    width: 70%;
+    margin: 7px auto;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 786px){
+
+    div.main-signup-page{
+        height: 100%
+    }
+
+    div.sign-up-page{
+        width: 430px;
+        padding: 4px 20px 20px;
+    }
+
+    div.sign-up-page h1{
+        font-size: 25px;
+    }
+
+    div.sign-up-page label{
+        font-size: 14.5px;
+        width: 100px;
+    }
+
+    div.sign-up-page input {
+        padding: 5px;
+        margin: 5px 4px 7px;
+    }
+
+}
+
+@media screen and (max-width:  470px){
+
+    div.main-signup-page{
+        height: 100%;
+    }
+
+    div.sign-up-page{
+        width: 100%;
+    }
+
+    div.sign-up-page h1{
+        font-size: 20px;
+    }
+
+    div.sign-up-page label{
+        font-size: 12.5px;
+        width: 85px;
+    }
+
+    div.sign-up-page input {
+        width: 65%;
+        padding: 3.5px;
+        margin: 4px 3px 6px;
+    }
+
+    form .button {
+        font-size: 15.5px;
+        padding: 9px 17px;
+    }
+
+    .signup-login-btn span {
+        padding: 0 0 7px;
+        font-size: 12.5px;
+    }
+
+    .signup-login-btn a {
+        padding: 8px 19px;
+        font-size: 15.5px;
+    }
+
+}
 
 

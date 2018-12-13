@@ -6,46 +6,90 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>SignUp Page</title>
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
     </head>
     <body>
         <header>
-            <div class="navigation">
-                <div class="profile1">
-                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
-                    <a href="./index.html" class="sendIT">SendIT</a>
-                </div>  
-            </div>              
-        </header>      
-        <div class="container2">
-            <div class="form2">
-                <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
-                <h1>SignUp</h1><hr><br>
-                <form method="post" id="sign-up-form">
-                    <label>First Name </label>
-                    <input name="first_name" id="first_name" type="text">
-                    <br>
-                    <label>Last Name </label>
-                    <input name="last_name" id="last_name" type="text">
-                    <br>
-                    <label>Phone Number </label>
-                    <input name="phone_number" id="phone_number" type="text">
-                    <br>
-                    <label>Email address </label>
-                    <input name="email_address" id="email" type="email">
-                    <br>
-                    <label>Password </label>
-                    <input name="password" id="password" type="password">
-                    <br>
-                    <label>Confirm Password </label>
-                    <input name="password" id="confirm_password" type="password">
-                    <br>
-                    <button class="button" type="submit">Sign Up</button>
-                    <h4 id="error-msg"></h4>
-                </form>
-                <h4>Already have an account?<a class="nav_link" href="./login.html">LogIn</a></h4>
-            </div>    
+            <div class="wrapper">
+                <div id="logo">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="logo"><a href="./index.html" class="sendIT">SendIT</a></h1>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Form Content -->
+
+        <div class="main-signup-page">
+
+            <div class="sign-up-wrapper">
+                <div class="sign-up-page">
+
+                    <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
+                    <h1>SignUp</h1>
+
+                    <form method="post" id="sign-up-form">
+                            <label>First Name </label>
+                            <input name="first_name" id="first_name" type="text">
+                            <br>
+                            <label>Last Name </label>
+                            <input name="last_name" id="last_name" type="text">
+                            <br>
+                            <label>Phone Number </label>
+                            <input name="phone_number" id="phone_number" type="text">
+                            <br>
+                            <label>Email address </label>
+                            <input name="email_address" id="email" type="email">
+                            <br>
+                            <label>Password </label>
+                            <input name="password" id="password" type="password">
+                            <br>
+                            <button class="button" type="submit">Sign Up</button>
+                            <h4 id="error-msg"></h4>
+                        </form>
+                    <div class="signup-login-btn">
+                        <span>Already have an account?</span>
+                        <a href="./login.html">LogIn</a>
+                    </div>
+                
+                </div>
+            </div>
         </div>
-        <script src="js/sign-up.js"></script>
+         <!-- Footer content -->
+
+        <footer>
+            <div class="wrapper">
+                <ul>
+                    <li><h4>About Us</h4></li>
+                    <li>SendIT is a courier service.</li>
+                    <li>Where users can send parcels to different destinations.</li>
+                </ul>
+                <ul>
+                    <li><h4>Get In Touch</h4></li>
+                    <li>Lagos Address</li>
+                    <li>445 Ikorodu Road</li>
+                    <li>Illupeju, Lagos</li>
+                    <li>0814.4523.455</li>
+                </ul>
+                <ul>
+                    <li><h4>Working Hours</h4></li>
+                    <li>Weekdays: 7am to 9pm</li>
+                    <li>Weekends: 9am to 7pm</li>
+                    <li>Public Holidays: 10am to 7pm</li>
+                    <li>Festive Period: 9am to 6pm</li>
+                </ul>
+                <ul>
+                    <li><h4>More Info</h4></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#"> Help Center</a></li>
+                    <li><a href="#">Terms&Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div id="copyright"><img src="images/logo0.png" alt="logo"> Copyright &copy; 2018 SendIT. All rights reserved.</div>
+            </div>
+        </footer>
+
     </body>
+    <script src="js/sign-up.js"></script>
 </html>
