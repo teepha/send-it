@@ -1,5 +1,9 @@
 /* HOMEPAGE */
 
+*{
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
@@ -16,7 +20,7 @@ body{
 
 header{
     background: whitesmoke;
-    padding: 20px 40px;
+    padding: 12px 30px;
     border-bottom: 3px solid rgb(47, 28, 158);
 }
 
@@ -36,20 +40,25 @@ h1.logo a{
     font-size: 32px;
 }
 
-header nav {
+header nav{
     float: right;
 }
 
 header nav li{
     float: left;
     list-style-type: none;
-    margin: 10px 20px;
+    margin: 8px 20px;
 }
 
 header nav li a{
     text-decoration: none;
     color: rgb(47, 28, 158);
     font-size: 20px;
+}
+
+header nav li a:hover{
+    color: purple;
+    padding: 3px;
 }
 
 #main-image{
@@ -68,8 +77,8 @@ header nav li a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-family: cursive;
+    color: rgb(30, 8, 152);
+    font-family: Trebuchet MS, Arial, "Helvetica", sans-serif;
 }
 
 footer{
@@ -300,7 +309,8 @@ footer a{
 } 
 
 
-/* LOGIN PAGE */
+
+/* LOGIN and ADMIN LOGIN PAGES */
 
 div.main-page{
     display: flex;
@@ -311,7 +321,8 @@ div.main-page{
 div.login-wrapper{
     margin: 0 auto;
     position: relative;
-    padding: 3% 2%;
+    padding: 2% 2% 4%;
+    align-self: center
 }
 
 div.login-page{
@@ -372,6 +383,10 @@ form .button{
     display: block;
     text-decoration: none;
     text-align: center;
+}
+
+.signup-login-btn a:hover{
+    background: whitesmoke;
 }
 
 .signup-login-btn span{
@@ -466,3 +481,9 @@ form .button{
     }
 
 }
+
+
+/*  */
+
+
+
