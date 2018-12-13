@@ -210,7 +210,6 @@ footer a{
         font-size: 13px;
     }
 
-
 }
 
 @media screen and (max-width: 520px){
@@ -328,8 +327,12 @@ div.login-wrapper{
 div.login-page{
     margin: 0 auto;
     width: 370px;
-    padding: 6px 20px 30px;
+    padding: 5px 20px 30px;
     background: white
+}
+
+.fas, .far{
+    color: rgb(47, 28, 158);
 }
 
 div.login-page h1{
@@ -408,7 +411,7 @@ form .button:hover{
         height: 100%
     }
 
-    div.login-page {
+    div.login-page{
         width: 335px;
         padding: 4px 20px 20px;
     }
@@ -450,9 +453,9 @@ form .button:hover{
         height: 100%;
     }
 
-    div.login-page {
+    div.login-page{
         width: 100%;
-        padding: 8px 20px 20px;
+        padding: 4px 20px 20px;
     }
 
     div.login-page h1 {
@@ -600,3 +603,191 @@ div.sign-up-page input{
 }
 
 
+
+/* CREATE ORDER PAGE */
+
+div.main-create-order-page{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+div.create-order-wrapper{
+    margin: 0 auto;
+    position: relative;
+    padding: 4% 0;
+    align-self: center
+}
+
+div.create-order-page{
+    margin: 0 auto;
+    width: 480px;
+    padding: 7px 20px 25px;
+    background: white
+}
+
+div.create-order-page h1{
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+div.create-order-page form{
+    padding: 20px 10px 5px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 786px){
+
+    div.main-create-order-page{
+        height: 100%
+    }
+
+    div.create-order-page{
+        width: 410px;
+        padding: 6px 20px 20px;
+    }
+
+    div.create-order-page h1{
+        font-size: 25px;
+    }
+
+    div.create-order-page input {
+        padding: 6px;
+        margin: 5px 4px 7px;
+    }
+
+}
+
+@media screen and (max-width:  470px){
+
+    div.main-create-order-page{
+        height: 100%;
+    }
+
+    div.create-order-page{
+        width: 100%;
+        padding: 5px 20px 10px;
+    }
+
+    div.create-order-page h1{
+        font-size: 20px;
+    }
+
+    div.create-order-page label{
+        width: 100%;
+    }
+
+    div.create-order-page input{
+        padding: 4px;
+        margin: 4px 3px 6px;
+    }
+
+}
+
+
+
+/* EDIT ORDER PAGE */
+
+div.main-edit-order-page{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+div.edit-order-wrapper{
+    margin: 0 auto;
+    position: relative;
+    padding: 4% 0;
+    align-self: center
+}
+
+div.edit-order-page{
+    margin: 0 auto;
+    width: 480px;
+    padding: 7px 20px 25px;
+    background: white
+}
+
+div.edit-order-page h1{
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+div.edit-order-page form{
+    padding: 20px 10px 5px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 786px){
+
+    div.main-edit-order-page{
+        height: 100%
+    }
+
+    div.edit-order-page{
+        width: 410px;
+        padding: 6px 20px 20px;
+    }
+
+    div.edit-order-page h1{
+        font-size: 25px;
+    }
+
+    div.edit-order-page input {
+        padding: 6px;
+        margin: 5px 4px 7px;
+    }
+
+}
+
+@media screen and (max-width:  470px){
+
+    div.main-edit-order-page{
+        height: 100%;
+    }
+
+    div.edit-order-page{
+        width: 100%;
+        padding: 5px 20px 10px;
+    }
+
+    div.edit-order-page h1{
+        font-size: 20px;
+    }
+
+    div.edit-order-page label{
+        width: 100%;
+    }
+
+    div.edit-order-page input{
+        padding: 4px;
+        margin: 4px 3px 6px;
+    }
+
+}
+
+
+
+/* USER PROFILE PAGE */
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 5px solid #3b3b3b;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;  
+}
+  
+tr:nth-child(even){background-color: #f2f2f2}

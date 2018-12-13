@@ -8,7 +8,6 @@ const signup = (event) => {
             phoneNumber: document.getElementById('phone_number').value,
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
-            confirmPassword: document.getElementById('confirm_password').value
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -17,19 +16,19 @@ const signup = (event) => {
         .then(function (res) {
             if (res.token) {
                 fetch('/api/v1/me', {
-                    headers:{
+                    headers: {
                         'Authorization': res.token,
                     }
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.role === 'member'){
-                        localStorage.setItem('token', res.token);
-                        localStorage.setItem('userId', res.userId);
-                        window.location.href = "./user-profile.html";
-                    }
-                })
-                .catch(err => console.log('err occured', err));
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.role === 'member') {
+                            localStorage.setItem('token', res.token);
+                            localStorage.setItem('userId', res.userId);
+                            window.location.href = "./user-profile.html";
+                        }
+                    })
+                    .catch(err => console.log('err occured', err));
             } else {
                 document.querySelector('#error-msg').innerHTML = res.msg;
             }
