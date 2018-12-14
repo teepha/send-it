@@ -91,11 +91,11 @@ fetch(`/api/v1/users/${userId}/parcels`, {
             // Modal for canceling a specific order by user
             document.querySelectorAll('.fa-times').forEach(item => {
                 item.addEventListener('click', (e) => {
-                    document.querySelector('.bgc_modal').style.display = 'flex';
-                    document.querySelector('#cancel_btn').parcelId = e.target.id
+                    document.querySelector('.main-cancel-modal-wrapper').style.display = 'flex';
+                    document.querySelector('#cancel-btn').parcelId = e.target.id
                 });
             });
-            document.querySelector('#cancel_btn').addEventListener('click', event => {
+            document.querySelector('#cancel-btn').addEventListener('click', event => {
                 event.preventDefault();
                 const id = event.target.parcelId;
                 fetch(`/api/v1/parcels/${id}/cancel`, {
@@ -113,8 +113,8 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                         }
                     })
             });
-            document.querySelector('.c_close').addEventListener('click', () => {
-                document.querySelector('.bgc_modal').style.display = 'none';
+            document.querySelector('.cancel-close').addEventListener('click', () => {
+                document.querySelector('.main-cancel-modal-wrapper').style.display = 'none';
             });
 
         }

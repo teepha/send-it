@@ -1211,7 +1211,7 @@ div.main-view-modal-wrapper {
 
 }
 
-@media screen and (max-width: 520px){
+@media screen and (max-width: 480px){
 
     .view-modal-content {
         width: 90%;
@@ -1271,13 +1271,121 @@ div.main-cancel-modal-wrapper {
 
 .cancel-modal-content h3{
     font-size: 21px;
+    margin: 10px;
 }
 
-.cancel-details{
-    padding: 10px;
+.cancel-details form{
+    padding: 5px;
 }
 
 .cancel-details p{
     font-size: 18px;
     padding: 2px;
+    margin: 5px;
 }
+
+.cancel-button{
+    background: blue;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 24px;
+    margin: 2px auto;
+    display: block;
+    width: 50%;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 786px){
+
+    .cancel-close {
+        font-size: 40px;
+    }
+
+    .cancel-modal-content h3{
+        font-size: 19px;
+    }
+
+    .cancel-details p{
+        font-size: 16px;
+    }
+
+    .cancel-button{
+        font-size: 18px;
+        padding: 10px 22px;
+    }
+
+}
+
+@media screen and (max-width: 615px){
+
+    .cancel-close {
+        font-size: 36px;
+    }
+
+    .cancel-modal-content h3{
+        font-size: 18px;
+    }
+
+    .cancel-details p{
+        font-size: 14px;
+    }
+
+    .cancel-button{
+        font-size: 16px;
+        padding: 9px 19px;
+    }
+
+}
+
+@media screen and (max-width: 520px){
+
+    .cancel-close {
+        font-size: 33px;
+    }
+
+    .cancel-modal-content h3{
+        font-size: 17px;
+    }
+
+    .cancel-details p{
+        font-size: 13px;
+    }
+
+    .cancel-button{
+        font-size: 15px;
+        padding: 7px 17px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+
+    .cancel-modal-content {
+        width: 60%;
+    }
+
+
+    .cancel-close {
+        font-size: 31px;
+    }
+
+    .cancel-modal-content h3{
+        font-size: 16px;
+    }
+
+    .cancel-details p{
+        font-size: 13px;
+    }
+
+    .cancel-button{
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+}
+
+
