@@ -6,19 +6,19 @@ document.querySelectorAll('#log_out').forEach(item => {
 });
 
 
-// Nav bar for Media queries @max-width: 520px
-const navbarBtn = document.querySelector('.navbar__btn')
-const navbarLinks = document.querySelector('.navigation')
+// Nav bar for Logged In User for Media queries @max-width: 520px
+const navbarBtnIn = document.querySelector('.navbar__btn-in')
+const navbarLinksIn = document.querySelector('.logged-in-nav')
 
 
-navbarBtn.addEventListener('click', function(){
-    let value = navbarLinks.classList.contains('navbar__collapse')
+navbarBtnIn.addEventListener('click', function(){
+    let value = navbarLinksIn.classList.contains('navbar__collapse')
 
     if(value){
-        navbarLinks.classList.remove('navbar__collapse')
-        navbarBtn.classList.remove('change')
+        navbarLinksIn.classList.remove('navbar__collapse')
+        navbarBtnIn.classList.remove('change')
     }else{
-        navbarLinks.classList.add('navbar__collapse')
-        navbarBtn.classList.add('change')
+        navbarLinksIn.classList.add('navbar__collapse')
+        navbarBtnIn.classList.add('change')
     }
 })

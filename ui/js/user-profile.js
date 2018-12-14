@@ -6,7 +6,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
 })
     .then(res => res.json())
     .then(data => {
-        const ordersTable = document.querySelector('#orders');
+        const ordersTable = document.querySelector('.orders');
         if (!data.length) {
             document.querySelector('#error-msg').innerHTML = 'You do not have any Parcel delivery order yet!';
         } else {
@@ -14,9 +14,9 @@ fetch(`/api/v1/users/${userId}/parcels`, {
             data.forEach(parcel => {
                 let parcelRow = document.createElement('tr');
                 parcelRow.innerHTML = `<td>${parcel.id}</td>
-                                <td>${parcel.date.slice(0, 10)}</td>
-                                <td>${parcel.pickup_location}</td>
-                                <td>${parcel.destination}</td>
+                                <td class="remove-second">${parcel.date.slice(0, 10)}</td>
+                                <td class="remove-first">${parcel.pickup_location}</td>
+                                <td class="remove-second">${parcel.destination}</td>
                                 <td>${parcel.recipient_name}</td>
                                 <td>${capitalizeStatus(parcel.status.replace(/_/g, ' '))}</td>
                                 <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
@@ -25,27 +25,28 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                 ordersTable.append(parcelRow);
             });
  
-            //View number of user orders
+            //Count number of user orders
             const status1 = data.filter(val => {
                 return val.status === "ready_for_pickup";
             }).length;
-            document.querySelector('#pickup-status').innerHTML = 'Ready for PickUp: ' + status1;
+            document.querySelector('#pickup-status').innerHTML = status1;
             
             const status2 = data.filter(val => {
                 return val.status === "in_transit";
             }).length;
-            document.querySelector('#transit-status').innerHTML = 'In-Transit: ' + status2;
+            document.querySelector('#transit-status').innerHTML = status2;
             
             const status3 = data.filter(val => {
                 return val.status === "delivered";
             }).length;
-            document.querySelector('#deliver-status').innerHTML = 'Delivered:  ' + status3;
+            document.querySelector('#deliver-status').innerHTML = status3;
     
             const status4 = data.filter(val => {
                 return val.status === "cancelled";
             }).length;
-            document.querySelector('#cancel-status').innerHTML = 'Cancelled:  ' + status4;
+            document.querySelector('#cancel-status').innerHTML = status4;
             
+
             function capitalizeStatus(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             }
@@ -61,7 +62,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
             // Modal for viewing a specific order by user
             document.querySelectorAll('.fa-eye').forEach(item => {
                 item.addEventListener('click', (event) => {
-                    document.querySelector('.bgv_modal').style.display = 'flex';
+                    document.querySelector('.main-view-modal-wrapper').style.display = 'flex';
                     event.preventDefault();
                     const id = event.target.id;
                     fetch(`/api/v1/parcels/${id}`, {
@@ -83,8 +84,8 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                         }).catch(err => console.log('err occured', err));
                 });
             });
-            document.querySelector('.close').addEventListener('click', () => {
-                document.querySelector('.bgv_modal').style.display = 'none';
+            document.querySelector('.view-close').addEventListener('click', () => {
+                document.querySelector('.main-view-modal-wrapper').style.display = 'none';
             });
 
             // Modal for canceling a specific order by user
