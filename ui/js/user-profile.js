@@ -109,7 +109,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                         if (res.id) {
                             window.location.href = "./user-profile.html";
                         } else {
-                            document.querySelector('#error-msg').innerHTML = res.msg;
+                            document.querySelector('#cancel-error-msg').innerHTML = res.msg;
                         }
                     })
             });
