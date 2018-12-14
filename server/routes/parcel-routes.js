@@ -19,8 +19,8 @@ router.use(bodyParser.json());// Specifically allow us to read data sent in JSON
 router.post('/parcels', JwtDocoder, [
   body('userId', 'Value must be a Number').isInt(),
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
-  .not().isEmpty().withMessage('Field must not be empty!')
-  .isString().withMessage('Value must be a string!'),
+  .not().isEmpty().withMessage('field must not be Empty!')
+  .isString().withMessage('Value must be a String!'),
 ], createParcel);
 
 // Admin get all parcel orders

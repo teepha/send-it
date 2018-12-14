@@ -8,7 +8,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
     .then(data => {
         const ordersTable = document.querySelector('#orders');
         if (!data.length) {
-            document.querySelector('#error-msg').innerHTML = 'No Parcel delivery order for this user!';
+            document.querySelector('#error-msg').innerHTML = 'You do not have any Parcel delivery order yet!';
         } else {
             data.sort((a, b) => a.id - b.id);
             data.forEach(parcel => {
@@ -29,22 +29,22 @@ fetch(`/api/v1/users/${userId}/parcels`, {
             const status1 = data.filter(val => {
                 return val.status === "ready_for_pickup";
             }).length;
-            document.querySelector('#pickup_status').innerHTML = 'Ready for PickUp: ' + status1;
+            document.querySelector('#pickup-status').innerHTML = 'Ready for PickUp: ' + status1;
             
             const status2 = data.filter(val => {
                 return val.status === "in_transit";
             }).length;
-            document.querySelector('#transit_status').innerHTML = 'In-Transit: ' + status2;
+            document.querySelector('#transit-status').innerHTML = 'In-Transit: ' + status2;
             
             const status3 = data.filter(val => {
                 return val.status === "delivered";
             }).length;
-            document.querySelector('#deliver_status').innerHTML = 'Delivered:  ' + status3;
+            document.querySelector('#deliver-status').innerHTML = 'Delivered:  ' + status3;
     
             const status4 = data.filter(val => {
                 return val.status === "cancelled";
             }).length;
-            document.querySelector('#cancel_status').innerHTML = 'Cancelled:  ' + status4;
+            document.querySelector('#cancel-status').innerHTML = 'Cancelled:  ' + status4;
             
             function capitalizeStatus(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);

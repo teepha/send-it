@@ -14,6 +14,7 @@ const signup = (event) => {
         }
     }).then(res => res.json())
         .then(function (res) {
+            const errorDiv = document.querySelector('#error-msg');
             if (res.token) {
                 fetch('/api/v1/me', {
                     headers: {
@@ -29,8 +30,14 @@ const signup = (event) => {
                         }
                     })
                     .catch(err => console.log('err occured', err));
+            } else if (res.msg) {
+                errorDiv.innerHTML = res.msg;
             } else {
-                document.querySelector('#error-msg').innerHTML = res.msg;
+                res.errors.forEach(err => {
+                    const errorElement = document.createElement('div');
+                    errorElement.innerHTML = `${err.param} ${err.msg}`;
+                    errorDiv.appendChild(errorElement);
+                });
             }
         }).catch(err => console.log('err occured', err));
 }
