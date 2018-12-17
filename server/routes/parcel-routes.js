@@ -9,7 +9,7 @@ import {
   cancelParcel,
   createParcel,
   updateParcelStatus,
-  updateParcelLocation
+  updateParcelLocation,
 } from '../controllers/parcel-controller';
 
 const router = express.Router(); // Create a new instance of express Router
@@ -19,8 +19,10 @@ router.use(bodyParser.json());// Specifically allow us to read data sent in JSON
 router.post('/parcels', JwtDocoder, [
   body('userId', 'Value must be a Number').isInt(),
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
-  .not().isEmpty().withMessage('field must not be Empty!')
-  .isString().withMessage('Value must be a String!'),
+    .not().isEmpty()
+    .withMessage('field must not be Empty!')
+    .isString()
+    .withMessage('Value must be a String!'),
 ], createParcel);
 
 // Admin get all parcel orders
@@ -34,8 +36,10 @@ router.put('/parcels/:id',
   JwtDocoder,
   param('id', 'Id must be a Number').isInt(),
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
-  .not().isEmpty().withMessage('Field must not be empty!')
-  .isString().withMessage('Value must be a string!'),
+    .not().isEmpty()
+    .withMessage('Field must not be empty!')
+    .isString()
+    .withMessage('Value must be a string!'),
   updateParcelDetails);
 
 // Set up Endpoint to cancel a specific parcel order
@@ -46,8 +50,9 @@ router.put('/parcels/:id/presentLocation',
   JwtDocoder,
   param('id', 'Id must be a Number').isInt(),
   body('presentLocation', 'presentLocation must be a String')
-  .not().isEmpty().withMessage('Field must not be empty!')
-  .isString().withMessage('Value must be a string!'),
+    .not().isEmpty().withMessage('Field must not be empty!')
+    .isString()
+    .withMessage('Value must be a string!'),
   updateParcelLocation);
 
 // Admin change status of parcel

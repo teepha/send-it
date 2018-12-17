@@ -121,7 +121,7 @@ describe('User-routes unit test', () => {
         });
     });
 
-    it('Should return error message if user does not exist', (done) => {
+    it('Should return error message if a User tries to fetch Parcels that belongs to another User', (done) => {
       server(app)
         .get('/api/v1/users/1234/parcels')
         .set('Authorization', userWithParcel.token)
