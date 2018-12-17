@@ -1,3 +1,23 @@
+function capitalizeStatus(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const renderTableData = (data, ordersTable) => {
+    data.forEach(parcel => {
+        let parcelRow = document.createElement('tr');
+        parcelRow.innerHTML = `<td>${parcel.id}</td>
+                        <td class="remove-second">${parcel.date.slice(0, 10)}</td>
+                        <td class="remove-first">${parcel.pickup_location}</td>
+                        <td class="remove-second">${parcel.destination}</td>
+                        <td>${parcel.recipient_name}</td>
+                        <td>${capitalizeStatus(parcel.status.replace(/_/g, ' '))}</td>
+                        <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
+                        <td>${parcel.status !== "cancelled" ? `<a href="./edit-order.html"><i id=${parcel.id} class="far fa-edit"></i></a>` : ''}</td>
+                        <td class="cancel">${parcel.status !== "cancelled" ? `<i id=${parcel.id} class="fas fa-times"></i>` : ''}</td> `;
+        ordersTable.append(parcelRow);
+    });
+}
+
 const userId = localStorage.getItem('userId');
 fetch(`/api/v1/users/${userId}/parcels`, {
     headers: {
@@ -6,26 +26,27 @@ fetch(`/api/v1/users/${userId}/parcels`, {
 })
     .then(res => res.json())
     .then(data => {
-        const ordersTable = document.querySelector('.orders');
+        const ordersTable = document.querySelector('.orders-data');
         if (!data.length) {
             document.querySelector('#error-msg').innerHTML = 'You do not have any Parcel delivery order yet!';
         } else {
             data.sort((a, b) => a.id - b.id);
-            data.forEach(parcel => {
-                let parcelRow = document.createElement('tr');
-                parcelRow.innerHTML = `<td>${parcel.id}</td>
-                                <td class="remove-second">${parcel.date.slice(0, 10)}</td>
-                                <td class="remove-first">${parcel.pickup_location}</td>
-                                <td class="remove-second">${parcel.destination}</td>
-                                <td>${parcel.recipient_name}</td>
-                                <td>${capitalizeStatus(parcel.status.replace(/_/g, ' '))}</td>
-                                <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
-                                <td>${parcel.status !== "cancelled" ? `<a href="./edit-order.html"><i id=${parcel.id} class="far fa-edit"></i></a>` : ''}</td>
-                                <td class="cancel">${parcel.status !== "cancelled" ? `<i id=${parcel.id} class="fas fa-times"></i>` : ''}</td> `;
-                ordersTable.append(parcelRow);
-            });
+            renderTableData(data, ordersTable);
  
-            //Count number of user orders
+
+            // Search Bar to search for a specific parcel order using Recipient name
+            const searchBar = document.querySelector('#search-name');
+            const parcels = data;
+            searchBar.addEventListener('input', function(){
+                ordersTable.innerHTML = ''
+                const searchName = document.getElementById('search-name').value.toLowerCase();
+                const newParcels = parcels.filter((item)=> item.recipient_name.toLowerCase().includes(searchName)); 
+                renderTableData(newParcels, ordersTable);
+            });
+            
+            
+            
+            // Count number of user orders
             const status1 = data.filter(val => {
                 return val.status === "ready_for_pickup";
             }).length;
@@ -45,11 +66,6 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                 return val.status === "cancelled";
             }).length;
             document.querySelector('#cancel-status').innerHTML = status4;
-            
-
-            function capitalizeStatus(string) {
-                return string.charAt(0).toUpperCase() + string.slice(1);
-            }
         
 
             // Edit Icon

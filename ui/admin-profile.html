@@ -47,26 +47,29 @@
                 <div class="table-top">
                     <span class="table-title">All Orders</span>
                     <div class="search-bar">
-                        <input type="text" placeholder="Enter User ID..." name="search">
+                        <input id="search-user-id" type="text" placeholder="Enter User ID..." name="search">
                         <button class="btn" type="submit"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
 
-            
-
                 <table class="orders">
-                    <tr>
-                        <th scope="row">ID</th>
-                        <th scope="row" class="remove-first">User ID</th>
-                        <th scope="row" class="remove-second">Date</th>
-                        <th scope="row" class="remove-first">Pick Up Location</th>
-                        <th scope="row" class="remove-second">Destination</th>
-                        <th scope="row">Recipient Name</th>
-                        <th scope="row">Status</th>
-                        <th scope="row">Present Location</th>
-                        <th scope="row"></th>
-                        <th scope="row"></th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <th scope="row" class="remove-first">User ID</th>
+                            <th scope="row" class="remove-second">Date</th>
+                            <th scope="row" class="remove-first">Pick Up Location</th>
+                            <th scope="row">Destination</th>
+                            <th scope="row" class="remove-second">Recipient Name</th>
+                            <th scope="row">Status</th>
+                            <th scope="row">Present Location</th>
+                            <th scope="row"></th>
+                            <th scope="row"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="orders-data">
+
+                    </tbody>
                 </table>
                 <h1 id="error-msg"></h1>
             </div>
@@ -99,7 +102,7 @@
                 <div class="location-close">+</div>
                 <h3>Change Current Location</h3>
                 <form method="get" action="./admin-profile.html">
-                    <input name="location" id="present_location" type="text">
+                    <input name="location" id="present_location" type="text" readonly>
                     <input name="new_location" id="new_location" type="text" placeholder="New Location">
                     <button type="submit" class="location-btn" id="location-button">Continue</button>
                     <h4 id="location-error-msg"></h4>

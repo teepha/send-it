@@ -1,491 +1,602 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "A RESTful client to communicate with SendIT (http://teepha-send-it.herokuapp.com/api/v1) API",
-    "version" : "0.0.0",
-    "title" : "SendIT API"
+  "swagger": "2.0",
+  "info": {
+    "description": "A RESTful client to communicate with SendIT (http://teepha-send-it.herokuapp.com/api/v1) API",
+    "version": "0.0.0",
+    "title": "SendIT API"
   },
-  "host" : "teepha-send-it.herokuapp.com",
-  "basePath" : "/api/v1",
-  "tags" : [ {
-    "name" : "Auth",
-    "description" : "Allows users to SignUp and Login on SendIT"
-  } ],
-  "schemes" : [ "http" ],
-  "security" : [ {
-    "api_key" : [ ]
-  } ],
-  "paths" : {
-    "/auth/signup" : {
-      "post" : {
-        "tags" : [ "Auth" ],
-        "summary" : "Creates an account on SendIT",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "User data that needs to be added",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/User"
+  "host": "teepha-send-it.herokuapp.com",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Allows users to SignUp and Login on SendIT"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Creates an account on SendIT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User data that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "OK - User created."
+        ],
+        "responses": {
+          "201": {
+            "description": "OK - User created."
           },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
+          "400": {
+            "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
           },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
+          "401": {
+            "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
           },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
+          "403": {
+            "description": "Forbidden - Not allowed to access this resource."
           },
-          "405" : {
-            "description" : "Invalid input - This method is not allowed on this resource."
+          "405": {
+            "description": "Invalid input - This method is not allowed on this resource."
           },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
-        }
-      }
-    },
-    "/auth/login" : {
-      "post" : {
-        "tags" : [ "Auth" ],
-        "summary" : "Logs in a User on SendIT",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "User email and password to login",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Auth"
-          }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "OK - User created."
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "405" : {
-            "description" : "Invalid input - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
+          "500": {
+            "description": "Internal Server Error - Something went wrong on our side."
           }
         }
       }
     },
-    "/users/{userId}/parcels" : {
-      "get" : {
-        "tags" : [ "User" ],
-        "summary" : "Returns all Parcel Delivery orders for a user",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "userId",
-          "in" : "path",
-          "description" : "ID of the User",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcels retrieved."
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logs in a User on SendIT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User email and password to login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK - User created."
           },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
+          "400": {
+            "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
           },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
+          "401": {
+            "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
           },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
+          "403": {
+            "description": "Forbidden - Not allowed to access this resource."
           },
-          "404" : {
-            "description" : "Not Found - Parcels not found."
+          "405": {
+            "description": "Invalid input - This method is not allowed on this resource."
           },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
+          "500": {
+            "description": "Internal Server Error - Something went wrong on our side."
           }
         }
       }
     },
-    "/parcels" : {
-      "get" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "List all your Parcel Delivery orders",
-        "produces" : [ "application/json" ],
-        "parameters" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcels retrieved."
+    "/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Returns User Information",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK - User Information retrieved."
           },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
+          "400": {
+            "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
           },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
+          "401": {
+            "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
           },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
+          "403": {
+            "description": "Forbidden - Not allowed to access this resource."
           },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
+          "405": {
+            "description": "Method Not Allowed - This method is not allowed on this resource."
           },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
-        }
-      },
-      "post" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Creates a Parcel Delivery order",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Parcel data that needs to be created",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Parcel"
-          }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "OK - Parcel created."
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "405" : {
-            "description" : "Invalid input - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
+          "500": {
+            "description": "Internal Server Error - Something went wrong on our side."
           }
         }
       }
-    },
-    "/parcels/{parcelId}" : {
-      "get" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Returns a single Parcel object",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "parcelId",
-          "in" : "path",
-          "description" : "ID of the parcel",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcel retrieved."
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "404" : {
-            "description" : "Not Found - Parcel not found."
-          },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
+  },
+  "/users/{userId}/parcels": {
+    "get": {
+      "tags": [
+        "User"
+      ],
+      "summary": "Returns all Parcel Delivery orders for a user",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "description": "ID of the User",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
         }
-      }
-    },
-    "/parcels/{parcelId}/destination" : {
-      "put" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Update an existing Parcel's Destination",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "parcelId",
-          "in" : "path",
-          "description" : "ID of the Parcel",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        }, {
-          "in" : "body",
-          "name" : "destination",
-          "description" : "Post object that needs to be updated",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Parcel"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcel updated"
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "404" : {
-            "description" : "Not Found - Parcel not found."
-          },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
-        }
-      }
-    },
-    "/parcels/{parcelId}/cancel" : {
-      "put" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Cancel a Parcel Delivery order",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "parcelId",
-          "in" : "path",
-          "description" : "ID of the Parcel",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcel updated"
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "404" : {
-            "description" : "Not Found - Parcel not found."
-          },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
-        }
-      }
-    },
-    "/parcels/{parcelId}/status" : {
-      "put" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Update an existing Parcel's Status",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "parcelId",
-          "in" : "path",
-          "description" : "ID of the Parcel",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        }, {
-          "in" : "body",
-          "name" : "destination",
-          "description" : "Post object that needs to be updated",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Parcel"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcel updated"
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "404" : {
-            "description" : "Not Found - Parcel not found."
-          },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
-        }
-      }
-    },
-    "/parcels/{parcelId}/presentLocation" : {
-      "put" : {
-        "tags" : [ "Parcel" ],
-        "summary" : "Update an existing Parcel's present location",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "parcelId",
-          "in" : "path",
-          "description" : "ID of the Parcel",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        }, {
-          "in" : "body",
-          "name" : "destination",
-          "description" : "Post object that needs to be updated",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Parcel"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK - Parcel updated"
-          },
-          "400" : {
-            "description" : "Bad Request - Some parameter is missing or doesn't follow the API specification."
-          },
-          "401" : {
-            "description" : "Unauthorized - Either no API key was provided or the provided API key is invalid."
-          },
-          "403" : {
-            "description" : "Forbidden - Not allowed to access this resource."
-          },
-          "404" : {
-            "description" : "Not Found - Parcel not found."
-          },
-          "405" : {
-            "description" : "Method Not Allowed - This method is not allowed on this resource."
-          },
-          "500" : {
-            "description" : "Internal Server Error - Something went wrong on our side."
-          }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcels retrieved."
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcels not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
         }
       }
     }
   },
-  "securityDefinitions" : {
-    "api_key" : {
-      "type" : "apiKey",
-      "name" : "Authorization",
-      "in" : "header"
+  "/parcels": {
+    "get": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "List all your Parcel Delivery orders",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "OK - Parcels retrieved."
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
+      }
+    },
+    "post": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Creates a Parcel Delivery order",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "Parcel data that needs to be created",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Parcel"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "OK - Parcel created."
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "405": {
+          "description": "Invalid input - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
+      }
     }
   },
-  "definitions" : {
-    "Auth" : {
-      "type" : "object",
-      "properties" : {
-        "email" : {
-          "type" : "string"
-        },
-        "password" : {
-          "type" : "string"
+  "/parcels/{parcelId}": {
+    "get": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Returns a single Parcel object",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "parcelId",
+          "in": "path",
+          "description": "ID of the parcel",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
         }
-      },
-      "example" : {
-        "password" : "password",
-        "email" : "email"
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcel retrieved."
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcel not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
       }
     },
-    "User" : {
-      "type" : "object",
-      "properties" : {
-        "firstName" : {
-          "type" : "string"
+    "put": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Update an existing Parcel's Details",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "parcelId",
+          "in": "path",
+          "description": "ID of the Parcel",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
         },
-        "lastName" : {
-          "type" : "string"
-        },
-        "email" : {
-          "type" : "string"
-        },
-        "phoneNumber" : {
-          "type" : "string"
-        },
-        "password" : {
-          "type" : "string"
+        {
+          "in": "body",
+          "name": "destination",
+          "description": "Post object that needs to be updated",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Parcel"
+          }
         }
-      },
-      "example" : {
-        "firstName" : "firstName",
-        "lastName" : "lastName",
-        "password" : "password",
-        "phoneNumber" : "phoneNumber",
-        "email" : "email"
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcel updated"
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcel not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
       }
-    },
-    "Parcel" : {
-      "type" : "object",
-      "properties" : {
-        "userId" : {
-          "type" : "integer"
-        },
-        "pickupLocation" : {
-          "type" : "string"
-        },
-        "destination" : {
-          "type" : "string"
-        },
-        "recipientName" : {
-          "type" : "string"
-        },
-        "recipientPhone" : {
-          "type" : "string"
+    }
+  },
+  "/parcels/{parcelId}/cancel": {
+    "put": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Cancel a Parcel Delivery order",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "parcelId",
+          "in": "path",
+          "description": "ID of the Parcel",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
         }
-      },
-      "example" : {
-        "recipientPhone" : "recipientPhone",
-        "destination" : "destination",
-        "recipientName" : "recipientName",
-        "pickupLocation" : "pickupLocation",
-        "userId" : 0
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcel updated"
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcel not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
+      }
+    }
+  },
+  "/parcels/{parcelId}/status": {
+    "put": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Update an existing Parcel's Status",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "parcelId",
+          "in": "path",
+          "description": "ID of the Parcel",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        },
+        {
+          "in": "body",
+          "name": "destination",
+          "description": "Post object that needs to be updated",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Parcel"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcel updated"
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcel not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
+      }
+    }
+  },
+  "/parcels/{parcelId}/presentLocation": {
+    "put": {
+      "tags": [
+        "Parcel"
+      ],
+      "summary": "Update an existing Parcel's present location",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "parcelId",
+          "in": "path",
+          "description": "ID of the Parcel",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        },
+        {
+          "in": "body",
+          "name": "destination",
+          "description": "Post object that needs to be updated",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Parcel"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK - Parcel updated"
+        },
+        "400": {
+          "description": "Bad Request - Some parameter is missing or doesn't follow the API specification."
+        },
+        "401": {
+          "description": "Unauthorized - Either no API key was provided or the provided API key is invalid."
+        },
+        "403": {
+          "description": "Forbidden - Not allowed to access this resource."
+        },
+        "404": {
+          "description": "Not Found - Parcel not found."
+        },
+        "405": {
+          "description": "Method Not Allowed - This method is not allowed on this resource."
+        },
+        "500": {
+          "description": "Internal Server Error - Something went wrong on our side."
+        }
       }
     }
   }
+},
+"securityDefinitions": {
+  "api_key": {
+    "type": "apiKey",
+    "name": "Authorization",
+    "in": "header"
+  }
+},
+"definitions": {
+  "Auth": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    },
+    "example": {
+      "password": "password",
+      "email": "email"
+    }
+  },
+  "User": {
+    "type": "object",
+    "properties": {
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "phoneNumber": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    },
+    "example": {
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "password": "password",
+      "phoneNumber": "phoneNumber",
+      "email": "email"
+    }
+  },
+  "Parcel": {
+    "type": "object",
+    "properties": {
+      "userId": {
+        "type": "integer"
+      },
+      "pickupLocation": {
+        "type": "string"
+      },
+      "destination": {
+        "type": "string"
+      },
+      "recipientName": {
+        "type": "string"
+      },
+      "recipientPhone": {
+        "type": "string"
+      }
+    },
+    "example": {
+      "recipientPhone": "recipientPhone",
+      "destination": "destination",
+      "recipientName": "recipientName",
+      "pickupLocation": "pickupLocation",
+      "userId": 0
+    }
+  }
+}
 }

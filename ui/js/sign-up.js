@@ -15,6 +15,7 @@ const signup = (event) => {
     }).then(res => res.json())
         .then(function (res) {
             const errorDiv = document.querySelector('#error-msg');
+            errorDiv.innerHTML = ''
             if (res.token) {
                 fetch('/api/v1/me', {
                     headers: {
