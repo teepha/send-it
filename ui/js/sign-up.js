@@ -8,30 +8,37 @@ const signup = (event) => {
             phoneNumber: document.getElementById('phone_number').value,
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
-            confirmPassword: document.getElementById('confirm_password').value
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json())
         .then(function (res) {
+            const errorDiv = document.querySelector('#error-msg');
+            errorDiv.innerHTML = ''
             if (res.token) {
                 fetch('/api/v1/me', {
-                    headers:{
+                    headers: {
                         'Authorization': res.token,
                     }
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.role === 'member'){
-                        localStorage.setItem('token', res.token);
-                        localStorage.setItem('userId', res.userId);
-                        window.location.href = "./user-profile.html";
-                    }
-                })
-                .catch(err => console.log('err occured', err));
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.role === 'member') {
+                            localStorage.setItem('token', res.token);
+                            localStorage.setItem('userId', res.userId);
+                            window.location.href = "./user-profile.html";
+                        }
+                    })
+                    .catch(err => console.log('err occured', err));
+            } else if (res.msg) {
+                errorDiv.innerHTML = res.msg;
             } else {
-                document.querySelector('#error-msg').innerHTML = res.msg;
+                res.errors.forEach(err => {
+                    const errorElement = document.createElement('div');
+                    errorElement.innerHTML = `${err.param} ${err.msg}`;
+                    errorDiv.appendChild(errorElement);
+                });
             }
         }).catch(err => console.log('err occured', err));
 }

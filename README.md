@@ -46,8 +46,9 @@ v1 of the API is hosted on Heroku, visit http://teepha-send-it.herokuapp.com to 
     POST =>  /api/v1/parcels  =>  Create a parcel delivery order 
     GET  =>  /api/v1/parcels  =>  Admin Fetch all parcel delivery orders 
     GET  =>  /api/v1/parcels/:parcelId  =>  Fetch a specific parcel delivery order 
-    GET  =>  /api/v1/users/:userId/parcels  =>  Fetch all parcel delivery orders by a specific user 
-    PUT  =>  /api/v1/parcels/:parcelId/destination  =>  User change the location of a specific parcel delivery order 
+    GET  =>  /api/v1/users/:userId/parcels  =>  Fetch all parcel delivery orders by a specific user
+    GET  =>  /api/v1/me  =>  Fetch User Information  
+    PUT  =>  /api/v1/parcels/:parcelId=>  User change the details of a specific parcel delivery order 
     PUT  =>  /api/v1/parcels/:parcelId/cancel  =>  User cancel a specific parcel delivery order 
     PUT  =>  /api/v1/parcels/:parcelId/status  =>  Admin change the status of a specific parcel delivery order 
     PUT  =>  /api/v1/parcels/:parcelId/presentLocation  => Admin change the Present Location of a specific parcel delivery order

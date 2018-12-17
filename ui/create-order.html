@@ -10,40 +10,97 @@
     </head>
     <body>
         <header>
-            <div class="navigation">
-                <div class="profile1">
-                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
-                    <a href="./index.html" class="sendIT">SendIT</a>
+            <div class="wrapper">
+                <div id="logo">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="logo"><a href="./index.html" class="sendIT">SendIT</a></h1>
                 </div>
-                <div class="profile2">
-                    <a class="nav_link" id="log_out" href="./index.html">LogOut</a>
-                </div> 
-            </div>                  
-        </header> 
-        <div class="container4">
-            <div class="form4">
-                <a href="./user-profile.html"><i class="fas fa-arrow-left"></i></a>        
-                <h1>New Order</h1><br>
-                <form method="get" id="create-order-form">
-                    <label>Pick Up Location </label>
-                    <input name="pick_up_location" id="pickup_location" type="text">
-                    <br>
-                    <label>Destination </label>
-                    <input name="destination" id="destination" type="text">
-                    <br>
-                    <label>Recipient Name </label>
-                    <input name="recipient_name" id="recipient_name" type="text">
-                    <br>
-                    <label>Recipient Phone Number </label>
-                    <input name="phone_number" id="recipient_phone" type="text">
-                    <br>
-                    <button class="button" type="submit">Create Order</button>
-                    <h4 id="error-msg"></h4>
-                </form>
+
+                <nav>
+                    <ul class="logged-in-nav">
+                        <li><a class="logged-in-nav-link" href="#">My Profile</a></li>
+                        <li><a class="logged-in-nav-link" href="./index.html">LogOut</a></li>
+                    </ul>
+                </nav>
+
+                <div class="navbar__header-in">
+                    <div class="navbar__btn-in">
+                        <div class="bar bar1-in"></div>
+                        <div class="bar bar2-in"></div>
+                        <div class="bar bar3-in"></div>
+                    </div>
+                </div>
             </div>
-            
+        </header>
+
+        <!-- Form content -->
+
+        <div class="main-create-order-page">
+
+            <div class="create-order-wrapper">
+                <div class="create-order-page">
+
+                    <a href="./user-profile.html"><i class="fas fa-arrow-left"></i></a>        
+                    <h1>New Order</h1>
+
+                    <form method="post" id="create-order-form">
+                        <label>Pick Up Location </label>
+                        <input name="pick_up_location" id="pickup_location" type="text">
+                        <br>
+                        <label>Destination </label>
+                        <input name="destination" id="destination" type="text">
+                        <br>
+                        <label>Recipient Name </label>
+                        <input name="recipient_name" id="recipient_name" type="text">
+                        <br>
+                        <label>Recipient Phone Number </label>
+                        <input name="phone_number" id="recipient_phone" type="text">
+                        <br>
+                        <button class="button" type="submit">Create Order</button>
+                        <h4 id="error-msg"></h4>
+                    </form>
+                
+                </div>
+            </div>
         </div>
-        <script src="js/shared.js"></script>
-        <script src="js/create-order.js"></script>
+
+      
+         <!-- Footer content -->
+
+         <footer>
+            <div class="wrapper">
+                <ul>
+                    <li><h4>About Us</h4></li>
+                    <li>SendIT is a courier service.</li>
+                    <li>Where users can send parcels to different destinations.</li>
+                </ul>
+                <ul>
+                    <li><h4>Get In Touch</h4></li>
+                    <li>Lagos Address</li>
+                    <li>445 Ikorodu Road</li>
+                    <li>Illupeju, Lagos</li>
+                    <li>0814.4523.455</li>
+                </ul>
+                <ul>
+                    <li><h4>Working Hours</h4></li>
+                    <li>Weekdays: 7am to 9pm</li>
+                    <li>Weekends: 9am to 7pm</li>
+                    <li>Public Holidays: 10am to 7pm</li>
+                    <li>Festive Period: 9am to 6pm</li>
+                </ul>
+                <ul>
+                    <li><h4>More Info</h4></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#"> Help Center</a></li>
+                    <li><a href="#">Terms&Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div id="copyright"><img src="images/logo0.png" alt="logo"> Copyright &copy; 2018 SendIT. All rights reserved.</div>
+            </div>
+        </footer>
+
     </body>
+
+    <script src="js/shared.js"></script>
+    <script src="js/create-order.js"></script>
 </html>

@@ -10,71 +10,141 @@
     </head>
     <body>
         <header>
-            <div class="navigation">
-                <div class="profile1">
-                    <a class="logo" href="./index.html"><img src="images/logo0.png"></a>
-                    <a href="./index.html" class="sendIT">SendIT</a>
+            <div class="wrapper">
+                <div id="logo">
+                    <a class="logo" href="index.html"><img src="images/logo0.png"></a>
+                    <h1 class="logo"><a href="./index.html" class="sendIT">SendIT</a></h1>
                 </div>
-                <div class="profile2">
-                    <a class="nav_link" id="log_out" href="./index.html">LogOut</a>
-                </div> 
-            </div>              
-        </header>
-        <div class="all_orders"> 
-                <h3 id="pickup_status"></h3><hr>
-                <h3 id="transit_status"></h3><hr>
-                <h3 id="deliver_status"></h3><hr>
-                <h3 id="cancel_status"></h3>       
-        </div>
-        <div>
-            <table id="orders2">
-                <h3 id="table_title">All Orders</h3>
-                <tr>
-                    <th scope="row">ID</th>
-                    <th scope="row">User ID</th>
-                    <th scope="row">Date</th>
-                    <th scope="row">Destination</th>
-                    <th scope="row">Recipient Name</th>
-                    <th scope="row">Phone Number</th>
-                    <th scope="row">Status</th>
-                    <th scope="row">Present Location</th>
-                    <th scope="row"></th>
-                    <th scope="row"></th>
-                </tr>
-            </table>
-        </div>
 
-        <div class="bgv_modal">
-            <div class="view_modal">
-            <div class="close">+</div>
-            <h3>View Order</h3><br>
-                <div>
-                    <p id="id"></p><br>
-                    <p id="user-id"></p><br>
-                    <p id="date"></p><br>
-                    <p id="pickup-location"></p><br>
-                    <p id="destination"></p><br>
-                    <p id="recipient-name"></p><br>
-                    <p id="recipient-phone"></p><br>
-                    <p id="status"></p><br>
-                    <p id="present-location"></p><br>  
+                <nav>
+                    <ul class="logged-in-nav">
+                        <li><a class="logged-in-nav-link" href="#">My Profile</a></li>
+                        <li><a class="logged-in-nav-link" href="./index.html">LogOut</a></li>
+                    </ul>
+                </nav>
+
+                <div class="navbar__header-in">
+                    <div class="navbar__btn-in">
+                        <div class="bar bar1-in"></div>
+                        <div class="bar bar2-in"></div>
+                        <div class="bar bar3-in"></div>
+                    </div>
                 </div>
             </div>
-        </div>    
+        </header>
 
-        <div class="bge_modal">
-            <div class="edit_modal">
-            <div class="e_close">+</div>
-                <h3>Change Current Location</h3> <br>
-                <form method="put" id="edit-order-location">
-                    <input name="location" id="present_location" type="text">
+        <div class="main-content">
+
+            <div class="admin-profile-wrapper">
+
+                <div class="order-count">
+                    <div>Ready for Pickup: <span id="pickup-status"></span></div>
+                    <div class="status-count">In-Transit: <span id="transit-status"></span></div>
+                    <div class="status-count">Delivered: <span id="deliver-status"></span></div>
+                    <div class="status-count">Cancelled: <span id="cancel-status"></span></div>
+                </div>
+
+                <div class="table-top">
+                    <span class="table-title">All Orders</span>
+                    <div class="search-bar">
+                        <input id="search-user-id" type="text" placeholder="Enter User ID..." name="search">
+                        <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+
+                <table class="orders">
+                    <thead>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <th scope="row" class="remove-first">User ID</th>
+                            <th scope="row" class="remove-second">Date</th>
+                            <th scope="row" class="remove-first">Pick Up Location</th>
+                            <th scope="row">Destination</th>
+                            <th scope="row" class="remove-second">Recipient Name</th>
+                            <th scope="row">Status</th>
+                            <th scope="row">Present Location</th>
+                            <th scope="row"></th>
+                            <th scope="row"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="orders-data">
+
+                    </tbody>
+                </table>
+                <h1 id="error-msg"></h1>
+            </div>
+        </div>
+
+        <!-- View Modal content -->
+
+        <div class="main-view-modal-wrapper">
+            <div class="view-modal-content">
+            <div class="view-close">+</div>
+            <h3>View Order</h3>
+                <div class="view-details">
+                    <p id="id"></p>
+                    <p id="user-id"></p>
+                    <p id="date"></p>
+                    <p id="pickup-location"></p>
+                    <p id="destination"></p>
+                    <p id="recipient-name"></p>
+                    <p id="recipient-phone"></p>
+                    <p id="status"></p>
+                    <p id="present-location"></p>  
+                </div>
+            </div>
+        </div>
+
+       <!-- Location Modal content -->
+
+       <div class="main-location-modal-wrapper">
+            <div class="location-modal-content">
+                <div class="location-close">+</div>
+                <h3>Change Current Location</h3>
+                <form method="get" action="./admin-profile.html">
+                    <input name="location" id="present_location" type="text" readonly>
                     <input name="new_location" id="new_location" type="text" placeholder="New Location">
-                    <button class="button" id="new_location_button" type="submit">Continue</button>
-                    <h4 id="error-msg"></h4>
+                    <button type="submit" class="location-btn" id="location-button">Continue</button>
+                    <h4 id="location-error-msg"></h4>
                 </form> 
             </div>
         </div>
-        <script src="js/shared.js"></script>
-        <script src="js/admin-profile.js"></script>   
+
+
+        <!-- Footer content -->
+
+        <footer>
+            <div class="wrapper">
+                <ul>
+                    <li><h4>About Us</h4></li>
+                    <li>SendIT is a courier service.</li>
+                    <li>Where users can send parcels to different destinations.</li>
+                </ul>
+                <ul>
+                    <li><h4>Get In Touch</h4></li>
+                    <li>Lagos Address</li>
+                    <li>445 Ikorodu Road</li>
+                    <li>Illupeju, Lagos</li>
+                    <li>0814.4523.455</li>
+                </ul>
+                <ul>
+                    <li><h4>Working Hours</h4></li>
+                    <li>Weekdays: 7am to 9pm</li>
+                    <li>Weekends: 9am to 7pm</li>
+                    <li>Public Holidays: 10am to 7pm</li>
+                    <li>Festive Period: 9am to 6pm</li>
+                </ul>
+                <ul>
+                    <li><h4>More Info</h4></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#"> Help Center</a></li>
+                    <li><a href="#">Terms&Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div id="copyright"><img src="images/logo0.png" alt="logo"> Copyright &copy; 2018 SendIT. All rights reserved.</div>
+            </div>
+        </footer>
     </body>
+    <script src="js/shared.js"></script>
+    <script src="js/admin-profile.js"></script>
 </html>

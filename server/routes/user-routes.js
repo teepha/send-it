@@ -9,11 +9,16 @@ router.use(bodyParser.json()); // Specifically allow us to read data sent in JSO
 
 // To register a new user
 router.post('/auth/signup',
-            body(['firstName', 'lastName', 'email', 'phoneNumber', 'password'], 'Value must be a String').isString(),
+            body(['firstName', 'lastName', 'email', 'phoneNumber', 'password']).trim()
+            .not().isEmpty().withMessage('field must not be Empty!')
+            .isString().withMessage('Value must be a String!'),
             createUser);
 
 // Login a user
-router.post('/auth/login', body(['email', 'password'], 'Value must be a String').isString(), loginUser);
+router.post('/auth/login', body(['email', 'password']).trim()
+            .not().isEmpty().withMessage('field must not be Empty!')
+            .isString().withMessage('Value must be a String!'),
+            loginUser);
 
 // Return user details
 router.get('/me', JwtDocoder, getUser);
