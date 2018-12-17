@@ -5,7 +5,7 @@ export const JwtDocoder = (req, res, next) => {
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, userInfo) => {
       if (err) {
-        res.status(500).send(err)
+        res.status(500).send(err);
       } else {
         req.user = userInfo;
         next();

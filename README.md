@@ -84,7 +84,7 @@ Run jasmine for the spec folder through bundle:
 1. Users can create accounts based on the following criteria: **first name**, **last name**, **phone number**, **email address** and **password**
 2. Users can log in to their accounts based on the following criteria: **email address** and **password**
 3. Users can create Parcel Delivery order based on the following criteria: **pickup location**, **destination**, **recipient name** and **phone number**
-4. Users can change the destination of a Parcel Delivery order.
+4. Users can change the details of a Parcel Delivery order.
 5. Users can cancel a Parcel Delivery order.
 6. Users can see the details of Parcel Delivery order.
 7. Admin can change the status and present location of a Parcel Delivery order.
