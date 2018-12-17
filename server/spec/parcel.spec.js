@@ -4,12 +4,12 @@ import { createUser, createUserWithParcel, clearDatabase, updateParcelStatus } f
 
 describe('Parcel-routes unit test', () => {
   describe('POST => Create a Parcel Delivery order', () => {
-    let testUser, testAdmin;
-    beforeAll(done => {
-      createUser('member', (err, memberInfo) => {
-        testUser = memberInfo;
-        createUser('admin', (err, adminInfo) => {
-          testAdmin = adminInfo;
+    let testMember, testAdmin;
+    beforeEach(done => {
+      createUser('admin', (err, adminInfo) => {
+        testAdmin = adminInfo;
+        createUser('member', (err, memberInfo) => {
+          testMember = memberInfo;
           done();
         });
       });
@@ -29,7 +29,7 @@ describe('Parcel-routes unit test', () => {
           recipientName: 'Aisha',
           recipientPhone: '08123409876'
         })
-        .set('Authorization', testUser.token)
+        .set('Authorization', testMember.token)
         .end((err, res) => {
           expect(res.status).toEqual(422);
           expect(res.body.error).toEqual(undefined);
@@ -47,7 +47,7 @@ describe('Parcel-routes unit test', () => {
           recipientName: 'Aisha',
           recipientPhone: '08123409876'
         })
-        .set('Authorization', testUser.token)
+        .set('Authorization', testMember.token)
         .end((err, res) => {
           expect(res.status).toEqual(422);
           expect(res.body.error).toEqual(undefined);
@@ -79,13 +79,13 @@ describe('Parcel-routes unit test', () => {
       server(app)
         .post('/api/v1/parcels')
         .send({
-          userId: testUser.id,
+          userId: testMember.id,
           pickupLocation: '42, Awelewa close, Mende, Lagos',
           destination: '12 complex Street, Victoria Island, Lagos',
           recipientName: 'Aisha',
           recipientPhone: '08123409876'
         })
-        .set('Authorization', testUser.token)
+        .set('Authorization', testMember.token)
         .end((err, res) => {
           expect(res.status).toEqual(201);
           expect(res.body.error).toEqual(undefined);
@@ -104,7 +104,7 @@ describe('Parcel-routes unit test', () => {
           recipientName: 'Aisha',
           recipientPhone: '08123409876'
         })
-        .set('Authorization', testUser.token)
+        .set('Authorization', testMember.token)
         .end((err, res) => {
           expect(res.status).toEqual(401);
           expect(res.body.error).toEqual(undefined);

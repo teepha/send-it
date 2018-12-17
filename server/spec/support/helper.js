@@ -14,9 +14,10 @@ export const createUser = (role, callback) => {
       callback(err, null);
     } else {
       const userInfo = resp.rows[0];
-      const token = jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY);
-      userInfo.token = token;
-      callback(null, userInfo);
+      jwt.sign({ userInfo }, process.env.JWT_SECRET_KEY, (err, token) => {
+        userInfo.token = token;
+        callback(null, userInfo);
+      });
     }
   });
 }
