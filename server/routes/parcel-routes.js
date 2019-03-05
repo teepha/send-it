@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser'; // Allows us to receive data sent via POST/PUT API request
 import { body, param } from 'express-validator/check'; // to validate request parameter
-import { JwtDocoder } from '../middlewares/middleware';
+import { JwtDecoder } from '../middlewares/middleware';
 import {
   getAllParcels,
   getParcel,
@@ -16,7 +16,7 @@ const router = express.Router(); // Create a new instance of express Router
 router.use(bodyParser.json());// Specifically allow us to read data sent in JSON format
 
 // Set up Endpoint to create a new parcel order
-router.post('/parcels', JwtDocoder, [
+router.post('/parcels', JwtDecoder, [
   body('userId', 'Value must be a Number').isInt(),
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
     .not().isEmpty()
@@ -26,14 +26,14 @@ router.post('/parcels', JwtDocoder, [
 ], createParcel);
 
 // Admin get all parcel orders
-router.get('/parcels', JwtDocoder, getAllParcels);
+router.get('/parcels', JwtDecoder, getAllParcels);
 
 // Set up Endpoint to get a specific parcel order
-router.get('/parcels/:id', JwtDocoder, param('id', 'Id must be a Number').isInt(), getParcel);
+router.get('/parcels/:id', JwtDecoder, param('id', 'Id must be a Number').isInt(), getParcel);
 
 // Set up Endpoint to update the details of a parcel order
 router.put('/parcels/:id',
-  JwtDocoder,
+  JwtDecoder,
   param('id', 'Id must be a Number').isInt(),
   body(['pickupLocation', 'destination', 'recipientName', 'recipientPhone']).trim()
     .not().isEmpty()
@@ -43,11 +43,11 @@ router.put('/parcels/:id',
   updateParcelDetails);
 
 // Set up Endpoint to cancel a specific parcel order
-router.put('/parcels/:id/cancel', JwtDocoder, param('id', 'Id must be a Number').isInt(), cancelParcel);
+router.put('/parcels/:id/cancel', JwtDecoder, param('id', 'Id must be a Number').isInt(), cancelParcel);
 
 // Admin change present location of a parcel
 router.put('/parcels/:id/presentLocation',
-  JwtDocoder,
+  JwtDecoder,
   param('id', 'Id must be a Number').isInt(),
   body('presentLocation', 'presentLocation must be a String')
     .not().isEmpty().withMessage('Field must not be empty!')
@@ -57,7 +57,7 @@ router.put('/parcels/:id/presentLocation',
 
 // Admin change status of parcel
 router.put('/parcels/:id/status',
-  JwtDocoder,
+  JwtDecoder,
   param('id', 'Id must be a Number').isInt(),
   body('status', 'Status must be a String').isString(),
   updateParcelStatus);

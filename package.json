@@ -8,7 +8,9 @@
     "start:dev": "cross-env NODE_ENV=development nodemon --ignore ui/ server/server.js --exec babel-node",
     "lint": "eslint . --fix --ignore-path .eslintignore",
     "compile": "rm -rf ./dist && babel ./server --out-dir ./dist/server && cp -r ./ui ./dist",
-    "test": "npm run compile && cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "pretest": "npm run compile",
+    "test": "cross-env NODE_ENV=test JASMINE_CONFIG_PATH=server/spec/support/jasmine.json istanbul cover node_modules/jasmine/bin/jasmine.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test:dev": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,7 @@
     "istanbul": "^0.4.5",
     "jasmine": "^3.3.0",
     "nodemon": "^1.18.6",
+    "nyc": "^13.3.0",
     "supertest": "^3.3.0"
   }
 }

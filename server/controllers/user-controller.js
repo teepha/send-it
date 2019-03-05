@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { validationResult } from 'express-validator/check';
 import jwt from 'jsonwebtoken';
 

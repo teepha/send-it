@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { validationResult } from 'express-validator/check'; // calls the specified validation
 
 export const createParcel = (req, res) => {

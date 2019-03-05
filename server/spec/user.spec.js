@@ -1,6 +1,6 @@
 import server from 'supertest';
 import faker from 'faker';
-import app from '../server.js';
+import app from '../server';
 import { createUser, createUserWithParcel } from './support/helper';
 
 describe('User-routes unit test', () => {

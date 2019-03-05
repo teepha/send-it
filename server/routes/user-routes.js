@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser'; // Allows us to receive data sent via POST/PUT API request
 import { body, param } from 'express-validator/check'; // to validate request parameter
-import { JwtDocoder } from '../middlewares/middleware';
+import { JwtDecoder } from '../middlewares/middleware';
 import {
   createUser, loginUser, getUser, getUserParcels,
 } from '../controllers/user-controller';
@@ -27,10 +27,10 @@ router.post('/auth/login', body(['email', 'password']).trim()
 loginUser);
 
 // Return user details
-router.get('/me', JwtDocoder, getUser);
+router.get('/me', JwtDecoder, getUser);
 
 // To get all parcel orders by a specific user
-router.get('/users/:userId/parcels', JwtDocoder, param('userId', 'userId must be a Number').isInt(), getUserParcels);
+router.get('/users/:userId/parcels', JwtDecoder, param('userId', 'userId must be a Number').isInt(), getUserParcels);
 
 // Export router to index.js
 export default router;
