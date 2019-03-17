@@ -16,7 +16,7 @@ export const createUser = (req, res) => {
       if (err) {
         res.status(500).send(err);
       } else if (resp.rows[0]) {
-        res.status(401).send({ msg: 'Email already exists!' });
+        res.status(401).send({ msg: 'Email already exist!' });
       } else {
         const text = 'INSERT INTO users (first_name, last_name, email, phone_number, password) VALUES($1, $2, $3, $4, $5) RETURNING *';
         const values = [firstName, lastName, email, phoneNumber, password];
