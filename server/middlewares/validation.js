@@ -27,9 +27,26 @@ export const checkNewParcel = (req, res, next) => {
   }
 };
 
+export const checkParcel = (req, res, next) => {
+  const userInfo = req.user.userInfo;
+  if (userInfo.role === "admin") {
+    res.status(401).send({
+      msg: "Sorry, you can not perform this operation!"
+    });
+  } else if (
+    userInfo.id !== parseInt(req.body.userId || req.parcel.user_id, 10)
+  ) {
+    res.status(401).send({
+      msg: "Sorry, you can not perform this operation! You entered a wrong Id!"
+    });
+  } else {
+    return next();
+  }
+};
+
 export const checkGetAllParcels = (req, res, next) => {
   if (req.user.userInfo.role !== "admin") {
-    res.status(401).send({ msg: "Sorry, only admins can access this" });
+    res.status(401).send({ msg: "Sorry, only admins can access this!" });
   } else {
     return next();
   }
@@ -37,9 +54,8 @@ export const checkGetAllParcels = (req, res, next) => {
 
 export const checkGetSingleParcel = (req, res, next) => {
   const userIdFromToken = parseInt(req.user.userInfo.id, 10);
-  const parcel = req.parcel;
   if (
-    userIdFromToken === parcel.user_id ||
+    userIdFromToken === req.parcel.user_id ||
     req.user.userInfo.role === "admin"
   ) {
     return next();
@@ -72,6 +88,18 @@ export const checkIfParcelExists = async (req, res, next) => {
     res.status(404).send({ msg: "This Parcel Delivery Order Does Not Exist" });
   } else {
     req.parcel = singleParcel;
+    return next();
+  }
+};
+
+export const checkIfParcelIsValid = (req, res, next) => {
+  const parcelStatus = req.parcel.status;
+  if (parcelStatus === "cancelled" || parcelStatus === "delivered") {
+    res.status(401).send({
+      msg:
+        "Sorry, can not update this parcel. Parcel already Cancelled or Delivered"
+    });
+  } else {
     return next();
   }
 };
