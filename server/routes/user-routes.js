@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"; // Allows us to receive data sent via POST/PUT API request
 import { body, param } from "express-validator/check"; // to validate request parameter
 import { JwtDecoder } from "../middlewares/middleware";
-import { checkUniqueEmail } from "../middlewares/validation";
+import { checkUniqueEmail, checkUserParcels } from "../middlewares/validation";
 import {
   signUpUser,
   loginUser,
@@ -48,6 +48,7 @@ router.get(
   "/users/:userId/parcels",
   JwtDecoder,
   param("userId", "userId must be a Number").isInt(),
+  checkUserParcels,
   getUserParcels
 );
 

@@ -7,6 +7,7 @@ import {
   findUserById
 } from "../helpers/models/user-model";
 import { serverError, successResponse } from "../helpers/http-response";
+import { findUserParcels } from "../helpers/models/parcel-model";
 
 export const signUpUser = async (req, res) => {
   const { firstName, lastName, email, phoneNumber, password } = req.body;
@@ -66,35 +67,23 @@ export const getUser = async (req, res) => {
   }
 };
 
-export const getUserParcels = (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    res.status(422).json({ errors: errors.array() });
-  } else {
-    const userIdFromToken = parseInt(req.user.userInfo.id, 10);
-    const userIdFromPath = parseInt(req.params.userId, 10);
-    if (
-      userIdFromToken === userIdFromPath ||
-      req.user.userInfo.role === "admin"
-    ) {
-      client.query(
-        `SELECT * FROM parcels WHERE user_id = ${userIdFromPath};`,
-        (err, resp) => {
-          if (err) {
-            res.status(500).send(err);
-          } else if (!resp.rows.length) {
+export const getUserParcels = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(422).json({ errors: errors.array() });
+    } else {
+      const userIdFromPath = parseInt(req.params.userId, 10);
+      const userParcels = await findUserParcels(userIdFromPath, res);
+       if (!userParcels.length) {
             res
               .status(404)
               .send({ msg: "No Parcel Delivery Orders found for this User" });
           } else {
-            res.status(200).send(resp.rows);
+            return successResponse(res, userParcels);
           }
         }
-      );
-    } else {
-      res
-        .status(401)
-        .send({ msg: "Sorry you can not fetch Parcels for another User!" });
-    }
+  } catch (error) {
+    return serverError(res, error);
   }
 };

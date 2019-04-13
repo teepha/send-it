@@ -47,3 +47,14 @@ export const findSingleParcel = async (id, res) => {
     return serverError(res, error);
   }
 };
+
+export const findUserParcels = async (userId, res) => {
+  try {
+    const response = await client.query(
+      `SELECT * FROM parcels WHERE user_id = ${userId};`
+    );
+    return response.rows;
+  } catch (error) {
+    return serverError(res, error);
+  }
+};

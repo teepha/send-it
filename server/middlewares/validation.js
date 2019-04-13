@@ -1,13 +1,4 @@
-import { validationResult } from "express-validator/check";
 import { findSingleParcel } from "../helpers/models/parcel-model";
-
-export const validateInput = (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    res.status(422).json({ errors: errors.array() });
-  }
-  return next();
-};
 
 export const checkUniqueEmail = (req, res, next) => {
   const { email } = req.body;
@@ -24,7 +15,7 @@ export const checkUniqueEmail = (req, res, next) => {
   });
 };
 
-export const checkUserRole = (req, res, next) => {
+export const checkNewParcel = (req, res, next) => {
   if (req.user.userInfo.role === "admin") {
     res.status(401).send({ msg: "Sorry, you can't perform this operation!" });
   } else if (req.user.userInfo.id !== parseInt(req.body.userId, 10)) {
@@ -36,7 +27,7 @@ export const checkUserRole = (req, res, next) => {
   }
 };
 
-export const checkAdminRole = (req, res, next) => {
+export const checkGetAllParcels = (req, res, next) => {
   if (req.user.userInfo.role !== "admin") {
     res.status(401).send({ msg: "Sorry, only admins can access this" });
   } else {
@@ -44,7 +35,7 @@ export const checkAdminRole = (req, res, next) => {
   }
 };
 
-export const checkAllRoles = (req, res, next) => {
+export const checkGetSingleParcel = (req, res, next) => {
   const userIdFromToken = parseInt(req.user.userInfo.id, 10);
   const parcel = req.parcel;
   if (
@@ -56,6 +47,21 @@ export const checkAllRoles = (req, res, next) => {
     res.status(401).send({
       msg: "Sorry you can not fetch Parcel for another User!"
     });
+  }
+};
+
+export const checkUserParcels = (req, res, next) => {
+  const userIdFromToken = parseInt(req.user.userInfo.id, 10);
+  const userIdFromPath = parseInt(req.params.userId, 10);
+  if (
+    userIdFromToken === userIdFromPath ||
+    req.user.userInfo.role === "admin"
+  ) {
+    return next();
+  } else {
+    res
+      .status(401)
+      .send({ msg: "Sorry you can not fetch Parcels for another User!" });
   }
 };
 
