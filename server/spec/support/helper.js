@@ -1,7 +1,7 @@
 import faker from 'faker';
 import jwt from 'jsonwebtoken';
 
-export const createUser = (role, callback) => {
+export const signUpUser = (role, callback) => {
   const firstName = faker.name.firstName(),
     lastName = faker.name.lastName(),
     email = faker.internet.email(),
@@ -22,8 +22,8 @@ export const createUser = (role, callback) => {
   });
 }
 
-export const createUserWithParcel = (role, callback) => {
-  createUser(role, (err, userInfo) => {
+export const signUpUserWithParcel = (role, callback) => {
+  signUpUser(role, (err, userInfo) => {
     if (err) {
       callback(err, null);
     } else {
