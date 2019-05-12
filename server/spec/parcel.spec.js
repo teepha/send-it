@@ -1,14 +1,14 @@
 import server from 'supertest'; // Allows to test server
 import app from '../server';
-import { createUser, createUserWithParcel, clearDatabase, updateParcelStatus } from './support/helper';
+import { signUpUser, signUpUserWithParcel, clearDatabase, updateParcelStatus } from './support/helper';
 
 describe('Parcel-routes unit test', () => {
   describe('POST => Create a Parcel Delivery order', () => {
     let testMember, testAdmin;
     beforeEach(done => {
-      createUser('admin', (err, adminInfo) => {
+      signUpUser('admin', (err, adminInfo) => {
         testAdmin = adminInfo;
-        createUser('member', (err, memberInfo) => {
+        signUpUser('member', (err, memberInfo) => {
           testMember = memberInfo;
           done();
         });
@@ -117,9 +117,9 @@ describe('Parcel-routes unit test', () => {
   describe('GET => Get all Parcel delivery orders', () => {
     let memberUser, adminUser;
     beforeAll(done => {
-      createUser('admin', (err, userInfo1) => {
+      signUpUser('admin', (err, userInfo1) => {
         adminUser = userInfo1;
-        createUser('member', (err, userInfo2) => {
+        signUpUser('member', (err, userInfo2) => {
           memberUser = userInfo2;
           done();
         });
@@ -155,7 +155,7 @@ describe('Parcel-routes unit test', () => {
     });
 
     it('Should return the list of all parcel orders is user is admin', done => {
-      createUserWithParcel('member', (err, userInfo) => {
+      signUpUserWithParcel('member', (err, userInfo) => {
         server(app)
           .get('/api/v1/parcels')
           .set('Authorization', adminUser.token)
@@ -173,9 +173,9 @@ describe('Parcel-routes unit test', () => {
   describe('GET => Get single Parcel delivery order', () => {
     let userWithParcel1, userWithParcel2;
     beforeAll(done => {
-      createUserWithParcel('member', (err, userInfo1) => {
+      signUpUserWithParcel('member', (err, userInfo1) => {
         userWithParcel1 = userInfo1;
-        createUserWithParcel('member', (err, userInfo2) => {
+        signUpUserWithParcel('member', (err, userInfo2) => {
           userWithParcel2 = userInfo2;
           done();
         });
@@ -253,11 +253,11 @@ describe('Parcel-routes unit test', () => {
   describe('PUT => Edit a Parcel delivery order details', () => {
     let userWithParcel1, userWithParcel2, adminUser;
     beforeAll(done => {
-      createUserWithParcel('member', (err, userInfo1) => {
+      signUpUserWithParcel('member', (err, userInfo1) => {
         userWithParcel1 = userInfo1;
-        createUserWithParcel('member', (err, userInfo2) => {
+        signUpUserWithParcel('member', (err, userInfo2) => {
           userWithParcel2 = userInfo2;
-          createUser('admin', (err, adminInfo) => {
+          signUpUser('admin', (err, adminInfo) => {
             adminUser = adminInfo;
             done();
           });
@@ -382,11 +382,11 @@ describe('Parcel-routes unit test', () => {
   describe('PUT => Cancel a Parcel delivery order', () => {
     let userWithParcel1, userWithParcel2, adminUser;
     beforeAll(done => {
-      createUserWithParcel('member', (err, userInfo1) => {
+      signUpUserWithParcel('member', (err, userInfo1) => {
         userWithParcel1 = userInfo1;
-        createUserWithParcel('member', (err, userInfo2) => {
+        signUpUserWithParcel('member', (err, userInfo2) => {
           userWithParcel2 = userInfo2;
-          createUser('admin', (err, adminInfo) => {
+          signUpUser('admin', (err, adminInfo) => {
             adminUser = adminInfo;
             done();
           });
@@ -484,11 +484,11 @@ describe('Parcel-routes unit test', () => {
   describe('PUT => Update a Parcel delivery order Location', () => {
     let userWithParcel1, userWithParcel2, adminUser;
     beforeAll(done => {
-      createUserWithParcel('member', (err, userInfo1) => {
+      signUpUserWithParcel('member', (err, userInfo1) => {
         userWithParcel1 = userInfo1;
-        createUserWithParcel('member', (err, userInfo2) => {
+        signUpUserWithParcel('member', (err, userInfo2) => {
           userWithParcel2 = userInfo2;
-          createUser('admin', (err, adminInfo) => {
+          signUpUser('admin', (err, adminInfo) => {
             adminUser = adminInfo;
             done();
           });
@@ -598,11 +598,11 @@ describe('Parcel-routes unit test', () => {
   describe('PUT => Update a Parcel delivery order Status', () => {
     let userWithParcel1, userWithParcel2, adminUser;
     beforeAll(done => {
-      createUserWithParcel('member', (err, userInfo1) => {
+      signUpUserWithParcel('member', (err, userInfo1) => {
         userWithParcel1 = userInfo1;
-        createUserWithParcel('member', (err, userInfo2) => {
+        signUpUserWithParcel('member', (err, userInfo2) => {
           userWithParcel2 = userInfo2;
-          createUser('admin', (err, adminInfo) => {
+          signUpUser('admin', (err, adminInfo) => {
             adminUser = adminInfo;
             done();
           });
