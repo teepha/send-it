@@ -1,16 +1,12 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env", "airbnb",
-            {
-                "targets": {
-                    "node": "current"
-                }
-            }
-        ]
-    ],
-    // "plugins": [
-    //     "transform-runtime",
-    //     "transform-async-to-generator"
-    // ]
+  "presets": ["@babel/preset-env", "airbnb"],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ]
 }
