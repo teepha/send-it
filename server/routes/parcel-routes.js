@@ -12,10 +12,11 @@ import {
   updateParcelLocation
 } from "../controllers/parcel-controller";
 import {
-  checkNewParcel,
+  checkParcel,
   checkGetAllParcels,
   checkGetSingleParcel,
-  checkIfParcelExists
+  checkIfParcelExists,
+  checkIfParcelIsValid
 } from "../middlewares/validation";
 
 const router = express.Router();
@@ -36,6 +37,7 @@ router.post(
       .withMessage("Value must be a String!")
   ],
   checkNewParcel,
+  checkParcel,
   createNewParcel
 );
 
@@ -64,6 +66,9 @@ router.put(
     .withMessage("Field must not be empty!")
     .isString()
     .withMessage("Value must be a string!"),
+  checkIfParcelExists,
+  checkParcel,
+  checkIfParcelIsValid,
   updateParcelDetails
 );
 
@@ -72,6 +77,9 @@ router.put(
   "/parcels/:id/cancel",
   JwtDecoder,
   param("id", "Id must be a Number").isInt(),
+  checkIfParcelExists,
+  checkParcel,
+  checkIfParcelIsValid,
   cancelParcel
 );
 
@@ -86,6 +94,9 @@ router.put(
     .withMessage("Field must not be empty!")
     .isString()
     .withMessage("Value must be a string!"),
+  checkIfParcelExists,
+  checkGetAllParcels,
+  checkIfParcelIsValid,
   updateParcelLocation
 );
 
@@ -95,6 +106,9 @@ router.put(
   JwtDecoder,
   param("id", "Id must be a Number").isInt(),
   body("status", "Status must be a String").isString(),
+  checkIfParcelExists,
+  checkGetAllParcels,
+  checkIfParcelIsValid,
   updateParcelStatus
 );
 
