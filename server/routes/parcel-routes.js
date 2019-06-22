@@ -28,10 +28,6 @@ router.use(bodyParser.json());
 router.post(
   "/parcels",
   JwtDecoder,
-  // (req, res, next) => {
-  //   //console.log('re bodyyyy', req.body);
-  //   next();
-  // },
   [
     body("userId", "Value must be a Number").isInt(),
     body(["pickupLocation", "destination", "recipientName", "recipientPhone"])
@@ -42,10 +38,6 @@ router.post(
       .isString()
       .withMessage("Value must be a String!")
   ],
-  // (req, res, next) => {
-  //   // console.log('re bodyyyy after', validationResult(req).array());
-  //   next();
-  // }, 
   checkValidationResult,
   checkNewParcel,
   checkParcel,
@@ -78,7 +70,7 @@ router.put(
     .withMessage("Field must not be empty!")
     .isString()
     .withMessage("Value must be a string!"),
-    checkValidationResult,
+  checkValidationResult,
   checkIfParcelExists,
   checkParcel,
   checkIfParcelIsValid,
