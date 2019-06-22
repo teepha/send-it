@@ -38,15 +38,7 @@ fetch('/api/v1/parcels', {
             renderTableData(data, ordersTable);
 
             // Search Bar to Search for all parcels by a specific user using User ID
-            const searchBar = document.querySelector('#search-user-id');
-            const parcels = data;
-            searchBar.addEventListener('input', function () {
-                ordersTable.innerHTML = ''
-                const searchUserId = document.getElementById('search-user-id').value;
-                const newUsersParcels = parcels.filter((item) => item.user_id.toString().includes(searchUserId));
-                renderTableData(newUsersParcels, ordersTable);
-            });
-
+            searchByUserId(data, ordersTable);
 
             // Status option
             document.querySelectorAll('.status').forEach(item => {
@@ -89,9 +81,7 @@ fetch('/api/v1/parcels', {
                     document.querySelector('#present_location').value = parcelToUpdate.present_location;
                 });
             });
-            document.querySelector('.location-close').addEventListener('click', () => {
-                document.querySelector('.main-location-modal-wrapper').style.display = 'none';
-            });
+            closeModals(".main-location-modal-wrapper", ".location-close");
 
             document.querySelector('#location-button').addEventListener('click', event => {
                 event.preventDefault();

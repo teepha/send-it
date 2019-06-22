@@ -48,18 +48,7 @@ fetch(`/api/v1/users/${userId}/parcels`, {
       renderTableData(data, ordersTable);
 
       // Search Bar to search for a specific parcel order using Recipient name
-        const searchBar = document.querySelector("#search-name");
-        const parcels = data;
-        searchBar.addEventListener("input", function() {
-            ordersTable.innerHTML = "";
-            const searchName = document
-            .getElementById("search-name")
-            .value.toLowerCase();
-            const newParcels = parcels.filter(item =>
-            item.recipient_name.toLowerCase().includes(searchName)
-            );
-            renderTableData(newParcels, ordersTable);
-        });
+        searchByRecipientName(data, ordersTable);
 
         // Count number of user orders
         populateParcelStatusCard(data);
@@ -100,9 +89,6 @@ fetch(`/api/v1/users/${userId}/parcels`, {
                     }
                 });
         });
-        document.querySelector(".cancel-close").addEventListener("click", () => {
-            document.querySelector(".main-cancel-modal-wrapper").style.display =
-            "none";
-        });
+        closeModals(".main-cancel-modal-wrapper", ".cancel-close");
     }
   }).catch(err => console.log("err occured", err));

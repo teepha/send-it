@@ -37,10 +37,14 @@ const viewModalPopup = () => {
         .catch(err => console.log("err occured", err));
     });
   });
-  document.querySelector(".view-close").addEventListener("click", () => {
-    document.querySelector(".main-view-modal-wrapper").style.display = "none";
-  });
+  closeModals(".main-view-modal-wrapper", ".view-close");
 };
+
+const closeModals = (modalClass, closeButtonClass) => {
+  document.querySelector(closeButtonClass).addEventListener("click", () => {
+    document.querySelector(modalClass).style.display = "none";
+  });
+}
 
 const populateParcelStatusCard = (data) => {
   const status1 = data.filter(val => {
@@ -62,4 +66,29 @@ const populateParcelStatusCard = (data) => {
     return val.status === "cancelled";
   }).length;
   document.querySelector('#cancel-status').innerHTML = status4;
+}
+
+const searchByRecipientName = (data, ordersTable) => {
+  const searchBar = document.querySelector("#search-name");
+  const parcels = data;
+  searchBar.addEventListener("input", function () {
+    ordersTable.innerHTML = "";
+    const searchName = document.getElementById("search-name")
+      .value.toLowerCase();
+    const newParcels = parcels.filter(item =>
+      item.recipient_name.toLowerCase().includes(searchName)
+    );
+    renderTableData(newParcels, ordersTable);
+  });
+}
+
+const searchByUserId = (data, ordersTable) => {
+  const searchBar = document.querySelector('#search-user-id');
+  const parcels = data;
+  searchBar.addEventListener('input', function () {
+    ordersTable.innerHTML = ''
+    const searchUserId = document.getElementById('search-user-id').value;
+    const newUsersParcels = parcels.filter((item) => item.user_id.toString().includes(searchUserId));
+    renderTableData(newUsersParcels, ordersTable);
+  });
 }
