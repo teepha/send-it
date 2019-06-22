@@ -1,8 +1,8 @@
-const createEditOrderResponse = (res) => {
-  const errorDiv = document.querySelector('#error-msg');
-  errorDiv.innerHTML = ''
+const parcelResponseAndErrors = (res, errorId, redirectUrl) => {
+  const errorDiv = document.querySelector(errorId);
+  errorDiv.innerHTML = "";
   if (res.id) {
-    window.location.href = "./user-profile.html";
+    window.location.href = redirectUrl;
   } else if (res.msg) {
     errorDiv.innerHTML = res.msg;
   } else {
