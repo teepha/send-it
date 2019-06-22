@@ -9,7 +9,7 @@ const selectLoginDetails = () => ({
     }
 });
 
-const setUserToken = (res) => {
+const redirectUser = (res) => {
     fetch('/api/v1/user', {
         headers: {
             'Authorization': res.token,
@@ -18,9 +18,7 @@ const setUserToken = (res) => {
         .then(res => res.json())
         .then(data => {
             if (data.role === 'member') {
-                localStorage.setItem('token', res.token);
-                localStorage.setItem('userId', res.userId);
-                window.location.href = "./user-profile.html";
+                setUserToken(res)
             } else if (data.role === 'admin') {
                 localStorage.setItem('token', res.token);
                 window.location.href = "./admin-profile.html";
@@ -38,15 +36,11 @@ const login = (event) => {
             const errorDiv = document.querySelector('#error-msg');
             errorDiv.innerHTML = ''
             if (res.token) {
-                setUserToken(res)
+                redirectUser(res)
             } else if (res.msg) {
                 errorDiv.innerHTML = res.msg;
             } else {
-                res.errors.forEach(err => {
-                    const errorElement = document.createElement('div');
-                    errorElement.innerHTML = `${err.param} ${err.msg}`;
-                    errorDiv.appendChild(errorElement);
-                });
+                appendErrorMessage(res, errorDiv)
             }
         }).catch(err => console.log('err occured', err));
 }
