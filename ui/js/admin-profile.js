@@ -104,11 +104,7 @@ fetch('/api/v1/parcels', {
                         } else if (res.msg) {
                             errorDiv.innerHTML = res.msg;
                         } else {
-                            res.errors.forEach(err => {
-                                const errorElement = document.createElement('div');
-                                errorElement.innerHTML = `${err.param} ${err.msg}`;
-                                errorDiv.appendChild(errorElement);
-                            });
+                            appendErrorMessage(res, errorDiv);
                         }
                     });
             })
