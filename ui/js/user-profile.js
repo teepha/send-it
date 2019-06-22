@@ -2,31 +2,22 @@ const renderTableData = (data, ordersTable) => {
   data.forEach(parcel => {
     let parcelRow = document.createElement("tr");
     parcelRow.innerHTML = `<td>${parcel.id}</td>
-                        <td class="remove-second">${parcel.date.slice(
-                          0,
-                          10
-                        )}</td>
-                        <td class="remove-first">${parcel.pickup_location}</td>
-                        <td class="remove-second">${parcel.destination}</td>
-                        <td>${capitalizeString(parcel.recipient_name)}</td>
-                        <td>${capitalizeString(
-                          parcel.status.replace(/_/g, " ")
-                        )}</td>
-                        <td class="view"><i id=${
-                          parcel.id
-                        } class="far fa-eye"></i></td>
-                        <td>${
-                          parcel.status !== "cancelled"
-                            ? `<a href="./edit-order.html"><i id=${
-                                parcel.id
-                              } class="far fa-edit"></i></a>`
-                            : ""
-                        }</td>
-                        <td class="cancel">${
-                          parcel.status !== "cancelled"
-                            ? `<i id=${parcel.id} class="fas fa-times"></i>`
-                            : ""
-                        }</td> `;
+        <td class="remove-second">${parcel.date.slice(0, 10)}</td>
+        <td class="remove-first">${parcel.pickup_location}</td>
+        <td class="remove-second">${parcel.destination}</td>
+        <td>${capitalizeString(parcel.recipient_name)}</td>
+        <td>${capitalizeString(parcel.status.replace(/_/g, " "))}</td>
+        <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
+        <td>${parcel.status !== "cancelled"
+            ? `<a href="./edit-order.html"><i id=${
+                parcel.id
+                } class="far fa-edit"></i></a>`
+            : ""}
+        </td>
+        <td class="cancel">${parcel.status !== "cancelled"
+            ? `<i id=${parcel.id} class="fas fa-times"></i>`
+            : ""}
+        </td>`;
     ordersTable.append(parcelRow);
   });
 };
