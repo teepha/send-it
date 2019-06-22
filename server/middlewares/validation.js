@@ -1,4 +1,14 @@
 import { findSingleParcel } from "../helpers/models/parcel-model";
+import { validationResult } from "express-validator/check"; // calls the specified validation
+
+export const checkValidationResult = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).json({ errors: errors.array() });
+  } else {
+    next();
+  }
+}
 
 export const checkUniqueEmail = (req, res, next) => {
   const { email } = req.body;

@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"; // Allows us to receive data sent via POST/PUT API request
 import { body, param } from "express-validator/check"; // to validate request parameter
 import { JwtDecoder } from "../middlewares/middleware";
-import { checkUniqueEmail, checkUserParcels } from "../middlewares/validation";
+import { checkUniqueEmail, checkUserParcels, checkValidationResult } from "../middlewares/validation";
 import {
   signUpUser,
   loginUser,
@@ -23,6 +23,7 @@ router.post(
     .withMessage("field must not be Empty!")
     .isString()
     .withMessage("Value must be a String!"),
+  checkValidationResult,
   checkUniqueEmail,
   signUpUser
 );
@@ -37,17 +38,19 @@ router.post(
     .withMessage("field must not be Empty!")
     .isString()
     .withMessage("Value must be a String!"),
+  checkValidationResult,
   loginUser
 );
 
 // Return user details
-router.get("/me", JwtDecoder, getUser);
+router.get("/user", JwtDecoder, getUser);
 
 // To get all parcel orders by a specific user
 router.get(
   "/users/:userId/parcels",
   JwtDecoder,
   param("userId", "userId must be a Number").isInt(),
+  checkValidationResult,
   checkUserParcels,
   getUserParcels
 );

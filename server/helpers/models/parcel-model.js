@@ -110,7 +110,7 @@ export const editParcelLocation = async (req, res) => {
   }
 };
 
-export const updateStatus = async (reqBody, res) => {
+export const updateStatus = async (reqBody, req, res) => {
   const parcelId = parseInt(req.params.id, 10);
   const { status } = reqBody;
 

@@ -14,7 +14,7 @@ const login = (event) => {
             const errorDiv = document.querySelector('#error-msg');
             errorDiv.innerHTML = ''
             if (res.token) {
-                fetch('/api/v1/me', {
+                fetch('/api/v1/user', {
                     headers:{
                         'Authorization': res.token,
                     }
