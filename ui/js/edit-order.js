@@ -31,19 +31,7 @@ const editOrder = (event) => {
         }
     }).then(res => res.json())
         .then(res => {
-            const errorDiv = document.querySelector('#error-msg');
-            errorDiv.innerHTML = ''
-            if (res.id) {
-                window.location.href = "./user-profile.html";
-            } else if (res.msg) {
-                errorDiv.innerHTML = res.msg;
-            } else {
-                res.errors.forEach(err => {
-                    const errorElement = document.createElement('div');
-                    errorElement.innerHTML = `${err.param} ${err.msg}`;
-                    errorDiv.appendChild(errorElement);
-                });
-            }
+            createEditOrderResponse(res);
         }).catch(err => console.log('err occured', err));
 }
 
