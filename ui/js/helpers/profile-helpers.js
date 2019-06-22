@@ -2,6 +2,26 @@ const capitalizeString = string => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+const populateViewParcelModal = (res) => {
+  document.querySelector("#id").innerHTML = "ID: " + res.id;
+  document.querySelector("#user-id").innerHTML =
+    "User ID: " + res.user_id;
+  document.querySelector("#date").innerHTML =
+    "Date: " + res.date.slice(0, 10);
+  document.querySelector("#pickup-location").innerHTML =
+    "Pick Up Location: " + res.pickup_location;
+  document.querySelector("#destination").innerHTML =
+    "Destination: " + res.destination;
+  document.querySelector("#recipient-name").innerHTML =
+    "Recipient Name: " + capitalizeString(res.recipient_name);
+  document.querySelector("#recipient-phone").innerHTML =
+    "Recipient Phone Number: " + res.recipient_phone;
+  document.querySelector("#status").innerHTML =
+    "Status: " + capitalizeString(res.status.replace(/_/g, " "));
+  document.querySelector("#present-location").innerHTML =
+    "Present Location: " + capitalizeString(res.present_location);
+};
+
 const viewModalPopup = () => {
   document.querySelectorAll(".fa-eye").forEach(item => {
     item.addEventListener("click", event => {
@@ -16,23 +36,7 @@ const viewModalPopup = () => {
       })
         .then(res => res.json())
         .then(res => {
-          document.querySelector("#id").innerHTML = "ID: " + res.id;
-          document.querySelector("#user-id").innerHTML =
-            "User ID: " + res.user_id;
-          document.querySelector("#date").innerHTML =
-            "Date: " + res.date.slice(0, 10);
-          document.querySelector("#pickup-location").innerHTML =
-            "Pick Up Location: " + res.pickup_location;
-          document.querySelector("#destination").innerHTML =
-            "Destination: " + res.destination;
-          document.querySelector("#recipient-name").innerHTML =
-            "Recipient Name: " + capitalizeString(res.recipient_name);
-          document.querySelector("#recipient-phone").innerHTML =
-            "Recipient Phone Number: " + res.recipient_phone;
-          document.querySelector("#status").innerHTML =
-            "Status: " + capitalizeString(res.status.replace(/_/g, " "));
-          document.querySelector("#present-location").innerHTML =
-            "Present Location: " + capitalizeString(res.present_location);
+          populateViewParcelModal(res);
         })
         .catch(err => console.log("err occured", err));
     });
@@ -44,7 +48,7 @@ const closeModals = (modalClass, closeButtonClass) => {
   document.querySelector(closeButtonClass).addEventListener("click", () => {
     document.querySelector(modalClass).style.display = "none";
   });
-}
+};
 
 const populateParcelStatusCard = (data) => {
   const status1 = data.filter(val => {
@@ -66,7 +70,7 @@ const populateParcelStatusCard = (data) => {
     return val.status === "cancelled";
   }).length;
   document.querySelector('#cancel-status').innerHTML = status4;
-}
+};
 
 const searchByRecipientName = (data, ordersTable) => {
   const searchBar = document.querySelector("#search-name");
@@ -80,7 +84,7 @@ const searchByRecipientName = (data, ordersTable) => {
     );
     renderTableData(newParcels, ordersTable);
   });
-}
+};
 
 const searchByUserId = (data, ordersTable) => {
   const searchBar = document.querySelector('#search-user-id');
@@ -91,4 +95,4 @@ const searchByUserId = (data, ordersTable) => {
     const newUsersParcels = parcels.filter((item) => item.user_id.toString().includes(searchUserId));
     renderTableData(newUsersParcels, ordersTable);
   });
-}
+};
