@@ -19,7 +19,6 @@ export const findUser = async (userReqBody, res) => {
     const text = "SELECT * FROM users WHERE email = $1 AND password = $2";
     const values = [email, password];
     const response = await client.query(text, values);
-    console.log("response");
     return response.rows[0];
   } catch (error) {
     return serverError(res, error);
