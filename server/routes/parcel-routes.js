@@ -13,6 +13,7 @@ import {
 } from "../controllers/parcel-controller";
 import {
   checkParcel,
+  checkNewParcel,
   checkGetAllParcels,
   checkGetSingleParcel,
   checkIfParcelExists,

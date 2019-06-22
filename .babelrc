@@ -2,9 +2,8 @@
   "presets": ["@babel/preset-env", "airbnb"],
   "plugins": [
     [
-      "transform-runtime",
+      "@babel/plugin-transform-runtime",
       {
-        "polyfill": false,
         "regenerator": true
       }
     ]
