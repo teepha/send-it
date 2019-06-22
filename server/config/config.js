@@ -1,9 +1,9 @@
 module.exports = {
   development: {
-    DATABASE_URL: 'postgres://root:password@localhost:5432/parcels_db',
+    DATABASE_URL: process.env.DATABASE_URL,
   },
   test: {
-    DATABASE_URL: 'postgres://root:password@localhost:5432/parcels_db_test',
+    DATABASE_URL: process.env.TEST_DATABASE_URL,
   },
   production: {
     DATABASE_URL: process.env.DATABASE_URL,
