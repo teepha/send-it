@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
-import { validationResult } from "express-validator/check";
 import jwt from "jsonwebtoken";
 import {
   createUser,
   findUser,
   findUserById
 } from "../helpers/models/user-model";
-import { serverError, successResponse } from "../helpers/http-response";
 import { findUserParcels } from "../helpers/models/parcel-model";
+import { serverError, successResponse } from "../helpers/http-response";
 
 export const signUpUser = async (req, res) => {
   const { firstName, lastName, email, phoneNumber, password } = req.body;
@@ -57,12 +56,12 @@ export const getUserParcels = async (req, res) => {
     const userIdFromPath = parseInt(req.params.userId, 10);
     const userParcels = await findUserParcels(userIdFromPath, res);
       if (!userParcels.length) {
-          res
-            .status(404)
-            .send({ msg: "No Parcel Delivery Orders found for this User" });
-        } else {
-          return successResponse(res, userParcels);
-        }
+        res
+          .status(404)
+          .send({ msg: "No Parcel Delivery Orders found for this User" });
+      } else {
+        return successResponse(res, userParcels);
+      }
   } catch (error) {
     return serverError(res, error);
   }

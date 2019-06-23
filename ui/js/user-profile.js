@@ -22,6 +22,36 @@ const renderTableData = (data, ordersTable) => {
   });
 };
 
+const cancelParcelModal = () => {
+  // Modal for canceling a specific order by user
+  document.querySelectorAll(".fa-times").forEach(item => {
+    item.addEventListener("click", e => {
+      document.querySelector(".main-cancel-modal-wrapper").style.display =
+        "flex";
+      document.querySelector("#cancel-btn").parcelId = e.target.id;
+    });
+  });
+  document.querySelector("#cancel-btn").addEventListener("click", event => {
+    event.preventDefault();
+    const id = event.target.parcelId;
+    fetch(`/api/v1/parcels/${id}/cancel`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token")
+      }
+    }).then(res => res.json())
+      .then(res => {
+        if (res.id) {
+          window.location.href = "./user-profile.html";
+        } else {
+          document.querySelector("#cancel-error-msg").innerHTML = res.msg;
+        }
+      });
+  });
+  closeModals(".main-cancel-modal-wrapper", ".cancel-close");
+}
+
 const userId = localStorage.getItem("userId");
 fetch(`/api/v1/users/${userId}/parcels`, {
   headers: {
@@ -55,31 +85,6 @@ fetch(`/api/v1/users/${userId}/parcels`, {
         viewModalPopup();
 
       // Modal for canceling a specific order by user
-        document.querySelectorAll(".fa-times").forEach(item => {
-            item.addEventListener("click", e => {
-            document.querySelector(".main-cancel-modal-wrapper").style.display =
-                "flex";
-            document.querySelector("#cancel-btn").parcelId = e.target.id;
-            });
-        });
-        document.querySelector("#cancel-btn").addEventListener("click", event => {
-            event.preventDefault();
-            const id = event.target.parcelId;
-            fetch(`/api/v1/parcels/${id}/cancel`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: localStorage.getItem("token")
-                }
-            }).then(res => res.json())
-                .then(res => {
-                    if (res.id) {
-                        window.location.href = "./user-profile.html";
-                    } else {
-                        document.querySelector("#cancel-error-msg").innerHTML = res.msg;
-                    }
-                });
-        });
-        closeModals(".main-cancel-modal-wrapper", ".cancel-close");
+      cancelParcelModal();
     }
   }).catch(err => console.log("err occured", err));

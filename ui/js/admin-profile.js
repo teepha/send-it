@@ -2,44 +2,27 @@ const renderTableData = (data, ordersTable) => {
   data.forEach(parcel => {
     let parcelRow = document.createElement("tr");
     parcelRow.innerHTML = `<td>${parcel.id}</td>
-                            <td class="remove-first">${parcel.user_id}</td>
-                            <td class="remove-second">${parcel.date.slice(
-                              0,
-                              10
-                            )}</td>
-                            <td class="remove-first">${
-                              parcel.pickup_location
-                            }</td>
-                            <td>${parcel.destination}</td>
-                            <td class="remove-second">${capitalizeString(
-                              parcel.recipient_name
-                            )}</td>
-                            <td>
-                                <select ${parcel.status === "cancelled" &&
-                                  "disabled"} id=${
-      parcel.id
-    } name="status" class="status">
-                                    <option disabled ${parcel.status ===
-                                      "cancelled" &&
-                                      "selected"} value="cancelled">Cancelled</option>
-                                    <option ${parcel.status ===
-                                      "ready_for_pickup" &&
-                                      "selected"} value="ready_for_pickup">Ready For Pickup</option>
-                                    <option ${parcel.status === "in_transit" &&
-                                      "selected"} value="in_transit">In-Transit</option>
-                                    <option ${parcel.status === "delivered" &&
-                                      "selected"} value="delivered">Delivered</option>
-                                </select>
-                            </td>
-                            <td>${capitalizeString(
-                              parcel.present_location
-                            )}</td>
-                            <td class="view"><i id=${
-                              parcel.id
-                            } class="far fa-eye"></i></td>
-                            <td class="edit"><i id=${
-                              parcel.id
-                            } class="far fa-edit"></i></td>`;
+            <td class="remove-first">${parcel.user_id}</td>
+            <td class="remove-second">${parcel.date.slice(0, 10)}</td>
+            <td class="remove-first">${parcel.pickup_location}</td>
+            <td>${parcel.destination}</td>
+            <td class="remove-second">${capitalizeString(parcel.recipient_name)}</td>
+            <td>
+                <select ${parcel.status === "cancelled" && "disabled"} id=${parcel.id} 
+                    name="status" class="status">
+                    <option disabled ${parcel.status === "cancelled" &&"selected"} 
+                        value="cancelled">Cancelled</option>
+                    <option ${parcel.status === "ready_for_pickup" && "selected"} 
+                        value="ready_for_pickup">Ready For Pickup</option>
+                    <option ${parcel.status === "in_transit" && "selected"} 
+                        value="in_transit">In-Transit</option>
+                    <option ${parcel.status === "delivered" && "selected"} 
+                        value="delivered">Delivered</option>
+                </select>
+            </td>
+            <td>${capitalizeString(parcel.present_location)}</td>
+            <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
+            <td class="edit"><i id=${parcel.id} class="far fa-edit"></i></td>`;
     ordersTable.append(parcelRow);
   });
 };
