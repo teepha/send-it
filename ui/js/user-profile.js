@@ -22,8 +22,7 @@ const renderTableData = (data, ordersTable) => {
   });
 };
 
-const cancelParcelModal = () => {
-  // Modal for canceling a specific order by user
+const openCancelModal = () => {
   document.querySelectorAll(".fa-times").forEach(item => {
     item.addEventListener("click", e => {
       document.querySelector(".main-cancel-modal-wrapper").style.display =
@@ -31,6 +30,10 @@ const cancelParcelModal = () => {
       document.querySelector("#cancel-btn").parcelId = e.target.id;
     });
   });
+};
+
+  // Modal for canceling a specific order by user
+const cancelParcelModal = () => {
   document.querySelector("#cancel-btn").addEventListener("click", event => {
     event.preventDefault();
     const id = event.target.parcelId;
