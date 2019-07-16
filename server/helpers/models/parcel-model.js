@@ -60,12 +60,6 @@ export const findUserParcels = async (userId, res) => {
 };
 
 export const editParcelDetails = async (parcelReqBody, req, res) => {
-  const {
-    pickupLocation,
-    destination,
-    recipientName,
-    recipientPhone
-  } = parcelReqBody;
   const parcelId = parseInt(req.params.id, 10);
 
   try {

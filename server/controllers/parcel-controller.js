@@ -11,13 +11,6 @@ import {
 import { serverError, successResponse } from "../helpers/http-response";
 
 export const createNewParcel = async (req, res) => {
-  const {
-    userId,
-    pickupLocation,
-    destination,
-    recipientName,
-    recipientPhone
-  } = req.body;
   try {
     const newParcel = await createParcel(req.body, res);
     res.status(201).send(newParcel);
@@ -49,16 +42,9 @@ export const getParcel = async (req, res) => {
 };
 
 export const updateParcelDetails = async (req, res) => {
-  const {
-    pickupLocation,
-    destination,
-    recipientName,
-    recipientPhone
-  } = req.body;
-
   try {
-      const updatedParcel = await editParcelDetails(req.body, req, res);
-      return successResponse(res, updatedParcel);
+    const updatedParcel = await editParcelDetails(req.body, req, res);
+    return successResponse(res, updatedParcel);
   } catch (error) {
     return serverError(res, error);
   }
@@ -83,9 +69,8 @@ export const updateParcelLocation = async (req, res) => {
 };
 
 export const updateParcelStatus = async (req, res) => {
-  const { status } = req.body;
   try {
-    const updatedStatus = await updateStatus(res, req, res);
+    const updatedStatus = await updateStatus(req.body, req, res);
     return successResponse(res, updatedStatus);
   } catch (error) {
     return serverError(res, error);

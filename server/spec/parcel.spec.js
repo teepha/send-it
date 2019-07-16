@@ -700,10 +700,9 @@ describe('Parcel-routes unit test', () => {
           status: 'delivered'
         })
         .end((err, res) => {
-          // console.log("ressssss>>>>>>...", res.body)
           expect(res.status).toEqual(200);
           expect(res.body.error).toEqual(undefined);
-          // expect(res.body.status).toEqual('delivered');
+          expect(res.body.status).toEqual('delivered');
           done();
         });
     });

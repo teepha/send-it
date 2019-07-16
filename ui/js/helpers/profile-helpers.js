@@ -19,7 +19,7 @@ const populateViewParcelModal = (res) => {
   document.querySelector("#status").innerHTML =
     "Status: " + capitalizeString(res.status.replace(/_/g, " "));
   document.querySelector("#present-location").innerHTML =
-    "Present Location: " + capitalizeString(res.present_location);
+    "Present Location: " + res.present_location;
 };
 
 const viewModalPopup = () => {

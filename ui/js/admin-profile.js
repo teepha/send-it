@@ -16,7 +16,7 @@ const populateParcelTable = (parcelRow, parcel) => {
                     <option ${parcel.status === "delivered" && "selected"} 
                         value="delivered">Delivered</option>
             </select></td>
-            <td>${capitalizeString(parcel.present_location)}</td>
+            <td>${parcel.present_location}</td>
             <td class="view"><i id=${parcel.id} class="far fa-eye"></i></td>
             <td class="edit"><i id=${parcel.id} class="far fa-edit"></i></td>`;
 };
