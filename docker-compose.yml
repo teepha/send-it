@@ -1,0 +1,17 @@
+version: '3'
+services: 
+  web:
+    build: .
+    ports:
+      - "3030:3030"
+    env_file:
+      - .env
+  db:
+    image: postgres
+    ports: 
+      - '5432:5432'
+    volumes:
+      - send-it-db:/var/lib/postgresql/data
+
+volumes: 
+  send-it-db:
